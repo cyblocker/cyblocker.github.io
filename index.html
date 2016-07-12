@@ -1,76 +1,105 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>
-            CHEN Yunfan
-        </title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://ajax.aspnetcdn.com/ajax/bootstrap/2.3.1/css/bootstrap.min.css"
-        rel="stylesheet" media="screen">
-        <style type="text/css">
-            body { padding-top: 40px; padding-bottom: 40px; }
-        </style>
-		<link href="https://ajax.aspnetcdn.com/ajax/bootstrap/2.3.1/css/bootstrap-responsive.min.css" rel="stylesheet">
-    </head>
-    
-    <body>
-        <div class="container-fluid">
-            <div class="row-fluid">
-                <div class="span8">
-                    <!--body content-->
-                    <h1>
-                        CHEN Yunfan(陈云帆)
-                    </h1>
-                    
-                    <div class="row-fluid">
-                        <div class="tabbable tabs-left">
-                            <ul class="nav nav-tabs">
-                                <li class="active">
-                                    <a href="#lA" data-toggle="tab">
-                                        <img class="hidden-phone" src="static/index/img/yunfan.png" />
-                                        <p class="visible-phone">云帆<br/>Personal<br/>Information</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#lB" data-toggle="tab">
-                                        <img class="hidden-phone" src="static/index/img/qianhe.png" />
-                                        <p class="visible-phone">骞翮<br/>Awards &<br/>Skills</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#lC" data-toggle="tab" id="xingchen">
-                                        <img class="hidden-phone" src="static/index/img/xingchen.png" />
-                                        <p class="visible-phone">星辰<br/>Experiences &<br/>Works</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="chorus.html" class="btn btn-large btn-block">
-                                        Join My Chorus
-                                    </a>
-                                </li>
+<head>
+    <title>
+        CHEN Yunfan
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/css/bootstrap.min.css"
+          rel="stylesheet" media="screen">
+    <style type="text/css">
+        body {
+            padding-bottom: 40px;
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+    </style>
+</head>
 
-                            </ul>
-                            <div class="tab-content">
-                                <div class="tab-pane active" id="lA">
-                                    <h2>
-                                        Personal Information
-                                    </h2>
-                                    <blockquote>
-                                        <p>
-                                            长风破浪会有时，直挂云帆济沧海。
-                                        </p>
-                                        <small>
-                                            李白
-                                            <cite title="Source Title">
-                                                《行路难》
-                                            </cite>
-                                        </small>
-                                    </blockquote>
+<body>
+
+    <div class="container-fluid">
+
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">CHEN Yunfan (陈云帆)</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active" id="lAouter"><a href="#lA" aria-controls="lA" role="tab" data-toggle="tab" id="lAlink">Background Information <span class="sr-only">(current)</span></a></li>
+                        <li id="lBouter"><a href="#lB" aria-controls="lB" role="tab" data-toggle="tab" id="lBlink">Awards & Skills</a></li>
+                        <li id="lCouter"><a href="#lC" aria-controls="lC" role="tab" data-toggle="tab" id="lClink">Experiences & Works</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#" data-toggle="modal" data-target="#ChorusModal">Join my Choir</a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+        <div class="modal fade" id="ChorusModal" tabindex="-1" role="dialog" aria-labelledby="ChorusModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">骞翮合唱团 Qianhe Chorus</h4>
+                    </div>
+                    <div class="modal-body">
+                        <center><p class="text-info">关注合唱团信息、加入合唱团，请扫二维码关注微信公共帐号。</p></center>
+                        <center><p class="text-info">Scan QR Code below to follow us and join us.</p></center>
+                        <center><img src="static/chorus/img/qrcode.jpg"></center>
+                        <center><a href="https://chorus.cyblocker.com" class="btn btn-primary">访问合唱团主页 Chorus Blog</a></center>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="span8">
+                <!--body content-->
+
+                <div class="row-fluid">
+                    <div class="tab-content">
+                        <div id="lA" role="tabpanel" class="tab-pane active">
+                            <div class="col-md-8">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <h2>
+                                            CHEN Yunfan (陈云帆)
+                                        </h2>
+                                        <h2>
+                                            Background Information
+                                        </h2>
+                                        <blockquote>
+                                            <p>
+                                                长风破浪会有时，直挂云帆济沧海。
+                                            </p>
+                                            <small>
+                                                李白
+                                                <cite title="Source Title">
+                                                    《行路难》
+                                                </cite>
+                                            </small>
+                                        </blockquote>
+                                    </div>
+                                    <div class="col-md-2 visible-md visible-lg">
+                                        <img src="static/index/img/yunfan.png" />
+                                    </div>
+                                </div>
+                                <div class="row">
                                     <p>
                                         Ph.D.
-                                        <br/>
+                                        <br />
                                         Computer Science and Engineering
-                                        <br/>
+                                        <br />
                                         Hong Kong University of Science and Technology
                                     </p>
                                     <p>
@@ -81,97 +110,98 @@
                                         </i>
                                         Skype: cyblocker
                                     </p>
-                                    <table class="table">
-                                        <caption>
-                                            Education
-                                        </caption>
-                                        <thead>
-                                            <tr>
-                                                <th>
-                                                    Time
-                                                </th>
-                                                <th>
-                                                    Programme
-                                                </th>
-                                                <th>
-                                                    School/University
-                                                </th>
-                                                <th>
-                                                    Region
-                                                </th>
-                                                <th>
-                                                    Others
-                                                </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>
-                                                    2014.Aug -- Present
-                                                </td>
-                                                <td>
-                                                    Ph.D., Computer Science and Engineering
-                                                </td>
-                                                <td>
-                                                    Hong Kong University of Science and Technology
-                                                </td>
-                                                <td>
-                                                    Hong Kong
-                                                </td>
-                                                <td>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    2013.Feb -- 2013.June
-                                                </td>
-                                                <td>
-                                                    Computer Science
-                                                </td>
-                                                <td>
-                                                    National Chiao Tung University
-                                                </td>
-                                                <td>
-                                                    Taiwan
-                                                </td>
-                                                <td>
-                                                    Exchange Student Programme
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    2010.Sep -- 2014.Jul
-                                                </td>
-                                                <td>
-                                                    B.S.,Machine Intelligence, Double Majored in Psychology
-                                                </td>
-                                                <td>
-                                                    Peking University
-                                                </td>
-                                                <td>
-                                                    Beijing
-                                                </td>
-                                                <td>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    2004.Sep -- 2010.June
-                                                </td>
-                                                <td>
-                                                    Junior & Senior High School
-                                                </td>
-                                                <td>
-                                                    Beijing National Day School
-                                                </td>
-                                                <td>
-                                                    Beijing
-                                                </td>
-                                                <td>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <caption>
+                                                <h3>
+                                                    Education
+                                                </h3>
+                                            </caption>
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                        Time
+                                                    </th>
+                                                    <th>
+                                                        Programme
+                                                    </th>
+                                                    <th>
+                                                        School/University
+                                                    </th>
+                                                    <th>
+                                                        Region
+                                                    </th>
+                                                    <th>
+                                                        Others
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        2014.Aug -- Present
+                                                    </td>
+                                                    <td>
+                                                        Ph.D., Computer Science and Engineering
+                                                    </td>
+                                                    <td>
+                                                        Hong Kong University of Science and Technology
+                                                    </td>
+                                                    <td>
+                                                        Hong Kong
+                                                    </td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        2013.Feb -- 2013.June
+                                                    </td>
+                                                    <td>
+                                                        Computer Science
+                                                    </td>
+                                                    <td>
+                                                        National Chiao Tung University
+                                                    </td>
+                                                    <td>
+                                                        Taiwan
+                                                    </td>
+                                                    <td>
+                                                        Exchange Student Programme
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        2010.Sep -- 2014.Jul
+                                                    </td>
+                                                    <td>
+                                                        B.S.,Machine Intelligence, Double Majored in Psychology
+                                                    </td>
+                                                    <td>
+                                                        Peking University
+                                                    </td>
+                                                    <td>
+                                                        Beijing
+                                                    </td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        2004.Sep -- 2010.June
+                                                    </td>
+                                                    <td>
+                                                        Junior & Senior High School
+                                                    </td>
+                                                    <td>
+                                                        Beijing National Day School
+                                                    </td>
+                                                    <td>
+                                                        Beijing
+                                                    </td>
+                                                    <td></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                     <p>
                                         I was born in Beijing. As most Chinese families, I am the only child of
                                         my parents.
@@ -191,7 +221,14 @@
                                         chorus for more than 2 years.
                                     </p>
                                 </div>
-                                <div class="tab-pane" id="lB">
+                            </div>
+                            <div class="col-md-4 visible-lg vidible-md" id="avatar">
+                                <!--avatar content-->
+                            </div>
+                        </div>
+                        <div id="lB" role="tabpanel" class="tab-pane">
+                            <div class="row">
+                                <div class="col-md-8">
                                     <h2>
                                         Awards and Skills
                                     </h2>
@@ -206,9 +243,18 @@
                                             </cite>
                                         </small>
                                     </blockquote>
+                                </div>
+                                <div class="col-md-2 visible-md visible-lg">
+                                    <img src="static/index/img/qianhe.png" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="table-responsive">
                                     <table class="table">
                                         <caption>
-                                            Selected Awards
+                                            <h3>
+                                                Selected Awards
+                                            </h3>
                                         </caption>
                                         <thead>
                                             <tr>
@@ -227,7 +273,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-											<tr>
+                                            <tr>
                                                 <td>
                                                     2016
                                                 </td>
@@ -238,7 +284,7 @@
                                                     Microsoft Research Asia
                                                 </td>
                                                 <td>
-													Student TechFest 2016
+                                                    Student TechFest 2016
                                                 </td>
                                             </tr>
                                             <tr>
@@ -251,8 +297,7 @@
                                                 <td>
                                                     Beijing Municipal Commission of Education
                                                 </td>
-                                                <td>
-                                                </td>
+                                                <td></td>
                                             </tr>
                                             <tr>
                                                 <td>
@@ -264,8 +309,7 @@
                                                 <td>
                                                     Peking University
                                                 </td>
-                                                <td>
-                                                </td>
+                                                <td></td>
                                             </tr>
                                             <tr>
                                                 <td>
@@ -305,8 +349,7 @@
                                                 <td>
                                                     Ministry of Education of the People’s Republic of China
                                                 </td>
-                                                <td>
-                                                </td>
+                                                <td></td>
                                             </tr>
                                             <tr>
                                                 <td>
@@ -318,10 +361,9 @@
                                                 <td>
                                                     Peking University
                                                 </td>
-                                                <td>
-                                                </td>
+                                                <td></td>
                                             </tr>
-											<tr>
+                                            <tr>
                                                 <td>
                                                     2009
                                                 </td>
@@ -332,100 +374,104 @@
                                                     China Computer Federation
                                                 </td>
                                                 <td>
-													Rank 3rd in Beijing
+                                                    Rank 3rd in Beijing
                                                 </td>
                                             </tr>
                                         </tbody>
                                     </table>
-                                    <h3>
-                                        Skills
-                                    </h3>
-                                    <div class="row-fluid">
-                                        <div class="span4">
-                                            Programming Languages:
-                                            <ul>
-                                                <li>
-                                                    C(Expert)
-                                                </li>
-                                                <li>
-                                                    C++(Expert)
-                                                </li>
-												<li>
-                                                    C#(Skilled)
-                                                </li>
-                                                <li>
-                                                    PHP(Skilled)
-                                                </li>
-                                                <li>
-                                                    Python(Familiar)
-                                                </li>
-                                                <li>
-                                                    Ruby(Basic Skill)
-                                                </li>
-                                                <li>
-                                                    HTML(Skilled)
-                                                </li>
-                                                <li>
-                                                    Javascript(Skilled)
-                                                </li>
-                                                <li>
-                                                    16 bit Assembly Language(Basic Skill)
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="span4">
-                                            Tools & Packages:
-                                            <ul>
-                                                <li>
-                                                    Matlab(Skilled)
-                                                </li>
-                                                <li>
-                                                    LaTeX(Familiar)
-                                                </li>
-                                                <li>
-                                                    Sebelius(Skilled)
-                                                </li>
-                                                <li>
-                                                    OpenCV(Familiar)
-                                                </li>
-                                                <li>
-                                                    OpenGL(Familiar)
-                                                </li>
-                                                <li>
-                                                    Office 365 Development(Skilled)
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="span4">
-                                            Others:
-                                            <ul>
-                                                <li>
-                                                    First Aid(With Certification)
-                                                </li>
-                                                <li>
-                                                    Clarinet(Expert)
-                                                </li>
-                                                <li>
-                                                    Electronic Organ(Basic Skill)
-                                                </li>
-                                                <li>
-                                                    China Chamber(Skilled)
-                                                </li>
-                                                <li>
-                                                    Singing as Tenor(Expert)
-                                                </li>
-                                            </ul>
-                                        </div>
+                                </div>
+                                <h3>
+                                    Skills
+                                </h3>
+                                <div class="row-fluid">
+                                    <div class="col-sm-4">
+                                        Programming Languages:
+                                        <ul>
+                                            <li>
+                                                C(Expert)
+                                            </li>
+                                            <li>
+                                                C++(Expert)
+                                            </li>
+                                            <li>
+                                                C#(Skilled)
+                                            </li>
+                                            <li>
+                                                PHP(Skilled)
+                                            </li>
+                                            <li>
+                                                Python(Familiar)
+                                            </li>
+                                            <li>
+                                                Ruby(Basic Skill)
+                                            </li>
+                                            <li>
+                                                HTML(Skilled)
+                                            </li>
+                                            <li>
+                                                Javascript(Skilled)
+                                            </li>
+                                            <li>
+                                                16 bit Assembly Language(Basic Skill)
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        Tools & Packages:
+                                        <ul>
+                                            <li>
+                                                Matlab(Skilled)
+                                            </li>
+                                            <li>
+                                                LaTeX(Familiar)
+                                            </li>
+                                            <li>
+                                                Sebelius(Skilled)
+                                            </li>
+                                            <li>
+                                                OpenCV(Familiar)
+                                            </li>
+                                            <li>
+                                                OpenGL(Familiar)
+                                            </li>
+                                            <li>
+                                                Office 365 Development(Skilled)
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        Others:
+                                        <ul>
+                                            <li>
+                                                First Aid(With Certification)
+                                            </li>
+                                            <li>
+                                                Clarinet(Expert)
+                                            </li>
+                                            <li>
+                                                Electronic Organ(Basic Skill)
+                                            </li>
+                                            <li>
+                                                China Chamber(Skilled)
+                                            </li>
+                                            <li>
+                                                Singing as Tenor(Expert)
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
-                                <div class="tab-pane" id="lC">
+                            </div>
+                        </div>
+                        <div id="lC" role="tabpanel" class="tab-pane">
+                            <div class="row">
+                                <div class="col-md-8">
                                     <h2>
                                         Experiences and Works
                                     </h2>
                                     <blockquote>
                                         <p>
                                             And I know not if, save in this, such gift be allowed to man,
-                                            <br/>
+                                            <br />
                                             That out of three sounds he frame, not a fourth sound, but a star.
                                         </p>
                                         <small>
@@ -435,10 +481,19 @@
                                             </cite>
                                         </small>
                                     </blockquote>
+                                </div>
+                                <div class="col-md-2 visible-md visible-lg">
+                                    <img src="static/index/img/xingchen.png" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="table-responsive">
                                     <table class="table">
                                         <caption>
-                                            Internship
-                                        </cation>
+                                            <h3>
+                                                Internship
+                                            </h3>
+                                        </caption>
                                         <thead>
                                             <tr>
                                                 <th>
@@ -448,7 +503,7 @@
                                                     Title
                                                 </th>
                                                 <th>
-                                                    Organizer
+                                                    Department
                                                 </th>
                                                 <th>
                                                     Remarks
@@ -472,9 +527,13 @@
                                             </tr>
                                         </tbody>
                                     </table>
+                                </div>
+                                <div class="table-responsive">
                                     <table class="table">
                                         <caption>
-                                            Volunteer Experiences
+                                            <h3>
+                                                Volunteer Experiences
+                                            </h3>
                                         </caption>
                                         <thead>
                                             <tr>
@@ -503,9 +562,7 @@
                                                 <td>
                                                     School of EECS, Peking University
                                                 </td>
-                                                <td>
-                                                    
-                                                </td>
+                                                <td></td>
                                             </tr>
                                             <tr>
                                                 <td>
@@ -537,267 +594,247 @@
                                             </tr>
                                         </tbody>
                                     </table>
-                                    
-                                    <h3>
-                                        My Works
-                                    </h3>
-                                    <div class="accordion" id="accordion2">
-                                      <div class="accordion-group">
-                                        <div class="accordion-heading">
-                                          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-                                            Projects
-                                          </a>
+                                </div>
+                                <h3>
+                                    My Works
+                                </h3>
+                                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                    <div class="panel panel-success">
+                                        <div class="panel-heading" role="tab" id="headingOne">
+                                            <h4 class="panel-title">
+                                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                    Projects
+                                                </a>
+                                            </h4>
                                         </div>
-                                        <div id="collapseOne" class="accordion-body collapse in">
-                                          <div class="accordion-inner">
+                                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                            <div class="panel-body">
 
-                                              <div class="media">
-                                                <a class="pull-left" href="https://xingwuai.sinaapp.com">
-                                                  <img class="media-object" id = "proj-allaccess" data-src="holder.js/64x64" src = "">
-                                                </a>
-                                                <div class="media-body">
-                                                  <h4 class="media-heading">All Access for Taiwan</h4>
-                                                  <em>Course Project by Group of 4.</em>
-                                                  <br/>My work: All back-end component of this system.
-                                                  <br/>Techniques: PHP, HTML5, JavaScript, Database.
+                                                <div class="media">
+                                                    <a class="pull-left" href="https://xingwuai.sinaapp.com">
+                                                        <img class="media-object" id="proj-allaccess" data-src="holder.js/64x64" src="">
+                                                    </a>
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading">All Access for Taiwan</h4>
+                                                        <em>Course Project by Group of 4.</em>
+                                                        <br />My work: All back-end component of this system.
+                                                        <br />Techniques: PHP, HTML5, JavaScript, Database.
+                                                    </div>
                                                 </div>
-                                              </div>
 
-                                              <div class="media">
-                                                <a class="pull-left" href="https://eecs129.sinaapp.com">
-                                                  <img class="media-object" id = "proj-129" data-src="holder.js/64x64" src = "">
-                                                </a>
-                                                <div class="media-body">
-                                                  <h4 class="media-heading">Chorus Competition Training Administration System</h4>
-                                                  <em>Individual Project.</em>
-                                                  <br/>I voluntary made this for administrating students during chorus competition training.
-                                                  <br/>Techniques: Sina App Engine, PHP, HTML5, JavaScript.
+                                                <div class="media">
+                                                    <a class="pull-left" href="https://eecs129.sinaapp.com">
+                                                        <img class="media-object" id="proj-129" data-src="holder.js/64x64" src="">
+                                                    </a>
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading">Chorus Competition Training Administration System</h4>
+                                                        <em>Individual Project.</em>
+                                                        <br />I voluntary made this for administrating students during chorus competition training.
+                                                        <br />Techniques: Sina App Engine, PHP, HTML5, JavaScript.
+                                                    </div>
                                                 </div>
-                                              </div>
-                                          
-                                            		<div class="media">
-                                                <a class="pull-left" href="https://webinar.solesschong.com/">
-                                                  <img class="media-object" id = "proj-webinar" data-src="holder.js/64x64" src = "">
-                                                </a>
-                                                <div class="media-body">
-                                                  <h4 class="media-heading">Online Cooperating Canvas</h4>
-                                                  <em>Course Project by Group of 4.</em>
-                                                  <br/>My work: All front-end component of this system.
-                                                  <br/>Techniques: HTML5 canvas with multi-touch support, communication with server.
+
+                                                <div class="media">
+                                                    <a class="pull-left" href="https://webinar.solesschong.com/">
+                                                        <img class="media-object" id="proj-webinar" data-src="holder.js/64x64" src="">
+                                                    </a>
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading">Online Cooperating Canvas</h4>
+                                                        <em>Course Project by Group of 4.</em>
+                                                        <br />My work: All front-end component of this system.
+                                                        <br />Techniques: HTML5 canvas with multi-touch support, communication with server.
+                                                    </div>
                                                 </div>
-                                              </div>
-                                              
-                                              <div class="media">
-                                                <a class="pull-left">
-                                                  <img class="media-object" id = "proj-tri_diagnal" data-src="holder.js/64x64" src = "">
-                                                </a>
-                                                <div class="media-body">
-                                                  <h4 class="media-heading">Tri-diagnal Linear System Solver</h4>
-                                                  <em>Individual Course Project.</em>
-                                                  <br/>Parallel Programme based on Gauss elimination method.
-                                                  <br/>Language: CUDA C
+
+                                                <div class="media">
+                                                    <a class="pull-left">
+                                                        <img class="media-object" id="proj-tri_diagnal" data-src="holder.js/64x64" src="">
+                                                    </a>
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading">Tri-diagnal Linear System Solver</h4>
+                                                        <em>Individual Course Project.</em>
+                                                        <br />Parallel Programme based on Gauss elimination method.
+                                                        <br />Language: CUDA C
+                                                    </div>
                                                 </div>
-                                              </div>
-                                              
-                                              <div class="media">
-                                                <a class="pull-left" href="https://code.google.com/p/credits-counter-pku/">
-                                                  <img class="media-object" id = "proj-ccounter" data-src="holder.js/64x64" src = "">
-                                                </a>
-                                                <div class="media-body">
-                                                  <h4 class="media-heading">Credits Counter</h4>
-                                                  <em>Individual Project.</em>
-                                                  <br/>A chrome extension to calculate how many credits to go in order to match graduation requirement.
-                                                  <br/>Techniques: JavaScript, Chrome.
+
+                                                <div class="media">
+                                                    <a class="pull-left" href="https://code.google.com/p/credits-counter-pku/">
+                                                        <img class="media-object" id="proj-ccounter" data-src="holder.js/64x64" src="">
+                                                    </a>
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading">Credits Counter</h4>
+                                                        <em>Individual Project.</em>
+                                                        <br />A chrome extension to calculate how many credits to go in order to match graduation requirement.
+                                                        <br />Techniques: JavaScript, Chrome.
+                                                    </div>
                                                 </div>
-                                              </div>
-                                              
-                                              <div class="media">
-                                                <a class="pull-left">
-                                                  <img class="media-object" id = "proj-gomoku" data-src="holder.js/64x64" src = "">
-                                                </a>
-                                                <div class="media-body">
-                                                  <h4 class="media-heading">Gomoku Platform</h4>
-                                                  <em>Individual Course Project.</em>
-                                                  <br/>Competition between two computer is supported. Chinese Graphic User Interface is utilized.
-                                                  <br/>Language: ARM 16-bit Assembly Language.
-                                                  <br/>Chips: Intel 8255A, 8155, 8253, 8251A.
+
+                                                <div class="media">
+                                                    <a class="pull-left">
+                                                        <img class="media-object" id="proj-gomoku" data-src="holder.js/64x64" src="">
+                                                    </a>
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading">Gomoku Platform</h4>
+                                                        <em>Individual Course Project.</em>
+                                                        <br />Competition between two computer is supported. Chinese Graphic User Interface is utilized.
+                                                        <br />Language: ARM 16-bit Assembly Language.
+                                                        <br />Chips: Intel 8255A, 8155, 8253, 8251A.
+                                                    </div>
                                                 </div>
-                                              </div>
-                                              
-                                              <div class="media">
-                                                <a class="pull-left">
-                                                  <img class="media-object" id = "proj-pencil" data-src="holder.js/64x64" src = "">
-                                                </a>
-                                                <div class="media-body">
-                                                  <h4 class="media-heading">Real-Time Pencil Rendering</h4>
-                                                  <em>Course Project by group of 3.</em>
-                                                  <br/>We utilize real-time pencil rendering algorithm.
-                                                  <br/>My work: Code related to OpenGL.
-                                                  <br/>Techniques: OpenGL, OpenGL shading Language.
+
+                                                <div class="media">
+                                                    <a class="pull-left">
+                                                        <img class="media-object" id="proj-pencil" data-src="holder.js/64x64" src="">
+                                                    </a>
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading">Real-Time Pencil Rendering</h4>
+                                                        <em>Course Project by group of 3.</em>
+                                                        <br />We utilize real-time pencil rendering algorithm.
+                                                        <br />My work: Code related to OpenGL.
+                                                        <br />Techniques: OpenGL, OpenGL shading Language.
+                                                    </div>
                                                 </div>
-                                              </div>
-                                              
-                                              <div class="media">
-                                                <a class="pull-left">
-                                                  <img class="media-object" id = "proj-blokus" data-src="holder.js/64x64" src = "">
-                                                </a>
-                                                <div class="media-body">
-                                                  <h4 class="media-heading">Blokus Game AI</h4>
-                                                  <em>Individual Course Project.</em>
-                                                  <br/>My programme ran top 20% among all schoolmates'.
-                                                  <br/>Techniques: C++, Game Tree Search, Alpha-Beta Pruning.
+
+                                                <div class="media">
+                                                    <a class="pull-left">
+                                                        <img class="media-object" id="proj-blokus" data-src="holder.js/64x64" src="">
+                                                    </a>
+                                                    <div class="media-body">
+                                                        <h4 class="media-heading">Blokus Game AI</h4>
+                                                        <em>Individual Course Project.</em>
+                                                        <br />My programme ran top 20% among all schoolmates'.
+                                                        <br />Techniques: C++, Game Tree Search, Alpha-Beta Pruning.
+                                                    </div>
                                                 </div>
-                                              </div>
-                                              
-                                          </div>
+
+                                            </div>
                                         </div>
-                                      </div>
-                                      <div class="accordion-group">
-                                        <div class="accordion-heading">
-                                          <a id="gd" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
-                                            Graphic Designs
-                                           </a>
+                                    </div>
+                                    <div class="panel panel-success">
+                                        <div class="panel-heading" role="tab" id="headingTwo">
+                                            <h4 class="panel-title">
+                                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" id="gd">
+                                                    Graphic Designs
+                                                </a>
+                                            </h4>
                                         </div>
-                                        <div id="collapseTwo" class="accordion-body collapse">
-                                          <div class="accordion-inner">
-                                            
-                                            <ul class="thumbnails">
-                                              <li class="span6">
-                                                <div class="thumbnail">
-                                                  <img data-src="holder.js/250x300" id="gd-diannaoxiaodui" src="" class="img-rounded">
-                                                  <p>Poster for voluntary computer fixing team.</p>
+                                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                            <div class="panel-body">
+                                                <div class="col-sm-6 col-md-4">
+                                                    <div class="thumbnail">
+                                                        <img data-src="holder.js/250x300" id="gd-diannaoxiaodui" src="" class="img-rounded" height="300">
+                                                        <div class="caption">
+                                                            <p>Poster for voluntary computer repairing team.</p>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                              </li>
-                                              <li class="span6">
-                                                <div class="thumbnail">
-                                                  <img data-src="holder.js/250x300" id="gd-juxing" src="" class="img-rounded">
-                                                  <p>Poster for Peking University Drama Competition.</p>
+                                                <div class="col-sm-6 col-md-4">
+                                                    <div class="thumbnail">
+                                                        <img data-src="holder.js/250x300" id="gd-juxing" src="" class="img-rounded" height="300">
+                                                        <div class="caption">
+                                                            <p>Poster for Peking University Drama Competition.</p>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                              </li>
-                                            </ul>
-                                            
-                                            <ul class="thumbnails">
-                                              <li class="span6">
-                                                <div class="thumbnail">
-                                                  <img data-src="holder.js/250x300" id="gd-xiangyan" src="" class="img-rounded">
-                                                  <p>Poster for Backing to High School Activity.</p>
+                                                <div class="col-sm-6 col-md-4">
+                                                    <div class="thumbnail">
+                                                        <img data-src="holder.js/250x300" id="gd-xiangyan" src="" class="img-rounded" height="300">
+                                                        <div class="caption">
+                                                            <p>Poster for Backing to High School Activity.</p>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                              </li>
-                                              <li class="span6">
-                                                <div class="thumbnail">
-                                                  <img data-src="holder.js/250x300" id="gd-qingming" src="" class="img-rounded">
-                                                  <p>Letter paper for Peking University Qingming Festival activity</p>
+                                                <div class="col-sm-6 col-md-4">
+                                                    <div class="thumbnail">
+                                                        <img data-src="holder.js/250x300" id="gd-chuanzhitiao" src="" class="img-rounded" height="300">
+                                                        <div class="caption">
+                                                            <p>UI design for <a href="https://apps.weibo.com/dizhitiao"> Send Message Helper App</a>.</p>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                              </li>
-                                            </ul>
-                                            
-                                            <ul class="thumbnails">
-                                              <li class="span6">
-                                                <div class="thumbnail">
-                                                  <img data-src="holder.js/250x300" id="gd-chuanzhitiao" src="" class="img-rounded">
-                                                  <p>UI design for <a href = "https://apps.weibo.com/dizhitiao"> Send Message Helper App</a>.</p>
+                                                <div class="col-sm-6 col-md-4">
+                                                    <div class="thumbnail">
+                                                        <img data-src="holder.js/250x300" id="gd-dormUI" src="" class="img-rounded" height="300">
+                                                        <div class="caption">
+                                                            <p>UI design for School Dormitory Assignation System.</p>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                              </li>
-                                              <li class="span6">
-                                                <div class="thumbnail">
-                                                  <img data-src="holder.js/250x300" id="gd-dormUI" src="" class="img-rounded">
-                                                  <p>UI design for School Dormitory Assignation System.</p>
+                                                <div class="col-sm-6 col-md-4">
+                                                    <div class="thumbnail">
+                                                        <img data-src="holder.js/250x300" id="gd-paperonline" src="" class="img-rounded" height="300">
+                                                        <div class="caption">
+                                                            <p>UI design for <a href="https://app.weibo.com/detail/5ICMKv">Paperonline App</a>.</p>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                              </li>
-                                            </ul>
-                                            
-                                            <ul class="thumbnails">
-                                              <li class="span6">
-                                                <div class="thumbnail">
-                                                  <img data-src="holder.js/250x300" id="gd-paperonline" src="" class="img-rounded">
-                                                  <p>UI design for <a href = "https://app.weibo.com/detail/5ICMKv">Paperonline App</a>.</p>
+                                                <div class="col-sm-6 col-md-4">
+                                                    <div class="thumbnail">
+                                                        <img data-src="holder.js/250x300" id="gd-juhui" src="" class="img-rounded" height="300">
+                                                        <div class="caption">
+                                                            <p>UI design for Party Arrangement App.</p>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                              </li>
-                                              <li class="span6">
-                                                <div class="thumbnail">
-                                                  <img data-src="holder.js/250x300" id="gd-juhui" src="" class="img-rounded">
-                                                  <p>UI design for Party Arrangement App.</p>
+                                                <div class="col-sm-6 col-md-4">
+                                                    <div class="thumbnail">
+                                                        <img data-src="holder.js/250x300" id="gd-bndstshirt" src="" class="img-rounded" height="300">
+                                                        <div class="caption">
+                                                            <p>Beijing National Day School T-shirt design.</p>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                              </li>
-                                            </ul>
-                                            
-                                            <ul class="thumbnails">
-                                              <li class="span6">
-                                                <div class="thumbnail">
-                                                  <img data-src="holder.js/250x300" id="gd-bndstshirt" src="" class="img-rounded">
-                                                  <p>Beijing National Day School T-shirt design.</p>
-                                                </div>
-                                              </li>
-                                              <li class="span6">
-                                                <div class="thumbnail">
-                                                  <img data-src="holder.js/250x300" id="gd-chexie" src="" class="img-rounded">
-                                                  <p>Cycling Association of Peking University T-shirt design.</p>
-                                                </div>
-                                              </li>
-                                              
-                                            </ul>
-                                            
-                                            <ul class="thumbnails">
-                                              <li class="span6">
-                                                <div class="thumbnail">
-                                                  <img data-src="holder.js/250x300" id="gd-classshirt" src="" class="img-rounded">
-                                                  <p>Class T-shirt design.</p>
-                                                </div>
-                                              </li>
-                                            </ul>
-                                            
-                                          </div>
+
+                                            </div>
                                         </div>
-                                      </div>
-                                     <div class="accordion-group">
-                                        <div class="accordion-heading">
-                                          <a id="pm" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
-                                            Paper Models
-                                           </a>
+                                    </div>
+                                    <div class="panel panel-success">
+                                        <div class="panel-heading" role="tab" id="headingThree">
+                                            <h4 class="panel-title">
+                                                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree" id="pm">
+                                                    Paper Models
+                                                </a>
+                                            </h4>
                                         </div>
-                                        <div id="collapseThree" class="accordion-body collapse">
-                                          <div class="accordion-inner">
-                                          
-                                            <ul class="thumbnails">
-                                              <li class="span6">
-                                                <div class="thumbnail">
-                                                  <img data-src="holder.js/250x300" id="pm-zhaocai" src="" class="img-rounded">
+                                        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                            <div class="panel-body">
+                                                <div class="col-sm-6 col-md-4">
+                                                    <div class="thumbnail">
+                                                        <img data-src="holder.js/250x300" id="pm-zhaocai" src="" class="img-rounded">
+                                                    </div>
                                                 </div>
-                                              </li>
-                                              <li class="span6">
-                                                <div class="thumbnail">
-                                                  <img data-src="holder.js/250x300" id="pm-xiaohuihui" src="" class="img-rounded">
+                                                <div class="col-sm-6 col-md-4">
+                                                    <div class="thumbnail">
+                                                        <img data-src="holder.js/250x300" id="pm-xiaohuihui" src="" class="img-rounded">
+                                                    </div>
                                                 </div>
-                                              </li>
-                                            </ul>
-                                            <ul class="thumbnails">
-                                              <li class="span6">
-                                                <div class="thumbnail">
-                                                  <img data-src="holder.js/250x300" id="pm-mario" src="" class="img-rounded">
+                                                <div class="col-sm-6 col-md-4">
+                                                    <div class="thumbnail">
+                                                        <img data-src="holder.js/250x300" id="pm-mario" src="" class="img-rounded">
+                                                    </div>
                                                 </div>
-                                              </li>
-                                              <li class="span6">
-                                                <div class="thumbnail">
-                                                  <img data-src="holder.js/250x300" id="pm-linux" src="" class="img-rounded">
+                                                <div class="col-sm-6 col-md-4">
+                                                    <div class="thumbnail">
+                                                        <img data-src="holder.js/250x300" id="pm-linux" src="" class="img-rounded">
+                                                    </div>
                                                 </div>
-                                              </li>
-                                              
-                                            </ul>
-                                            
-                                            <ul class="thumbnails">
-                                              <li class="span6">
-                                                <div class="thumbnail">
-                                                  <img data-src="holder.js/250x300" id="pm-jiafei" src="" class="img-rounded">
+                                                <div class="col-sm-6 col-md-4">
+                                                    <div class="thumbnail">
+                                                        <img data-src="holder.js/250x300" id="pm-jiafei" src="" class="img-rounded">
+                                                    </div>
                                                 </div>
-                                              </li>
-                                            </ul>
-                                            
-                                          </div>
+
+                                            </div>
                                         </div>
-                                      </div>
+                                    </div>
+                                </div>
+                                <div class="table-responsive">
                                     <table class="table">
-                                    <caption>
-                                            Music Experiences
+                                        <caption>
+                                            <h3>
+                                                Music Experiences
+                                            </h3>
                                         </caption>
                                         <thead>
                                             <tr>
@@ -851,7 +888,7 @@
                                                     2004-2007
                                                 </td>
                                                 <td>
-                                                    High School Chorus 
+                                                    High School Chorus
                                                 </td>
                                                 <td>
                                                     Tenor
@@ -914,70 +951,88 @@
                                             </tr>
                                         </tbody>
                                     </table>
-                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <footer>
-                            <p class="pull-right">
-                                <a href="#">
-                                    Back To Top
-                                </a>
-                            </p>
-                            <p>
-                                &copy; 2013-2016 cyblocker All Rights Reserved, powered by GitHub Pages. 京ICP备14060034号 
-                            </p>
-                            
-                        </footer>
                     </div>
+
                 </div>
-                <div class="span4 hidden-phone" id="avatar">
-                    <!--avatar content-->
-                </div>
+
+
+
             </div>
         </div>
-        </div>
-        </div>
-        </div>
-        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.2.min.js">
-        </script>
-        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/2.3.1/bootstrap.min.js">
-        </script>
-		<script type="text/javascript">
-		$(document).ready(function(){
-		  $("#avatar").html("<img src='static/index/img/avatar.jpg'>");
-		});
-        $("a#xingchen").click(function(){
-          $("#proj-allaccess").attr("src","static/index/img/project/allaccess.png");
-          $("#proj-129").attr("src","static/index/img/project/129.png");
-          $("#proj-webinar").attr("src","static/index/img/project/webinar.png");
-          $("#proj-tri_diagnal").attr("src","static/index/img/project/tri_diagnal.png");
-          $("#proj-ccounter").attr("src","static/index/img/project/ccounter.png");
-          $("#proj-gomoku").attr("src","static/index/img/project/gomoku.png");
-          $("#proj-pencil").attr("src","static/index/img/project/pencil.png");
-          $("#proj-blokus").attr("src","static/index/img/project/blokus.png");
-		});
-        $("a#gd").click(function(){
-          $("#gd-diannaoxiaodui").attr("src","static/index/img/design/diannaoxiaodui.png");
-          $("#gd-juxing").attr("src","static/index/img/design/juxing.png");
-          $("#gd-xiangyan").attr("src","static/index/img/design/xiangyan.png");
-          $("#gd-qingming").attr("src","static/index/img/design/qingming.png");
-          $("#gd-chuanzhitiao").attr("src","static/index/img/design/chuanzhitiao.png");
-          $("#gd-dormUI").attr("src","static/index/img/design/dormUI.png");
-          $("#gd-paperonline").attr("src","static/index/img/design/paperonline.png");
-          $("#gd-juhui").attr("src","static/index/img/design/juhui.png");
-          $("#gd-bndstshirt").attr("src","static/index/img/design/bndstshirt.png");
-          $("#gd-chexie").attr("src","static/index/img/design/chexie.png");
-          $("#gd-classshirt").attr("src","static/index/img/design/classshirt.png");
-		});
-        $("a#pm").click(function(){
-          $("#pm-zhaocai").attr("src","static/index/img/model/zhaocai.png");
-          $("#pm-xiaohuihui").attr("src","static/index/img/model/xiaohuihui.png");
-          $("#pm-mario").attr("src","static/index/img/model/mario.png");
-          $("#pm-linux").attr("src","static/index/img/model/linux.png");
-          $("#pm-jiafei").attr("src","static/index/img/model/jiafei.png");
-		});
-		</script>
-    </body>
+    </div>
+    <footer>
+        <p class="pull-right">
+            <a href="#">
+                Back To Top
+            </a>
+        </p>
+        <p>
+            &copy; 2013-2016 cyblocker All Rights Reserved, powered by GitHub Pages. 京ICP备14060034号
+        </p>
+
+    </footer>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.4.min.js">
+    </script>
+    <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/bootstrap.min.js">
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#avatar").html("<img src='static/index/img/avatar.jpg'>");
+        });
+        $("a#gd").click(function () {
+            $("#gd-diannaoxiaodui").attr("src", "static/index/img/design/diannaoxiaodui.png");
+            $("#gd-juxing").attr("src", "static/index/img/design/juxing.png");
+            $("#gd-xiangyan").attr("src", "static/index/img/design/xiangyan.png");
+            $("#gd-chuanzhitiao").attr("src", "static/index/img/design/chuanzhitiao.png");
+            $("#gd-dormUI").attr("src", "static/index/img/design/dormUI.png");
+            $("#gd-paperonline").attr("src", "static/index/img/design/paperonline.png");
+            $("#gd-juhui").attr("src", "static/index/img/design/juhui.png");
+            $("#gd-bndstshirt").attr("src", "static/index/img/design/bndstshirt.png");
+        });
+        $("a#pm").click(function () {
+            $("#pm-zhaocai").attr("src", "static/index/img/model/zhaocai.png");
+            $("#pm-xiaohuihui").attr("src", "static/index/img/model/xiaohuihui.png");
+            $("#pm-mario").attr("src", "static/index/img/model/mario.png");
+            $("#pm-linux").attr("src", "static/index/img/model/linux.png");
+            $("#pm-jiafei").attr("src", "static/index/img/model/jiafei.png");
+        });
+        $("a#lAlink").click(function () {
+            $("#lCouter").removeClass("active");
+            $("#lBouter").removeClass("active");
+            $("#lB").removeClass("active");
+            $("#lC").removeClass("active");
+            $("#lAouter").addClass("active");
+            $("#lA").addClass("active");
+        })
+        $("a#lBlink").click(function () {
+            $("#lAouter").removeClass("active");
+            $("#lCouter").removeClass("active");
+            $("#lA").removeClass("active");
+            $("#lC").removeClass("active");
+            $("#lBouter").addClass("active");
+            $("#lB").addClass("active");
+        })
+        $("a#lClink").click(function () {
+            $("#lAouter").removeClass("active");
+            $("#lBouter").removeClass("active");
+            $("#lB").removeClass("active");
+            $("#lA").removeClass("active");
+            $("#lCouter").addClass("active");
+            $("#lC").addClass("active");
+            $("#proj-allaccess").attr("src", "static/index/img/project/allaccess.png");
+            $("#proj-129").attr("src", "static/index/img/project/129.png");
+            $("#proj-webinar").attr("src", "static/index/img/project/webinar.png");
+            $("#proj-tri_diagnal").attr("src", "static/index/img/project/tri_diagnal.png");
+            $("#proj-ccounter").attr("src", "static/index/img/project/ccounter.png");
+            $("#proj-gomoku").attr("src", "static/index/img/project/gomoku.png");
+            $("#proj-pencil").attr("src", "static/index/img/project/pencil.png");
+            $("#proj-blokus").attr("src", "static/index/img/project/blokus.png");
+        })
+
+    </script>
+</body>
 
 </html>
