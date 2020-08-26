@@ -1,0 +1,42 @@
+BEGIN:VCALENDAR
+PRODID:-//Google Inc//Google Calendar 70.9054//EN
+VERSION:2.0
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:十周年班聚
+X-WR-TIMEZONE:Asia/Shanghai
+BEGIN:VEVENT
+DTSTART:20200829T020000Z
+DTEND:20200829T033000Z
+DTSTAMP:20200826T041833Z
+UID:2deurmq5imqe09ssd1ha0im5f8@google.com
+CREATED:20200826T041809Z
+DESCRIPTION:陈云帆 邀请您参加VooV Meeting\n会议主题：线上10周年班聚-上午场\n会议时间：2020/8/29 10:00-
+ 11:30  (GMT+08:00) 中国标准时间 - 上海\n\n点击链接入会，或添加至会议列表：\nhttps://voovmeeting.com
+ /s/k2SP4urX41KA\n\n会议 ID：482 094 039\n会议密码：2010\n\n使用PSTN接入:\nhttps://voovm
+ eeting.com/mobile/redirect?page=pstn&region=df&lang=zh-CN
+LAST-MODIFIED:20200826T041809Z
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:线上十周年班聚 - 上午场
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20200829T170000Z
+DTEND:20200829T180000Z
+DTSTAMP:20200826T041833Z
+UID:0r1q5vkpjrvo53kb0l919v67c7@google.com
+CREATED:20200826T041817Z
+DESCRIPTION:陈云帆 邀请您参加VooV Meeting\n会议主题：线上10周年班聚-午夜场\n会议时间：2020/8/30 01:00-
+ 02:00  (GMT+08:00) 中国标准时间 - 上海\n\n点击链接入会，或添加至会议列表：\nhttps://voovmeeting.com
+ /s/gt75vqD7IE3y\n\n会议 ID：426 091 039\n会议密码：2010\n\n使用PSTN接入:\nhttps://voovm
+ eeting.com/mobile/redirect?page=pstn&region=df&lang=zh-CN
+LAST-MODIFIED:20200826T041817Z
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:线上十周年班聚 - 深夜场
+TRANSP:OPAQUE
+END:VEVENT
+END:VCALENDAR
