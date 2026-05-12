@@ -19,6 +19,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.5.0/lz-string.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="data.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700&display=swap');
 
@@ -250,6 +252,166 @@
             color: #60a5fa;
             background: rgba(96, 165, 250, 0.1);
         }
+
+        /* Card Template Styles */
+        #card-template {
+            position: absolute;
+            left: -9999px;
+            top: 0;
+            width: 600px;
+            height: 1000px;
+            padding: 40px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+            font-family: 'Exo 2', sans-serif;
+        }
+
+        .theme-default {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        }
+
+        .theme-res {
+            background: linear-gradient(135deg, #020617 0%, #1e3a8a 100%);
+            border: 2px solid #3b82f6;
+        }
+
+        .theme-enl {
+            background: linear-gradient(135deg, #022c22 0%, #14532d 100%);
+            border: 2px solid #22c55e;
+        }
+
+        .card-title {
+            text-align: center;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            color: #cbd5e1;
+        }
+
+        .card-title-l1 {
+            font-size: 20px;
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin-bottom: 4px;
+        }
+
+        .card-title-l2 {
+            font-size: 32px;
+            font-weight: 800;
+            letter-spacing: 4px;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+        }
+
+        .card-agent {
+            font-size: 48px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .theme-res .card-agent {
+            color: #60a5fa;
+            text-shadow: 0 0 20px rgba(96, 165, 250, 0.8);
+        }
+
+        .theme-enl .card-agent {
+            color: #4ade80;
+            text-shadow: 0 0 20px rgba(74, 222, 128, 0.8);
+        }
+
+        .card-badge {
+            width: 160px;
+            height: 160px;
+            margin-bottom: 5px;
+            filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.2));
+            object-fit: contain;
+        }
+
+        .card-score {
+            font-size: 72px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            font-family: 'Exo 2', sans-serif;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .card-congrats {
+            font-size: 18px;
+            font-weight: 600;
+            color: #fbbf24;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .card-stats {
+            width: 100%;
+            flex-grow: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            align-content: start;
+        }
+
+        .stat-box {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stat-label {
+            font-size: 18px;
+            color: #94a3b8;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .stat-value {
+            font-size: 32px;
+            font-weight: 600;
+        }
+
+        .stat-pct {
+            display: block;
+            font-size: 16px;
+            color: #94a3b8;
+            margin-top: 4px;
+            font-weight: normal;
+        }
+
+        .card-footer {
+            font-size: 14px;
+            color: #64748b;
+            margin-top: auto;
+            text-align: center;
+            letter-spacing: 2px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .card-footer-url {
+            font-size: 16px;
+            opacity: 1;
+            margin-top: 8px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: #cbd5e1;
+        }
+
+        #card-preview-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
     </style>
 </head>
 
@@ -260,8 +422,11 @@
     <!-- End Google Tag Manager (noscript) -->
     <div class="max-w-5xl mx-auto">
         <!-- Header -->
-        <header class="mb-8 text-center">
-            <div class="flex justify-end mb-4">
+        <header class="mb-8 text-center relative z-20">
+            <div class="flex justify-end mb-4 items-center gap-2">
+                <select id="season-selector"
+                    class="bg-transparent text-slate-500 text-xs border border-slate-700 rounded px-1 py-0.5"
+                    style="display:none;" onchange="switchSeason(this.value)"></select>
                 <div class="lang-toggle" id="lang-toggle">
                     <button class="lang-btn active" data-lang="zh">中文</button>
                     <button class="lang-btn" data-lang="en">EN</button>
@@ -272,87 +437,101 @@
             <p id="page-subtitle" class="text-slate-400"></p>
         </header>
 
-        <!-- Main Input & Stats -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-            <div class="ingress-card p-4 rounded-xl text-center total-input-box">
-                <div id="label-input-total" class="text-blue-400 text-sm font-bold mb-2 uppercase"></div>
-                <input type="number" id="global-total-actual"
-                    class="text-2xl font-bold bg-transparent border-none text-center focus:ring-0 w-full" placeholder=""
-                    value="0" oninput="updateGlobalTotal(this.value)" onchange="updateGlobalTotal(this.value)">
-                <div id="label-input-hint" class="text-[10px] text-slate-500 mt-1"></div>
-            </div>
-            <div class="ingress-card p-4 rounded-xl text-center">
-                <div id="label-planned-range" class="text-slate-400 text-sm mb-1"></div>
-                <div id="planned-total-range" class="text-xl md:text-2xl font-bold accent-blue">0 - 0</div>
-                <div id="planned-status" class="text-xs text-slate-500 mt-1"></div>
-            </div>
-            <div class="ingress-card p-4 rounded-xl text-center">
-                <div id="label-next-tier" class="text-slate-400 text-sm mb-1"></div>
-                <div id="next-tier-diff" class="text-3xl font-bold accent-purple">0</div>
-                <div id="next-tier-name" class="text-xs text-slate-500 mt-1"></div>
-            </div>
+        <!-- Placeholder View -->
+        <div id="placeholder-view" style="display:none;" class="text-center py-20">
+            <h2 id="ph-title" class="text-3xl sm:text-4xl font-bold mb-4 accent-blue"></h2>
+            <p id="ph-desc" class="text-slate-400 mb-8"></p>
+            <div id="ph-seasons" class="flex flex-col gap-3 max-w-sm mx-auto"></div>
         </div>
 
-        <!-- Progress Bar -->
-        <div class="ingress-card p-6 rounded-xl mb-8">
-            <div class="relative h-20 mb-4 font-semibold uppercase tracking-widest badge-label-container">
-                <!-- Bronze -->
-                <div class="absolute text-center transition-all duration-300 badge-item"
-                    style="left: 20%; transform: translateX(-50%); top: 0;">
-                    <img src="static/orion/bronze.png"
-                        class="w-10 h-10 mx-auto drop-shadow-[0_0_5px_rgba(205,127,50,0.5)]" alt="Bronze">
-                    <span class="text-[10px] whitespace-nowrap mt-1 block">Bronze (5k)</span>
+        <div id="tracker-view">
+            <!-- Main Input & Stats -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                <div class="ingress-card p-4 rounded-xl text-center total-input-box">
+                    <div id="label-input-total" class="text-blue-400 text-sm font-bold mb-2 uppercase"></div>
+                    <input type="number" id="global-total-actual"
+                        class="text-2xl font-bold bg-transparent border-none text-center focus:ring-0 w-full"
+                        placeholder="" value="0" oninput="updateGlobalTotal(this.value)" onchange="updateGlobalTotal(this.value)">
+                    <div id="label-input-hint" class="text-[10px] text-slate-500 mt-1"></div>
                 </div>
-                <!-- Silver -->
-                <div class="absolute text-center transition-all duration-300 badge-item"
-                    style="left: 32%; transform: translateX(-50%); top: 0;">
-                    <img src="static/orion/silver.png"
-                        class="w-10 h-10 mx-auto drop-shadow-[0_0_5px_rgba(192,192,192,0.5)]" alt="Silver">
-                    <span class="text-[10px] whitespace-nowrap mt-1 block">Silver (8k)</span>
+                <div class="ingress-card p-4 rounded-xl text-center">
+                    <div id="label-planned-range" class="text-slate-400 text-sm mb-1"></div>
+                    <div id="planned-total-range" class="text-xl md:text-2xl font-bold accent-blue">0 - 0</div>
+                    <div id="planned-status" class="text-xs text-slate-500 mt-1"></div>
                 </div>
-                <!-- Gold -->
-                <div class="absolute text-center transition-all duration-300 badge-item"
-                    style="left: 60%; transform: translateX(-50%); top: 0;">
-                    <img src="static/orion/gold.png" class="w-10 h-10 mx-auto drop-shadow-[0_0_5px_rgba(255,215,0,0.5)]"
-                        alt="Gold">
-                    <span class="text-[10px] whitespace-nowrap mt-1 block">Gold (15k)</span>
-                </div>
-                <!-- Platinum -->
-                <div class="absolute text-center transition-all duration-300 badge-item"
-                    style="left: 100%; transform: translateX(-100%); top: 0;">
-                    <img src="static/orion/platinum.png"
-                        class="w-10 h-10 mx-auto drop-shadow-[0_0_5px_rgba(229,228,226,0.5)]" alt="Platinum">
-                    <span class="text-[10px] whitespace-nowrap mt-1 block">Platinum (25k)</span>
+                <div class="ingress-card p-4 rounded-xl text-center">
+                    <div id="label-next-tier" class="text-slate-400 text-sm mb-1"></div>
+                    <div id="next-tier-diff" class="text-3xl font-bold accent-purple">0</div>
+                    <div id="next-tier-name" class="text-xs text-slate-500 mt-1"></div>
                 </div>
             </div>
-            <div class="progress-bar-container">
-                <div class="badge-marker" style="left: 20%;"></div>
-                <div class="badge-marker" style="left: 32%;"></div>
-                <div class="badge-marker" style="left: 60%;"></div>
-                <div class="badge-marker" style="left: 100%;"></div>
-                <div id="main-progress-bar" class="progress-fill" style="width: 0%"></div>
-            </div>
-        </div>
 
-        <!-- Activity Table -->
-        <div class="ingress-card rounded-xl overflow-hidden mb-8">
-            <div class="overflow-x-auto">
-                <table class="w-full text-left border-collapse">
-                    <thead class="bg-slate-800/50">
-                        <tr>
-                            <th id="th-activity" class="p-4 text-sm font-semibold text-slate-300 min-w-[140px]"></th>
-                            <th id="th-max" class="p-4 text-sm font-semibold text-slate-300"></th>
-                            <th id="th-planned" class="p-4 text-sm font-semibold text-slate-300"></th>
-                            <th id="th-actual" class="p-4 text-sm font-semibold text-slate-300"></th>
-                            <th id="th-updated" class="p-4 text-sm font-semibold text-slate-300 hide-on-mobile"></th>
-                        </tr>
-                    </thead>
-                    <tbody id="activity-body">
-                        <!-- Rows -->
-                    </tbody>
-                </table>
+            <!-- Progress Bar -->
+            <div class="ingress-card p-6 rounded-xl mb-8">
+                <div id="badge-container"
+                    class="relative h-20 mb-4 font-semibold uppercase tracking-widest badge-label-container">
+                    <!-- Dynamically populated -->
+                </div>
+                <div id="progress-bar-container" class="progress-bar-container">
+                    <!-- Markers are dynamically populated -->
+                    <div id="main-progress-bar" class="progress-fill" style="width: 0%"></div>
+                </div>
             </div>
-        </div>
+
+            <!-- Card Generation -->
+            <div id="card-module" class="ingress-card p-6 rounded-xl mb-8">
+                <h2 id="label-card" class="text-lg font-bold accent-purple mb-2 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    <span id="text-card-module"></span>
+                </h2>
+                <p id="card-motivation" class="text-sm text-slate-400 mb-4"></p>
+                <div class="flex flex-col md:flex-row gap-4 items-center">
+                    <input type="text" id="agent-name-input"
+                        class="bg-slate-800 border border-slate-600 rounded px-3 py-2 text-white w-full md:w-auto"
+                        placeholder="Agent Name">
+                    <select id="card-theme-select"
+                        class="bg-slate-800 border border-slate-600 rounded px-3 py-2 text-white w-full md:w-auto">
+                        <option value="theme-default" id="opt-theme-default">Default (Dark)</option>
+                        <option value="theme-res" id="opt-theme-res">Resistance (Blue)</option>
+                        <option value="theme-enl" id="opt-theme-enl">Enlightened (Green)</option>
+                    </select>
+                    <button onclick="generateCard()"
+                        class="btn-primary w-full md:w-auto flex justify-center items-center" id="btn-generate-card">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                        </svg>
+                        <span>Generate</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Activity Table -->
+            <div class="ingress-card rounded-xl overflow-hidden mb-8">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead class="bg-slate-800/50">
+                            <tr>
+                                <th id="th-activity" class="p-4 text-sm font-semibold text-slate-300 min-w-[140px]">
+                                </th>
+                                <th id="th-max" class="p-4 text-sm font-semibold text-slate-300"></th>
+                                <th id="th-planned" class="p-4 text-sm font-semibold text-slate-300"></th>
+                                <th id="th-actual" class="p-4 text-sm font-semibold text-slate-300"></th>
+                                <th id="th-updated" class="p-4 text-sm font-semibold text-slate-300 hide-on-mobile">
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="activity-body">
+                            <!-- Rows -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div> <!-- End tracker-view -->
 
         <!-- Data Migration -->
         <div class="ingress-card p-6 rounded-xl mb-8">
@@ -403,8 +582,55 @@
                 <div id="share-url" class="share-url-box"></div>
                 <div class="flex gap-2 justify-center">
                     <button onclick="copyShareUrl()" id="btn-copy-url" class="btn-primary text-sm"></button>
-                    <button onclick="closeShareModal()" id="btn-close-modal" class="btn-outline text-sm"></button>
+                    <button onclick="closeModal('shareModal')" id="btn-close-modal"
+                        class="btn-outline text-sm"></button>
                 </div>
+            </div>
+        </div>
+
+        <!-- Card Modal -->
+        <div id="cardModal" class="modal">
+            <div class="modal-content ingress-card" style="max-width: 450px;">
+                <h3 id="modal-card-title" class="text-xl font-bold accent-purple mb-2"></h3>
+                <p id="modal-card-desc" class="text-slate-400 text-sm mb-4"></p>
+                <div id="card-preview-container" class="mb-6"></div>
+                <div class="flex gap-2 justify-center">
+                    <button onclick="closeModal('cardModal')" id="btn-close-card" class="btn-outline text-sm"></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hidden Card Template -->
+        <div id="card-template" class="theme-default">
+            <div class="card-title">
+                <div class="card-title-l1" id="ct-title-l1"></div>
+                <div class="card-title-l2" id="ct-title-l2"></div>
+            </div>
+            <div class="card-agent" id="ct-agent">AGENT</div>
+            <div class="card-congrats" id="ct-congrats"></div>
+            <img src="" class="card-badge" id="ct-badge" style="display:none;">
+            <div class="card-score" id="ct-score">0</div>
+            <div class="card-stats">
+                <div class="stat-box">
+                    <div class="stat-label" id="ctl-bounties">Bounties</div>
+                    <div class="stat-value" id="ct-bounties">0</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label" id="ctl-ifs">IFS</div>
+                    <div class="stat-value" id="ct-ifs">0</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label" id="ctl-events">Events & Ops</div>
+                    <div class="stat-value" id="ct-events">0</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label" id="ctl-anomaly">Anomaly</div>
+                    <div class="stat-value" id="ct-anomaly">0</div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div id="ct-footer-text">GENERATED BY PLANNER</div>
+                <div class="card-footer-url">cyblocker.com/ingress</div>
             </div>
         </div>
 
@@ -421,11 +647,11 @@
         // ==================== I18N ====================
         const I18N = {
             zh: {
-                pageTitle: 'ORION 赛季计划工具',
-                pageSubtitle: '2026 Q2 (4/8 - 6/30)',
+                phTitle: 'Ingress 赛季计划工具',
+                phDesc: '敬请期待新赛季！在此期间，您可以回顾以下历史赛季：',
                 inputTotal: '输入游戏内当前总分',
                 inputPlaceholder: '点击输入',
-                inputHint: 'Orion Season Tokens 统计值',
+                inputHint: 'Season Tokens 统计值',
                 plannedRange: '计划最终获得区间',
                 calculatingStatus: '根据潜力计算中...',
                 nextTierLabel: '下一等级还差',
@@ -435,7 +661,6 @@
                 thPlanned: '计划完成度',
                 thActual: '实际完成(计算/输入)',
                 thUpdated: '最后更新',
-                footerSource: '来源：Ingress 2026 Q2 Orion 赛季说明。所有输入数据均在本地浏览器存储。',
                 footerFormula: '每日任务得分 = 总分 - 其他项目实得分之和。',
                 seeRange: '请见最终得分区间',
                 daysCompleted: (d) => `约完成 ${d} 天`,
@@ -446,7 +671,6 @@
                 noTierForecast: '预计不足以获得勋章',
                 localTime: '本地时间',
                 contactMe: '联系我：',
-                // Data Migration
                 textMigration: '数据迁移',
                 btnShareUrl: '分享链接 & 二维码',
                 btnExportJson: '导出 JSON 文件',
@@ -461,38 +685,37 @@
                 invalidData: '无效的数据格式！',
                 wrongSeason: (s) => `此数据属于其他赛季 (${s})，是否仍要导入？`,
                 confirmMergeAllSeasons: '检测到多赛季全量数据，是否覆盖本地所有赛季记录？',
-                // Countdown
+                textCardModule: '赛季纪念卡片',
+                agentPlaceholder: '特工代号 (Agent Name)',
+                optThemeDefault: '默认 (深色)',
+                optThemeRes: '抵抗军 (蓝色)',
+                optThemeEnl: '启蒙军 (绿色)',
+                btnGenerateCard: '生成纪念卡片',
+                modalCardTitle: '保存纪念卡片',
+                modalCardDesc: '生成完成！电脑上可右键另存为，手机上长按下方图片保存到相册，或分享给朋友。',
+                statBounties: '每日任务',
+                statIFS: 'IFS (First Saturday)',
+                statEvents: '现场活动与行动',
+                statAnomaly: 'Anomaly 现场',
+                pctComplete: (p) => `目标完成 ${p}%`,
+                bountyComplete: (p) => `完成 ${p}%`,
+                congratsCardMsg: (t) => `获得 ${t} 奖牌！`,
+                motivationBadge: (t) => `恭喜您已达成 ${t} 奖牌，快来生成纪念卡片分享一下吧！`,
+                motivationNormal: '赛季即将结束，来生成一张专属您的赛季成绩卡片吧！',
                 startsIn: (t) => `${t} 后开始`,
                 endsIn: (t) => `${t} 后结束`,
                 ended: '已结束',
                 unitDay: '天',
                 unitHour: '小时',
                 unitMinute: '分',
-                // Activity names
-                act_bounties: '每日任务 (Daily Bounties)',
-                act_ifs_apr: 'IFS - 四月',
-                act_ifs_may: 'IFS - 五月',
-                act_ifs_jun: 'IFS - 六月',
-                act_op_sakura: 'Dispatch: 樱花祭',
-                act_op_global: 'Orion 全球行动',
-                act_op_may_early: 'Nemesis Redux: Myriad',
-                act_op_may_late: 'Dispatch: 五月下旬',
-                act_op_solstice: 'Dispatch: 夏至',
-                act_anomaly: 'Anomaly 现场行动',
-                // Activity descriptions
-                desc_bounties: '4/8 - 6/30 (84天), 每天满额 80 tokens',
-                desc_ifs_apr: '4/4 现场活动',
-                desc_ifs_may: '5/2 现场活动',
-                desc_ifs_jun: '6/6 现场活动',
-                desc_anomaly: '单站最高 5000 tokens',
-                max_anomaly: '5000 x 场次',
+                max_anomaly: '单项限制见说明'
             },
             en: {
-                pageTitle: 'ORION SEASON PLANNER',
-                pageSubtitle: '2026 Q2 (Apr 8 - Jun 30)',
+                phTitle: 'Ingress Season Planner',
+                phDesc: 'Please look forward to the new season! Meanwhile, review past seasons below:',
                 inputTotal: 'Enter Current In-Game Total',
                 inputPlaceholder: 'Click to enter',
-                inputHint: 'Orion Season Tokens total',
+                inputHint: 'Season Tokens total',
                 plannedRange: 'Projected Final Range',
                 calculatingStatus: 'Calculating based on potential...',
                 nextTierLabel: 'Until Next Tier',
@@ -502,7 +725,6 @@
                 thPlanned: 'Planned',
                 thActual: 'Actual (Calc/Input)',
                 thUpdated: 'Last Updated',
-                footerSource: 'Source: Ingress 2026 Q2 Orion Season. All data is stored locally in this browser.',
                 footerFormula: 'Daily bounty score = Total - sum of all other actual scores.',
                 seeRange: 'See projected range',
                 daysCompleted: (d) => `~${d} days completed`,
@@ -513,7 +735,6 @@
                 noTierForecast: 'Not enough for any badge',
                 localTime: 'local time',
                 contactMe: 'Contact Me: ',
-                // Data Migration
                 textMigration: 'Data Migration',
                 btnShareUrl: 'Share Link & QR',
                 btnExportJson: 'Export JSON',
@@ -528,38 +749,37 @@
                 invalidData: 'Invalid data format!',
                 wrongSeason: (s) => `This data belongs to another season (${s}). Import anyway?`,
                 confirmMergeAllSeasons: 'Multi-season data detected. Overwrite all local season records?',
-                // Countdown
+                textCardModule: 'Commemorative Card',
+                agentPlaceholder: 'Agent Name',
+                optThemeDefault: 'Default (Dark)',
+                optThemeRes: 'Resistance (Blue)',
+                optThemeEnl: 'Enlightened (Green)',
+                btnGenerateCard: 'Generate Card',
+                modalCardTitle: 'Save Commemorative Card',
+                modalCardDesc: 'Card generated! Right-click to save on PC, or long-press the image on mobile devices.',
+                statBounties: 'Bounties',
+                statIFS: 'IFS (First Saturday)',
+                statEvents: 'Events & Ops',
+                statAnomaly: 'Anomaly',
+                pctComplete: (p) => `${p}% of Target`,
+                bountyComplete: (p) => `${p}% Complete`,
+                congratsCardMsg: (t) => `${t} Badge Earned!`,
+                motivationBadge: (t) => `Congratulations on reaching the ${t} badge! Generate a card to share it!`,
+                motivationNormal: 'The season is coming to a close. Generate your personalized commemorative card!',
                 startsIn: (t) => `Starts in ${t}`,
                 endsIn: (t) => `Ends in ${t}`,
                 ended: 'Ended',
                 unitDay: 'd',
                 unitHour: 'h',
                 unitMinute: 'm',
-                // Activity names
-                act_bounties: 'Daily Bounties',
-                act_ifs_apr: 'IFS - April',
-                act_ifs_may: 'IFS - May',
-                act_ifs_jun: 'IFS - June',
-                act_op_sakura: 'Dispatch: Sakura Festival',
-                act_op_global: 'Orion Global Operation',
-                act_op_may_early: 'Nemesis Redux: Myriad',
-                act_op_may_late: 'Dispatch: Late May',
-                act_op_solstice: 'Dispatch: Summer Solstice',
-                act_anomaly: 'Anomaly On-site',
-                // Activity descriptions
-                desc_bounties: 'Apr 8 - Jun 30 (84 days), up to 80 tokens/day',
-                desc_ifs_apr: 'Apr 4 on-site event',
-                desc_ifs_may: 'May 2 on-site event',
-                desc_ifs_jun: 'Jun 6 on-site event',
-                desc_anomaly: 'Up to 5000 tokens per site',
-                max_anomaly: '5000 x #sites',
+                max_anomaly: 'See desc for limits'
             },
             ja: {
-                pageTitle: 'ORION シーズンプランナー',
-                pageSubtitle: '2026 Q2 (4/8 - 6/30)',
+                phTitle: 'Ingress シーズンプランナー',
+                phDesc: '新シーズンにご期待ください！その間、以下の過去のシーズンを振り返ることができます：',
                 inputTotal: 'ゲーム内の現在の総トークンを入力',
                 inputPlaceholder: 'クリックして入力',
-                inputHint: 'Orion Season Tokens 合計値',
+                inputHint: 'Season Tokens 合計値',
                 plannedRange: '予想獲得トークン範囲',
                 calculatingStatus: 'ポテンシャルから計算中...',
                 nextTierLabel: '次のランクまで',
@@ -569,57 +789,54 @@
                 thPlanned: '計画',
                 thActual: '実績（計算/入力）',
                 thUpdated: '最終更新',
-                footerSource: '出典：Ingress 2026 Q2 Orion シーズン説明。すべてのデータはブラウザにローカル保存されます。',
                 footerFormula: 'デイリータスクトークン = 総トークン - 他項目の実績合計',
                 seeRange: '予想範囲を参照',
                 daysCompleted: (d) => `約${d}日完了`,
-                bountyHint: (p) => `明日からシーズン終了まで最大: ${p} tokens`,
+                bountyHint: (p) => `明日からシーズン終了までの最大獲得可能数: ${p} tokens`,
                 reachedPlatinum: 'Platinum 達成！',
-                toTier: (name) => `${name} バッジまで`,
-                maxTierForecast: (name) => `最大予想: ${name} バッジ`,
-                noTierForecast: 'バッジ獲得には不十分',
+                toTier: (name) => `${name} メダルまであと`,
+                maxTierForecast: (name) => `予想される最大メダル: ${name}`,
+                noTierForecast: 'メダル獲得には不十分と予想されます',
                 localTime: '現地時間',
-                contactMe: 'お問い合わせ：',
-                // Data Migration
+                contactMe: '連絡先：',
                 textMigration: 'データ移行',
-                btnShareUrl: '共有リンクとQR',
-                btnExportJson: 'JSON書き出し',
-                btnImportJson: 'JSON読み込み',
+                btnShareUrl: 'リンク & QRコードを共有',
+                btnExportJson: 'JSONをエクスポート',
+                btnImportJson: 'JSONをインポート',
                 modalShareTitle: 'データ共有',
-                modalShareDesc: 'QRコードを読み取るか、リンクをコピーして他のデバイスと同期します。',
+                modalShareDesc: 'QRコードをスキャンするか、リンクをコピーして他のデバイスと同期します。',
                 btnClose: '閉じる',
                 btnCopy: 'リンクをコピー',
-                copySuccess: 'リンクをコピーしました',
-                syncConfirm: '同期データを検出しました。ローカル記録を上書きしますか？',
+                copySuccess: 'リンクをクリップボードにコピーしました',
+                syncConfirm: '同期データが検出されました。ローカルの記録を上書きしますか？',
                 importSuccess: 'インポート成功！',
                 invalidData: '無効なデータ形式です！',
                 wrongSeason: (s) => `このデータは別のシーズン (${s}) のものです。インポートしますか？`,
                 confirmMergeAllSeasons: '複数シーズンのデータを検出しました。ローカルの全記録を上書きしますか？',
-                // Countdown
+                textCardModule: '記念カード生成',
+                agentPlaceholder: 'エージェント名 (AG)',
+                optThemeDefault: 'デフォルト (ダーク)',
+                optThemeRes: 'レジスタンス (青)',
+                optThemeEnl: 'エンライテンド (緑)',
+                btnGenerateCard: 'カードを生成',
+                modalCardTitle: '記念カードを保存',
+                modalCardDesc: '生成完了！PCでは右クリック、スマートフォンでは画像を長押しして保存してください。',
+                statBounties: 'デイリーバウンティ',
+                statIFS: 'IFS (First Saturday)',
+                statEvents: 'イベント & OP',
+                statAnomaly: 'アノマリー',
+                pctComplete: (p) => `計画達成率 ${p}%`,
+                bountyComplete: (p) => `達成率 ${p}%`,
+                congratsCardMsg: (t) => `${t} メダル獲得！`,
+                motivationBadge: (t) => `${t} メダル獲得おめでとうございます！記念カードを生成してシェアしましょう！`,
+                motivationNormal: 'シーズンが終了に近づいています。あなただけの記念カードを作りましょう！',
                 startsIn: (t) => `あと ${t} で開始`,
                 endsIn: (t) => `あと ${t} で終了`,
                 ended: '終了',
                 unitDay: '日',
                 unitHour: '時間',
                 unitMinute: '分',
-                // Activity names
-                act_bounties: 'デイリーバウンティ',
-                act_ifs_apr: 'IFS - 4月',
-                act_ifs_may: 'IFS - 5月',
-                act_ifs_jun: 'IFS - 6月',
-                act_op_sakura: 'Dispatch: 桜まつり',
-                act_op_global: 'Orion グローバルオペレーション',
-                act_op_may_early: 'Nemesis Redux: Myriad',
-                act_op_may_late: 'Dispatch: 5月下旬',
-                act_op_solstice: 'Dispatch: 夏至',
-                act_anomaly: 'XMアノマリー',
-                // Activity descriptions
-                desc_bounties: '4/8 - 6/30 (84日間), 1日最大 80 tokens',
-                desc_ifs_apr: '4/4 現地イベント',
-                desc_ifs_may: '5/2 現地イベント',
-                desc_ifs_jun: '6/6 現地イベント',
-                desc_anomaly: '1サイト最大 5000 tokens',
-                max_anomaly: '5000 x サイト数',
+                max_anomaly: '詳細は説明を参照'
             }
         };
 
@@ -638,7 +855,14 @@
         let currentLang = detectLanguage();
 
         function t(key) {
-            return I18N[currentLang]?.[key] ?? I18N['en']?.[key] ?? key;
+            let seasonI18n = SEASON_DB[activeSeasonId]?.i18n;
+            if (seasonI18n && seasonI18n[currentLang] && seasonI18n[currentLang][key]) {
+                return seasonI18n[currentLang][key];
+            }
+            if (I18N[currentLang] && I18N[currentLang][key]) {
+                return I18N[currentLang][key];
+            }
+            return typeof I18N['en'][key] === 'function' ? I18N['en'][key] : key;
         }
 
         function formatTimeRemaining(ms) {
@@ -657,31 +881,13 @@
             }
         }
 
-        // ==================== DATA ====================
-        const CURRENT_SEASON_ID = '2026_q2_orion';
+        // ==================== DATA & STATE ====================
         const GLOBAL_STORAGE_KEY = 'ingress_planner_all_seasons';
 
-        const TIERS = [
-            { name: 'Bronze', value: 5000 },
-            { name: 'Silver', value: 8000 },
-            { name: 'Gold', value: 15000 },
-            { name: 'Platinum', value: 25000 }
-        ];
-
-        const SEASON_END = new Date('2026-06-30T23:59:59');
-
-        const ACTIVITIES = [
-            { id: 'bounties', nameKey: 'act_bounties', descKey: 'desc_bounties', max: 6720, unit: 'tokens', isBounty: true },
-            { id: 'ifs_apr', nameKey: 'act_ifs_apr', descKey: 'desc_ifs_apr', max: 2500, unit: 'tokens' },
-            { id: 'ifs_may', nameKey: 'act_ifs_may', descKey: 'desc_ifs_may', max: 2500, unit: 'tokens' },
-            { id: 'ifs_jun', nameKey: 'act_ifs_jun', descKey: 'desc_ifs_jun', max: 2500, unit: 'tokens' },
-            { id: 'op_sakura', nameKey: 'act_op_sakura', utcStart: '2026-04-07T18:00:00Z', utcEnd: '2026-04-30T18:00:00Z', max: 3000, unit: 'tokens' },
-            { id: 'op_global', nameKey: 'act_op_global', utcStart: '2026-04-24T18:00:00Z', utcEnd: '2026-05-12T18:00:00Z', max: 7500, unit: 'tokens' },
-            { id: 'op_may_early', nameKey: 'act_op_may_early', utcStart: '2026-05-01T18:00:00Z', utcEnd: '2026-06-01T18:00:00Z', max: 3000, unit: 'tokens' },
-            { id: 'op_may_late', nameKey: 'act_op_may_late', max: 3000, unit: 'tokens' },
-            { id: 'op_solstice', nameKey: 'act_op_solstice', max: 3000, unit: 'tokens' },
-            { id: 'anomaly', nameKey: 'act_anomaly', descKey: 'desc_anomaly', max: 30000, unit: 'tokens' }
-        ];
+        let activeSeasonId = CURRENT_SEASON_ID;
+        let TIERS = [];
+        let ACTIVITIES = [];
+        let SEASON_END = new Date();
 
         let allSeasonsData = {};
         let userData = {};
@@ -701,15 +907,152 @@
                     localStorage.setItem(GLOBAL_STORAGE_KEY, JSON.stringify(allSeasonsData));
                 }
             }
-
-            // Set current working data
-            if (!allSeasonsData[CURRENT_SEASON_ID]) {
-                allSeasonsData[CURRENT_SEASON_ID] = { globalTotal: 0, activities: {} };
-            }
-            userData = allSeasonsData[CURRENT_SEASON_ID];
         }
 
         loadAllSeasonsData();
+
+        function init() {
+            initLangToggle();
+            initContact();
+            checkHashData();
+
+            if (!CURRENT_SEASON_ID || !SEASON_DB[CURRENT_SEASON_ID]) {
+                document.getElementById('tracker-view').style.display = 'none';
+                document.getElementById('placeholder-view').style.display = 'block';
+                document.getElementById('page-title').style.display = 'none';
+                document.getElementById('page-subtitle').style.display = 'none';
+                document.getElementById('footer-source').style.display = 'none';
+                document.getElementById('footer-formula').style.display = 'none';
+                renderPlaceholder();
+            } else {
+                activeSeasonId = CURRENT_SEASON_ID;
+                initSeason(activeSeasonId);
+            }
+            applyLanguage();
+        }
+
+        function renderPlaceholder() {
+            const phSeasons = document.getElementById('ph-seasons');
+            phSeasons.innerHTML = '';
+            Object.values(SEASON_DB).forEach(season => {
+                const btn = document.createElement('button');
+                btn.className = 'btn-outline text-left py-3 px-4 flex justify-between items-center';
+
+                let badgeHtml = '';
+                if (allSeasonsData[season.id]) {
+                    const total = allSeasonsData[season.id].globalTotal || 0;
+                    const earnedTier = [...season.tiers].reverse().find(t => total >= t.value);
+                    if (earnedTier) {
+                        const imgSrc = season.badgePath + earnedTier.name.toLowerCase() + '.png';
+                        badgeHtml = `<img src="${imgSrc}" class="h-6 w-6 ml-2" alt="${earnedTier.name}">`;
+                    }
+                }
+
+                btn.innerHTML = `<div class="flex items-center text-left"><span>${season.name}</span>${badgeHtml}</div> <span class="ml-2 flex-shrink-0">→</span>`;
+                btn.onclick = () => {
+                    activeSeasonId = season.id;
+                    initSeason(activeSeasonId);
+                };
+                phSeasons.appendChild(btn);
+            });
+        }
+
+        function switchSeason(id) {
+            if (id) {
+                activeSeasonId = id;
+                initSeason(id);
+            }
+        }
+
+        function initSeason(id) {
+            document.getElementById('placeholder-view').style.display = 'none';
+            document.getElementById('tracker-view').style.display = 'block';
+            document.getElementById('page-title').style.display = 'block';
+            document.getElementById('page-subtitle').style.display = 'block';
+            document.getElementById('footer-source').style.display = 'block';
+            document.getElementById('footer-formula').style.display = 'block';
+
+            const season = SEASON_DB[id];
+            TIERS = season.tiers;
+            ACTIVITIES = season.activities;
+            SEASON_END = new Date(season.endTime);
+
+            // Populate selector
+            const selector = document.getElementById('season-selector');
+            selector.innerHTML = '';
+            if (Object.keys(SEASON_DB).length > 1) {
+                Object.values(SEASON_DB).forEach(s => {
+                    const opt = document.createElement('option');
+                    opt.value = s.id;
+                    opt.textContent = s.name;
+                    if (s.id === id) opt.selected = true;
+                    selector.appendChild(opt);
+                });
+                selector.style.display = 'inline-block';
+            } else {
+                selector.style.display = 'none';
+            }
+
+            // Show/Hide Card UI based on configuration
+            const cardModule = document.getElementById('card-module');
+            if (cardModule) {
+                if (id === CURRENT_SEASON_ID) {
+                    cardModule.style.display = season.cardEnabled ? 'block' : 'none';
+                } else {
+                    cardModule.style.display = 'block'; // Always show for past seasons
+                }
+            }
+
+            // Set current working data
+            if (!allSeasonsData[id]) {
+                allSeasonsData[id] = { globalTotal: 0, activities: {} };
+            }
+            userData = allSeasonsData[id];
+
+            document.getElementById('global-total-actual').value = userData.globalTotal || 0;
+            renderProgressBarUI(season);
+            applyLanguage();
+            renderTable();
+            calculate();
+        }
+
+        function renderProgressBarUI(season) {
+            const badgeContainer = document.getElementById('badge-container');
+            const progressContainer = document.getElementById('progress-bar-container');
+
+            badgeContainer.innerHTML = '';
+            Array.from(progressContainer.querySelectorAll('.badge-marker')).forEach(m => m.remove());
+
+            if (!TIERS || TIERS.length === 0) return;
+            const maxTierValue = TIERS[TIERS.length - 1].value;
+
+            TIERS.forEach((tier, index) => {
+                const isLast = index === TIERS.length - 1;
+                const pct = (tier.value / maxTierValue) * 100;
+
+                const div = document.createElement('div');
+                div.className = 'absolute text-center transition-all duration-300 badge-item';
+                div.style.left = pct + '%';
+                div.style.transform = isLast ? 'translateX(-100%)' : 'translateX(-50%)';
+                div.style.top = '0';
+
+                const imgSrc = season.badgePath + tier.name.toLowerCase() + '.png';
+                const formatValue = tier.value >= 1000 ? (tier.value / 1000) + 'k' : tier.value;
+                const color = tier.color || 'rgba(255,255,255,0.5)';
+
+                div.innerHTML = `
+                    <img src="${imgSrc}" class="w-10 h-10 mx-auto" style="filter: drop-shadow(0 0 5px ${color})" alt="${tier.name}">
+                    <span class="text-[10px] whitespace-nowrap mt-1 block">${tier.name} (${formatValue})</span>
+                `;
+                badgeContainer.appendChild(div);
+
+                const marker = document.createElement('div');
+                marker.className = 'badge-marker';
+                marker.style.left = pct + '%';
+                progressContainer.insertBefore(marker, document.getElementById('main-progress-bar'));
+            });
+        }
+
 
         // ==================== LANGUAGE TOGGLE ====================
         function initLangToggle() {
@@ -728,6 +1071,11 @@
         function applyLanguage() {
             const langMap = { zh: 'zh-CN', en: 'en', ja: 'ja' };
             document.documentElement.lang = langMap[currentLang] || currentLang;
+
+            if (!CURRENT_SEASON_ID || !SEASON_DB[CURRENT_SEASON_ID] || activeSeasonId !== CURRENT_SEASON_ID) {
+                document.getElementById('ph-title').textContent = t('phTitle');
+                document.getElementById('ph-desc').textContent = t('phDesc');
+            }
 
             // Static UI elements
             document.getElementById('page-title').textContent = t('pageTitle');
@@ -750,7 +1098,7 @@
             document.getElementById('footer-formula').textContent = t('footerFormula');
             document.getElementById('label-contact').textContent = t('contactMe');
 
-            // Data Migration
+            // Data Migration & Card UI
             document.getElementById('text-migration').textContent = t('textMigration');
             document.getElementById('btn-share-url').textContent = t('btnShareUrl');
             document.getElementById('btn-export-json').textContent = t('btnExportJson');
@@ -760,9 +1108,34 @@
             document.getElementById('btn-close-modal').textContent = t('btnClose');
             document.getElementById('btn-copy-url').textContent = t('btnCopy');
 
+            document.getElementById('text-card-module').textContent = t('textCardModule');
+            document.getElementById('agent-name-input').placeholder = t('agentPlaceholder');
+            document.getElementById('opt-theme-default').textContent = t('optThemeDefault');
+            document.getElementById('opt-theme-res').textContent = t('optThemeRes');
+            document.getElementById('opt-theme-enl').textContent = t('optThemeEnl');
+            document.getElementById('btn-generate-card').querySelector('span').textContent = t('btnGenerateCard');
+
+            document.getElementById('modal-card-title').textContent = t('modalCardTitle');
+            document.getElementById('modal-card-desc').textContent = t('modalCardDesc');
+            document.getElementById('btn-close-card').textContent = t('btnClose');
+
+            document.getElementById('ctl-bounties').textContent = t('statBounties');
+            document.getElementById('ctl-ifs').textContent = t('statIFS');
+            document.getElementById('ctl-events').textContent = t('statEvents');
+            document.getElementById('ctl-anomaly').textContent = t('statAnomaly');
+
             // Title tag
-            const titleMap = { zh: 'Ingress Orion 赛季计划工具', en: 'Ingress Orion Season Planner', ja: 'Ingress Orion シーズンプランナー' };
-            document.title = titleMap[currentLang] || titleMap.en;
+            const isPlaceholder = document.getElementById('placeholder-view').style.display === 'block';
+            if (isPlaceholder) {
+                document.title = t('phTitle');
+            } else {
+                const titleText = t('pageTitle');
+                const formattedWords = titleText.split(' ').map(w => {
+                    if (!w) return w;
+                    return w.charAt(0).toUpperCase() + w.slice(1).toLowerCase();
+                });
+                document.title = 'Ingress ' + formattedWords.join(' ');
+            }
 
             // Re-render dynamic content
             renderTable();
@@ -779,14 +1152,6 @@
             if (tomorrow > SEASON_END) return 0;
             const diffDays = Math.ceil((SEASON_END - tomorrow) / (1000 * 60 * 60 * 24));
             return Math.max(0, diffDays) * 80;
-        }
-
-        function init() {
-            initLangToggle();
-            initContact();
-            checkHashData();
-            document.getElementById('global-total-actual').value = userData.globalTotal || 0;
-            applyLanguage();
         }
 
         function initContact() {
@@ -945,6 +1310,7 @@
             const nextDiffEl = document.getElementById('next-tier-diff');
             if (!nextTier) {
                 nextDiffEl.innerText = 'MAX';
+                // Using the top tier's name if reached Platinum was specific
                 document.getElementById('next-tier-name').innerText = t('reachedPlatinum');
                 nextDiffEl.className = 'text-3xl font-bold accent-green';
             } else {
@@ -957,8 +1323,17 @@
             let plannedTierMax = [...TIERS].reverse().find(tier => tier.value <= plannedMax);
             document.getElementById('planned-status').innerText = plannedTierMax ? t('maxTierForecast')(plannedTierMax.name) : t('noTierForecast');
 
-            const progressPercent = Math.min((totalActual / 25000) * 100, 100);
+            const maxTierValue = TIERS.length > 0 ? TIERS[TIERS.length - 1].value : 25000;
+            const progressPercent = Math.min((totalActual / maxTierValue) * 100, 100);
             document.getElementById('main-progress-bar').style.width = progressPercent + '%';
+
+            // Motivation Message for Card
+            let earnedTier = [...TIERS].reverse().find(t => totalActual >= t.value);
+            if (earnedTier) {
+                document.getElementById('card-motivation').innerHTML = t('motivationBadge')(earnedTier.name) + ' 🎉';
+            } else {
+                document.getElementById('card-motivation').innerHTML = t('motivationNormal');
+            }
         }
 
         // ==================== MIGRATION LOGIC ====================
@@ -993,8 +1368,8 @@
             }
         }
 
-        function closeShareModal() {
-            document.getElementById('shareModal').style.display = 'none';
+        function closeModal(id) {
+            document.getElementById(id).style.display = 'none';
         }
 
         function copyShareUrl() {
@@ -1071,6 +1446,118 @@
             }
         }
 
+        // ==================== CARD GENERATION ====================
+        async function generateCard() {
+            const agentName = document.getElementById('agent-name-input').value.trim() || 'UNKNOWN AGENT';
+            const theme = document.getElementById('card-theme-select').value;
+
+            // Populate template
+            const template = document.getElementById('card-template');
+            template.className = theme;
+
+            document.getElementById('ct-title-l1').textContent = t('pageSubtitle');
+            document.getElementById('ct-title-l2').textContent = t('pageTitle');
+            document.getElementById('ct-footer-text').textContent = `GENERATED BY ${t('pageTitle').toUpperCase()}`;
+
+            document.getElementById('ct-agent').textContent = agentName;
+
+            const total = userData.globalTotal || 0;
+            document.getElementById('ct-score').textContent = total.toLocaleString();
+
+            let earnedTier = [...TIERS].reverse().find(t => total >= t.value);
+            const badgeImg = document.getElementById('ct-badge');
+            const congratsMsg = document.getElementById('ct-congrats');
+
+            let imgLoadPromise = Promise.resolve();
+
+            if (earnedTier) {
+                const prefix = SEASON_DB[activeSeasonId].badgePath || 'static/orion/';
+                badgeImg.src = `${prefix}${earnedTier.name.toLowerCase()}.png`;
+                badgeImg.style.display = 'block';
+                congratsMsg.textContent = t('congratsCardMsg')(earnedTier.name);
+                congratsMsg.style.display = 'block';
+
+                imgLoadPromise = new Promise((resolve) => {
+                    badgeImg.onload = resolve;
+                    badgeImg.onerror = resolve; // Continue even if image fails
+                });
+            } else {
+                badgeImg.style.display = 'none';
+                congratsMsg.style.display = 'none';
+            }
+
+            // Calculate specific stats with planned data
+            let stats = {
+                ifs: { a: 0, p: 0 },
+                bounties: { a: 0, p: 0 },
+                events: { a: 0, p: 0 },
+                anomaly: { a: userData.activities['anomaly']?.actual || 0, p: userData.activities['anomaly']?.planned || 0 }
+            };
+
+            ACTIVITIES.forEach(act => {
+                const actual = userData.activities[act.id]?.actual || 0;
+                const planned = userData.activities[act.id]?.planned || 0;
+
+                if (act.id.startsWith('ifs')) {
+                    stats.ifs.a += actual;
+                    stats.ifs.p += planned;
+                } else if (act.isBounty) {
+                    stats.bounties.p = act.max; // Use maximum possible tokens for percentage
+                } else if (act.id !== 'anomaly') {
+                    stats.events.a += actual;
+                    stats.events.p += planned;
+                }
+            });
+
+            let otherActualSum = stats.ifs.a + stats.events.a + stats.anomaly.a;
+            stats.bounties.a = Math.max(0, total - otherActualSum);
+
+            function formatStatHTML(a, p, isBounty = false) {
+                if (p > 0) {
+                    const pct = Math.round((a / p) * 100);
+                    const pctText = isBounty ? t('bountyComplete')(pct) : t('pctComplete')(pct);
+                    return `${a.toLocaleString()}<div class="stat-pct">${pctText}</div>`;
+                }
+                return a.toLocaleString();
+            }
+
+            document.getElementById('ct-bounties').innerHTML = formatStatHTML(stats.bounties.a, stats.bounties.p, true);
+            document.getElementById('ct-ifs').innerHTML = formatStatHTML(stats.ifs.a, stats.ifs.p);
+            document.getElementById('ct-events').innerHTML = formatStatHTML(stats.events.a, stats.events.p);
+            document.getElementById('ct-anomaly').innerHTML = formatStatHTML(stats.anomaly.a, stats.anomaly.p);
+
+            // Render
+            const btn = document.getElementById('btn-generate-card');
+            const originalText = btn.querySelector('span').textContent;
+            btn.querySelector('span').textContent = '...';
+            btn.disabled = true;
+
+            try {
+                // Wait for badge image to fully load
+                await imgLoadPromise;
+                // Small delay to ensure DOM updates are flushed before canvas reads it
+                await new Promise(r => setTimeout(r, 50));
+                const canvas = await html2canvas(template, {
+                    scale: 2, // High resolution
+                    backgroundColor: null,
+                    logging: false,
+                    useCORS: true // Ensure images (badges) load
+                });
+
+                const imgData = canvas.toDataURL('image/png');
+                const container = document.getElementById('card-preview-container');
+                container.innerHTML = `<img src="${imgData}" alt="Orion Card">`;
+
+                document.getElementById('cardModal').style.display = 'block';
+            } catch (err) {
+                console.error("Card generation failed", err);
+                alert("Generation failed. Please try again.");
+            } finally {
+                btn.querySelector('span').textContent = originalText;
+                btn.disabled = false;
+            }
+        }
+
         function processImport(data) {
             if (data && (data.allSeasons || data.planner)) {
                 // Handle multi-season format (v4+)
@@ -1092,7 +1579,7 @@
                 }
 
                 localStorage.setItem(GLOBAL_STORAGE_KEY, JSON.stringify(allSeasonsData));
-                userData = allSeasonsData[CURRENT_SEASON_ID] || { globalTotal: 0, activities: {} };
+                userData = allSeasonsData[activeSeasonId] || { globalTotal: 0, activities: {} };
 
                 // Update UI
                 document.getElementById('global-total-actual').value = userData.globalTotal || 0;
