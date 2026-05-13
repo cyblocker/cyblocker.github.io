@@ -800,14 +800,6 @@
                 document.body.style.overflow = 'hidden';
                 const mainContent = document.getElementById('main-content');
                 if (mainContent) mainContent.setAttribute('inert', '');
-            } else {
-                // Only hide migration banner if debug flag is absent
-                const isDebug = urlParams.get('migration_debug') === 'true';
-                if (!isDebug) {
-                    const banner = document.getElementById('migration-banner');
-                    if (banner) banner.style.display = 'none';
-                    // Migration card remains visible
-                }
             }
 
             initLangToggle();
