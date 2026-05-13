@@ -1329,11 +1329,22 @@
             const jsonStr = JSON.stringify(data);
             const compressedData = LZString.compressToEncodedURIComponent(jsonStr);
             const exportString = 'AGENTSKIT_' + compressedData;
-            prompt(t('promptManualExport'), exportString);
 
-            // Mark as migrated after manual export to lock the page
-            localStorage.setItem('status_migrated_2026Q2', 'true');
-            window.location.reload();
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(exportString).then(() => {
+                    alert(t('copySuccess'));
+                    localStorage.setItem('status_migrated_2026Q2', 'true');
+                    window.location.reload();
+                }).catch(() => {
+                    prompt(t('promptManualExport'), exportString);
+                    localStorage.setItem('status_migrated_2026Q2', 'true');
+                    window.location.reload();
+                });
+            } else {
+                prompt(t('promptManualExport'), exportString);
+                localStorage.setItem('status_migrated_2026Q2', 'true');
+                window.location.reload();
+            }
         }
 
         function checkHashData() {
