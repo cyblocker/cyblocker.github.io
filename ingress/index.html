@@ -331,87 +331,6 @@
             object-fit: contain;
         }
 
-        .card-score {
-            font-size: 72px;
-            font-weight: 700;
-            margin-bottom: 30px;
-            font-family: 'Exo 2', sans-serif;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-        }
-
-        .card-congrats {
-            font-size: 18px;
-            font-weight: 600;
-            color: #fbbf24;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-            letter-spacing: 1px;
-        }
-
-        .card-stats {
-            width: 100%;
-            flex-grow: 1;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            align-content: start;
-        }
-
-        .stat-box {
-            background: rgba(0, 0, 0, 0.4);
-            padding: 20px;
-            border-radius: 12px;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .stat-label {
-            font-size: 18px;
-            color: #94a3b8;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .stat-value {
-            font-size: 32px;
-            font-weight: 600;
-        }
-
-        .stat-pct {
-            display: block;
-            font-size: 16px;
-            color: #94a3b8;
-            margin-top: 4px;
-            font-weight: normal;
-        }
-
-        .card-footer {
-            font-size: 14px;
-            color: #64748b;
-            margin-top: auto;
-            text-align: center;
-            letter-spacing: 2px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .card-footer-url {
-            font-size: 16px;
-            opacity: 1;
-            margin-top: 8px;
-            font-weight: bold;
-            letter-spacing: 2px;
-            color: #cbd5e1;
-        }
-
-        #card-preview-container img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-        }
     </style>
 </head>
 
@@ -420,7 +339,22 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KL22WN" height="0" width="0"
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    <div class="max-w-5xl mx-auto">
+    <div id="main-content" class="max-w-5xl mx-auto">
+        <!-- Migration Banner -->
+        <div id="migration-banner"
+            class="bg-blue-900/40 border border-blue-500 rounded-xl p-6 mb-8 text-center shadow-[0_0_20px_rgba(59,130,246,0.2)]">
+            <h2 id="mig-moved-title" class="text-2xl font-bold text-white mb-2">We have moved to Agents Kit!</h2>
+            <p id="mig-moved-desc" class="text-slate-300 mb-6">The Ingress Season Planner is now moved to AgentsKit.org.
+                Please migrate your
+                data to the new site.</p>
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                <button id="btn-migrate-now" onclick="exportToNewSite()"
+                    class="btn-primary px-8 py-3 text-lg font-bold">Migrate Data
+                    Now</button>
+                <button id="btn-manual-export" onclick="manualExportData()" class="btn-outline">Manual Export</button>
+            </div>
+        </div>
+
         <!-- Header -->
         <header class="mb-8 text-center relative z-20">
             <div class="flex justify-end mb-4 items-center gap-2">
@@ -451,7 +385,8 @@
                     <div id="label-input-total" class="text-blue-400 text-sm font-bold mb-2 uppercase"></div>
                     <input type="number" id="global-total-actual"
                         class="text-2xl font-bold bg-transparent border-none text-center focus:ring-0 w-full"
-                        placeholder="" value="0" oninput="updateGlobalTotal(this.value)" onchange="updateGlobalTotal(this.value)">
+                        placeholder="" value="0" oninput="updateGlobalTotal(this.value)"
+                        onchange="updateGlobalTotal(this.value)">
                     <div id="label-input-hint" class="text-[10px] text-slate-500 mt-1"></div>
                 </div>
                 <div class="ingress-card p-4 rounded-xl text-center">
@@ -475,38 +410,6 @@
                 <div id="progress-bar-container" class="progress-bar-container">
                     <!-- Markers are dynamically populated -->
                     <div id="main-progress-bar" class="progress-fill" style="width: 0%"></div>
-                </div>
-            </div>
-
-            <!-- Card Generation -->
-            <div id="card-module" class="ingress-card p-6 rounded-xl mb-8">
-                <h2 id="label-card" class="text-lg font-bold accent-purple mb-2 flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                    <span id="text-card-module"></span>
-                </h2>
-                <p id="card-motivation" class="text-sm text-slate-400 mb-4"></p>
-                <div class="flex flex-col md:flex-row gap-4 items-center">
-                    <input type="text" id="agent-name-input"
-                        class="bg-slate-800 border border-slate-600 rounded px-3 py-2 text-white w-full md:w-auto"
-                        placeholder="Agent Name">
-                    <select id="card-theme-select"
-                        class="bg-slate-800 border border-slate-600 rounded px-3 py-2 text-white w-full md:w-auto">
-                        <option value="theme-default" id="opt-theme-default">Default (Dark)</option>
-                        <option value="theme-res" id="opt-theme-res">Resistance (Blue)</option>
-                        <option value="theme-enl" id="opt-theme-enl">Enlightened (Green)</option>
-                    </select>
-                    <button onclick="generateCard()"
-                        class="btn-primary w-full md:w-auto flex justify-center items-center" id="btn-generate-card">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
-                        </svg>
-                        <span>Generate</span>
-                    </button>
                 </div>
             </div>
 
@@ -534,7 +437,7 @@
         </div> <!-- End tracker-view -->
 
         <!-- Data Migration -->
-        <div class="ingress-card p-6 rounded-xl mb-8">
+        <div id="migration-card" class="ingress-card p-6 rounded-xl mb-8">
             <h2 id="label-migration" class="text-lg font-bold accent-blue mb-4 flex items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor">
@@ -588,52 +491,6 @@
             </div>
         </div>
 
-        <!-- Card Modal -->
-        <div id="cardModal" class="modal">
-            <div class="modal-content ingress-card" style="max-width: 450px;">
-                <h3 id="modal-card-title" class="text-xl font-bold accent-purple mb-2"></h3>
-                <p id="modal-card-desc" class="text-slate-400 text-sm mb-4"></p>
-                <div id="card-preview-container" class="mb-6"></div>
-                <div class="flex gap-2 justify-center">
-                    <button onclick="closeModal('cardModal')" id="btn-close-card" class="btn-outline text-sm"></button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Hidden Card Template -->
-        <div id="card-template" class="theme-default">
-            <div class="card-title">
-                <div class="card-title-l1" id="ct-title-l1"></div>
-                <div class="card-title-l2" id="ct-title-l2"></div>
-            </div>
-            <div class="card-agent" id="ct-agent">AGENT</div>
-            <div class="card-congrats" id="ct-congrats"></div>
-            <img src="" class="card-badge" id="ct-badge" style="display:none;">
-            <div class="card-score" id="ct-score">0</div>
-            <div class="card-stats">
-                <div class="stat-box">
-                    <div class="stat-label" id="ctl-bounties">Bounties</div>
-                    <div class="stat-value" id="ct-bounties">0</div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-label" id="ctl-ifs">IFS</div>
-                    <div class="stat-value" id="ct-ifs">0</div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-label" id="ctl-events">Events & Ops</div>
-                    <div class="stat-value" id="ct-events">0</div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-label" id="ctl-anomaly">Anomaly</div>
-                    <div class="stat-value" id="ct-anomaly">0</div>
-                </div>
-            </div>
-            <div class="card-footer">
-                <div id="ct-footer-text">GENERATED BY PLANNER</div>
-                <div class="card-footer-url">cyblocker.com/ingress</div>
-            </div>
-        </div>
-
         <footer class="text-center text-slate-500 text-sm mb-12">
             <p id="footer-source"></p>
             <p id="footer-formula" class="mt-2 opacity-50"></p>
@@ -642,7 +499,34 @@
                 <a id="email-link" href="#" class="accent-blue hover:underline font-mono ml-1"></a>
             </div>
         </footer>
+    </div> <!-- end main-content -->
+
+    <!-- Migrated Overlay -->
+    <div id="migrated-overlay"
+        class="fixed inset-0 z-[200] bg-slate-900/95 flex flex-col items-center justify-center p-6 text-center"
+        style="display:none; backdrop-filter: blur(8px);">
+        <h1 id="mig-done-title" class="text-4xl font-bold text-green-400 mb-4">Data Migrated!</h1>
+        <p id="mig-done-desc" class="text-xl text-slate-300 mb-8 max-w-lg">Your data has been successfully
+            transferred to Agents Kit.
+            This legacy site is now locked.</p>
+        <div class="flex flex-col gap-4 items-center">
+            <a id="btn-go-to-new-site" href="https://agentskit.org" class="btn-primary text-lg px-8 py-4">Go to
+                Agents Kit</a>
+            <button id="btn-migrate-now-overlay" onclick="exportToNewSite()"
+                class="btn-outline border-blue-500 text-blue-400 hover:bg-blue-900/20 px-8 py-3">Migrate Data
+                Now</button>
+            <div id="mig-backup-hint" class="mt-12 text-sm text-slate-400">If you encountered issues, you can still
+                backup your data:
+            </div>
+            <div class="flex flex-wrap justify-center gap-4">
+                <button id="btn-export-json-file" onclick="exportDataToFile()" class="btn-outline">Export JSON
+                    File</button>
+                <button id="btn-copy-manual-export" onclick="manualExportData()" class="btn-outline">Copy Manual
+                    Export String</button>
+            </div>
+        </div>
     </div>
+
     <script>
         // ==================== I18N ====================
         const I18N = {
@@ -685,30 +569,28 @@
                 invalidData: '无效的数据格式！',
                 wrongSeason: (s) => `此数据属于其他赛季 (${s})，是否仍要导入？`,
                 confirmMergeAllSeasons: '检测到多赛季全量数据，是否覆盖本地所有赛季记录？',
-                textCardModule: '赛季纪念卡片',
-                agentPlaceholder: '特工代号 (Agent Name)',
-                optThemeDefault: '默认 (深色)',
-                optThemeRes: '抵抗军 (蓝色)',
-                optThemeEnl: '启蒙军 (绿色)',
-                btnGenerateCard: '生成纪念卡片',
-                modalCardTitle: '保存纪念卡片',
-                modalCardDesc: '生成完成！电脑上可右键另存为，手机上长按下方图片保存到相册，或分享给朋友。',
                 statBounties: '每日任务',
                 statIFS: 'IFS (First Saturday)',
                 statEvents: '现场活动与行动',
                 statAnomaly: 'Anomaly 现场',
-                pctComplete: (p) => `目标完成 ${p}%`,
-                bountyComplete: (p) => `完成 ${p}%`,
-                congratsCardMsg: (t) => `获得 ${t} 奖牌！`,
-                motivationBadge: (t) => `恭喜您已达成 ${t} 奖牌，快来生成纪念卡片分享一下吧！`,
-                motivationNormal: '赛季即将结束，来生成一张专属您的赛季成绩卡片吧！',
                 startsIn: (t) => `${t} 后开始`,
                 endsIn: (t) => `${t} 后结束`,
                 ended: '已结束',
                 unitDay: '天',
                 unitHour: '小时',
                 unitMinute: '分',
-                max_anomaly: '单项限制见说明'
+                max_anomaly: '单项限制见说明',
+                migMovedTitle: '我们已迁移至 Agents Kit！',
+                migMovedDesc: 'Ingress 赛季计划工具现已迁移至 AgentsKit.org。请将您的数据迁移到新网站。',
+                btnMigrateNow: '立即迁移数据',
+                btnManualExport: '手动导出',
+                migDoneTitle: '数据已迁移！',
+                migDoneDesc: '您的数据已成功转移到 Agents Kit。此旧版网站现已锁定。',
+                btnGoToNewSite: '前往 Agents Kit',
+                migBackupHint: '如果您遇到问题，您仍然可以备份您的数据：',
+                btnExportJsonFile: '导出 JSON 文件',
+                btnCopyManualExport: '复制手动导出文本',
+                promptManualExport: '复制下方文本，并将其粘贴到 Agents Kit 的“手动导入”中：',
             },
             en: {
                 phTitle: 'Ingress Season Planner',
@@ -749,30 +631,28 @@
                 invalidData: 'Invalid data format!',
                 wrongSeason: (s) => `This data belongs to another season (${s}). Import anyway?`,
                 confirmMergeAllSeasons: 'Multi-season data detected. Overwrite all local season records?',
-                textCardModule: 'Commemorative Card',
-                agentPlaceholder: 'Agent Name',
-                optThemeDefault: 'Default (Dark)',
-                optThemeRes: 'Resistance (Blue)',
-                optThemeEnl: 'Enlightened (Green)',
-                btnGenerateCard: 'Generate Card',
-                modalCardTitle: 'Save Commemorative Card',
-                modalCardDesc: 'Card generated! Right-click to save on PC, or long-press the image on mobile devices.',
                 statBounties: 'Bounties',
                 statIFS: 'IFS (First Saturday)',
                 statEvents: 'Events & Ops',
                 statAnomaly: 'Anomaly',
-                pctComplete: (p) => `${p}% of Target`,
-                bountyComplete: (p) => `${p}% Complete`,
-                congratsCardMsg: (t) => `${t} Badge Earned!`,
-                motivationBadge: (t) => `Congratulations on reaching the ${t} badge! Generate a card to share it!`,
-                motivationNormal: 'The season is coming to a close. Generate your personalized commemorative card!',
                 startsIn: (t) => `Starts in ${t}`,
                 endsIn: (t) => `Ends in ${t}`,
                 ended: 'Ended',
                 unitDay: 'd',
                 unitHour: 'h',
                 unitMinute: 'm',
-                max_anomaly: 'See desc for limits'
+                max_anomaly: 'See desc for limits',
+                migMovedTitle: 'We have moved to Agents Kit!',
+                migMovedDesc: 'The Ingress Season Planner is now moved to AgentsKit.org. Please migrate your data to the new site.',
+                btnMigrateNow: 'Migrate Data Now',
+                btnManualExport: 'Manual Export',
+                migDoneTitle: 'Data Migrated!',
+                migDoneDesc: 'Your data has been successfully transferred to Agents Kit. This legacy site is now locked.',
+                btnGoToNewSite: 'Go to Agents Kit',
+                migBackupHint: 'If you encountered issues, you can still backup your data:',
+                btnExportJsonFile: 'Export JSON File',
+                btnCopyManualExport: 'Copy Manual Export String',
+                promptManualExport: 'Copy the string below and paste it in the Manual Import section on Agents Kit:',
             },
             ja: {
                 phTitle: 'Ingress シーズンプランナー',
@@ -813,30 +693,28 @@
                 invalidData: '無効なデータ形式です！',
                 wrongSeason: (s) => `このデータは別のシーズン (${s}) のものです。インポートしますか？`,
                 confirmMergeAllSeasons: '複数シーズンのデータを検出しました。ローカルの全記録を上書きしますか？',
-                textCardModule: '記念カード生成',
-                agentPlaceholder: 'エージェント名 (AG)',
-                optThemeDefault: 'デフォルト (ダーク)',
-                optThemeRes: 'レジスタンス (青)',
-                optThemeEnl: 'エンライテンド (緑)',
-                btnGenerateCard: 'カードを生成',
-                modalCardTitle: '記念カードを保存',
-                modalCardDesc: '生成完了！PCでは右クリック、スマートフォンでは画像を長押しして保存してください。',
                 statBounties: 'デイリーバウンティ',
                 statIFS: 'IFS (First Saturday)',
                 statEvents: 'イベント & OP',
                 statAnomaly: 'アノマリー',
-                pctComplete: (p) => `計画達成率 ${p}%`,
-                bountyComplete: (p) => `達成率 ${p}%`,
-                congratsCardMsg: (t) => `${t} メダル獲得！`,
-                motivationBadge: (t) => `${t} メダル獲得おめでとうございます！記念カードを生成してシェアしましょう！`,
-                motivationNormal: 'シーズンが終了に近づいています。あなただけの記念カードを作りましょう！',
                 startsIn: (t) => `あと ${t} で開始`,
                 endsIn: (t) => `あと ${t} で終了`,
                 ended: '終了',
                 unitDay: '日',
                 unitHour: '時間',
                 unitMinute: '分',
-                max_anomaly: '詳細は説明を参照'
+                max_anomaly: '詳細は説明を参照',
+                migMovedTitle: 'Agents Kit に移行しました！',
+                migMovedDesc: 'Ingress シーズンプランナーは AgentsKit.org に移行しました。新しいサイトへデータを移行してください。',
+                btnMigrateNow: '今すぐデータを移行',
+                btnManualExport: '手動エクスポート',
+                migDoneTitle: 'データ移行完了！',
+                migDoneDesc: 'データは Agents Kit に正常に転送されました。この旧サイトはロックされています。',
+                btnGoToNewSite: 'Agents Kit へ行く',
+                migBackupHint: '問題が発生した場合は、引き続きデータをバックアップできます：',
+                btnExportJsonFile: 'JSON ファイルをエクスポート',
+                btnCopyManualExport: '手動エクスポート用の文字列をコピー',
+                promptManualExport: '以下の文字列をコピーし、Agents Kit の「手動インポート」セクションに貼り付けてください：',
             }
         };
 
@@ -912,6 +790,28 @@
         loadAllSeasonsData();
 
         function init() {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('request_export') === 'true') {
+                exportToNewSite();
+                return;
+            }
+
+            if (localStorage.getItem('status_migrated_2026Q2') === 'true') {
+                document.getElementById('migrated-overlay').style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+                const mainContent = document.getElementById('main-content');
+                if (mainContent) mainContent.setAttribute('inert', '');
+            } else {
+                // Only show migration UI if debug flag is present
+                const isDebug = urlParams.get('migration_debug') === 'true';
+                if (!isDebug) {
+                    const banner = document.getElementById('migration-banner');
+                    if (banner) banner.style.display = 'none';
+                    const card = document.getElementById('migration-card');
+                    if (card) card.style.display = 'none';
+                }
+            }
+
             initLangToggle();
             initContact();
             checkHashData();
@@ -1098,7 +998,7 @@
             document.getElementById('footer-formula').textContent = t('footerFormula');
             document.getElementById('label-contact').textContent = t('contactMe');
 
-            // Data Migration & Card UI
+            // Data Migration UI
             document.getElementById('text-migration').textContent = t('textMigration');
             document.getElementById('btn-share-url').textContent = t('btnShareUrl');
             document.getElementById('btn-export-json').textContent = t('btnExportJson');
@@ -1108,21 +1008,17 @@
             document.getElementById('btn-close-modal').textContent = t('btnClose');
             document.getElementById('btn-copy-url').textContent = t('btnCopy');
 
-            document.getElementById('text-card-module').textContent = t('textCardModule');
-            document.getElementById('agent-name-input').placeholder = t('agentPlaceholder');
-            document.getElementById('opt-theme-default').textContent = t('optThemeDefault');
-            document.getElementById('opt-theme-res').textContent = t('optThemeRes');
-            document.getElementById('opt-theme-enl').textContent = t('optThemeEnl');
-            document.getElementById('btn-generate-card').querySelector('span').textContent = t('btnGenerateCard');
-
-            document.getElementById('modal-card-title').textContent = t('modalCardTitle');
-            document.getElementById('modal-card-desc').textContent = t('modalCardDesc');
-            document.getElementById('btn-close-card').textContent = t('btnClose');
-
-            document.getElementById('ctl-bounties').textContent = t('statBounties');
-            document.getElementById('ctl-ifs').textContent = t('statIFS');
-            document.getElementById('ctl-events').textContent = t('statEvents');
-            document.getElementById('ctl-anomaly').textContent = t('statAnomaly');
+            const elMigMovedTitle = document.getElementById('mig-moved-title'); if (elMigMovedTitle) elMigMovedTitle.textContent = t('migMovedTitle');
+            const elMigMovedDesc = document.getElementById('mig-moved-desc'); if (elMigMovedDesc) elMigMovedDesc.textContent = t('migMovedDesc');
+            const elBtnMigrateNow = document.getElementById('btn-migrate-now'); if (elBtnMigrateNow) elBtnMigrateNow.textContent = t('btnMigrateNow');
+            const elBtnMigrateNowOverlay = document.getElementById('btn-migrate-now-overlay'); if (elBtnMigrateNowOverlay) elBtnMigrateNowOverlay.textContent = t('btnMigrateNow');
+            const elBtnManualExport = document.getElementById('btn-manual-export'); if (elBtnManualExport) elBtnManualExport.textContent = t('btnManualExport');
+            const elMigDoneTitle = document.getElementById('mig-done-title'); if (elMigDoneTitle) elMigDoneTitle.textContent = t('migDoneTitle');
+            const elMigDoneDesc = document.getElementById('mig-done-desc'); if (elMigDoneDesc) elMigDoneDesc.textContent = t('migDoneDesc');
+            const elBtnGoToNewSite = document.getElementById('btn-go-to-new-site'); if (elBtnGoToNewSite) elBtnGoToNewSite.textContent = t('btnGoToNewSite');
+            const elMigBackupHint = document.getElementById('mig-backup-hint'); if (elMigBackupHint) elMigBackupHint.textContent = t('migBackupHint');
+            const elBtnExportJsonFile = document.getElementById('btn-export-json-file'); if (elBtnExportJsonFile) elBtnExportJsonFile.textContent = t('btnExportJsonFile');
+            const elBtnCopyManualExport = document.getElementById('btn-copy-manual-export'); if (elBtnCopyManualExport) elBtnCopyManualExport.textContent = t('btnCopyManualExport');
 
             // Title tag
             const isPlaceholder = document.getElementById('placeholder-view').style.display === 'block';
@@ -1327,13 +1223,7 @@
             const progressPercent = Math.min((totalActual / maxTierValue) * 100, 100);
             document.getElementById('main-progress-bar').style.width = progressPercent + '%';
 
-            // Motivation Message for Card
-            let earnedTier = [...TIERS].reverse().find(t => totalActual >= t.value);
-            if (earnedTier) {
-                document.getElementById('card-motivation').innerHTML = t('motivationBadge')(earnedTier.name) + ' 🎉';
-            } else {
-                document.getElementById('card-motivation').innerHTML = t('motivationNormal');
-            }
+            document.getElementById('main-progress-bar').style.width = progressPercent + '%';
         }
 
         // ==================== MIGRATION LOGIC ====================
@@ -1348,7 +1238,7 @@
             };
             const jsonStr = JSON.stringify(data);
             const compressedData = LZString.compressToEncodedURIComponent(jsonStr);
-            const url = window.location.origin + window.location.pathname + '#data=' + compressedData;
+            const url = 'https://agentskit.org/#migration=' + compressedData;
 
             document.getElementById('share-url').textContent = url;
             document.getElementById('shareModal').style.display = 'block';
@@ -1414,6 +1304,38 @@
             event.target.value = ''; // Reset input
         }
 
+        function exportToNewSite() {
+            const data = {
+                v: 4,
+                currentSeasonId: CURRENT_SEASON_ID,
+                lang: currentLang,
+                allSeasons: allSeasonsData
+            };
+            const jsonStr = JSON.stringify(data);
+            const compressedData = LZString.compressToEncodedURIComponent(jsonStr);
+            const targetUrl = 'https://agentskit.org/#migration=' + compressedData;
+
+            localStorage.setItem('status_migrated_2026Q2', 'true');
+            window.location.href = targetUrl;
+        }
+
+        function manualExportData() {
+            const data = {
+                v: 4,
+                currentSeasonId: CURRENT_SEASON_ID,
+                lang: currentLang,
+                allSeasons: allSeasonsData
+            };
+            const jsonStr = JSON.stringify(data);
+            const compressedData = LZString.compressToEncodedURIComponent(jsonStr);
+            const exportString = 'AGENTSKIT_' + compressedData;
+            prompt(t('promptManualExport'), exportString);
+
+            // Mark as migrated after manual export to lock the page
+            localStorage.setItem('status_migrated_2026Q2', 'true');
+            window.location.reload();
+        }
+
         function checkHashData() {
             const hash = window.location.hash;
             if (hash.startsWith('#data=')) {
@@ -1443,118 +1365,6 @@
                 } catch (err) {
                     console.error('Failed to parse hash data', err);
                 }
-            }
-        }
-
-        // ==================== CARD GENERATION ====================
-        async function generateCard() {
-            const agentName = document.getElementById('agent-name-input').value.trim() || 'UNKNOWN AGENT';
-            const theme = document.getElementById('card-theme-select').value;
-
-            // Populate template
-            const template = document.getElementById('card-template');
-            template.className = theme;
-
-            document.getElementById('ct-title-l1').textContent = t('pageSubtitle');
-            document.getElementById('ct-title-l2').textContent = t('pageTitle');
-            document.getElementById('ct-footer-text').textContent = `GENERATED BY ${t('pageTitle').toUpperCase()}`;
-
-            document.getElementById('ct-agent').textContent = agentName;
-
-            const total = userData.globalTotal || 0;
-            document.getElementById('ct-score').textContent = total.toLocaleString();
-
-            let earnedTier = [...TIERS].reverse().find(t => total >= t.value);
-            const badgeImg = document.getElementById('ct-badge');
-            const congratsMsg = document.getElementById('ct-congrats');
-
-            let imgLoadPromise = Promise.resolve();
-
-            if (earnedTier) {
-                const prefix = SEASON_DB[activeSeasonId].badgePath || 'static/orion/';
-                badgeImg.src = `${prefix}${earnedTier.name.toLowerCase()}.png`;
-                badgeImg.style.display = 'block';
-                congratsMsg.textContent = t('congratsCardMsg')(earnedTier.name);
-                congratsMsg.style.display = 'block';
-
-                imgLoadPromise = new Promise((resolve) => {
-                    badgeImg.onload = resolve;
-                    badgeImg.onerror = resolve; // Continue even if image fails
-                });
-            } else {
-                badgeImg.style.display = 'none';
-                congratsMsg.style.display = 'none';
-            }
-
-            // Calculate specific stats with planned data
-            let stats = {
-                ifs: { a: 0, p: 0 },
-                bounties: { a: 0, p: 0 },
-                events: { a: 0, p: 0 },
-                anomaly: { a: userData.activities['anomaly']?.actual || 0, p: userData.activities['anomaly']?.planned || 0 }
-            };
-
-            ACTIVITIES.forEach(act => {
-                const actual = userData.activities[act.id]?.actual || 0;
-                const planned = userData.activities[act.id]?.planned || 0;
-
-                if (act.id.startsWith('ifs')) {
-                    stats.ifs.a += actual;
-                    stats.ifs.p += planned;
-                } else if (act.isBounty) {
-                    stats.bounties.p = act.max; // Use maximum possible tokens for percentage
-                } else if (act.id !== 'anomaly') {
-                    stats.events.a += actual;
-                    stats.events.p += planned;
-                }
-            });
-
-            let otherActualSum = stats.ifs.a + stats.events.a + stats.anomaly.a;
-            stats.bounties.a = Math.max(0, total - otherActualSum);
-
-            function formatStatHTML(a, p, isBounty = false) {
-                if (p > 0) {
-                    const pct = Math.round((a / p) * 100);
-                    const pctText = isBounty ? t('bountyComplete')(pct) : t('pctComplete')(pct);
-                    return `${a.toLocaleString()}<div class="stat-pct">${pctText}</div>`;
-                }
-                return a.toLocaleString();
-            }
-
-            document.getElementById('ct-bounties').innerHTML = formatStatHTML(stats.bounties.a, stats.bounties.p, true);
-            document.getElementById('ct-ifs').innerHTML = formatStatHTML(stats.ifs.a, stats.ifs.p);
-            document.getElementById('ct-events').innerHTML = formatStatHTML(stats.events.a, stats.events.p);
-            document.getElementById('ct-anomaly').innerHTML = formatStatHTML(stats.anomaly.a, stats.anomaly.p);
-
-            // Render
-            const btn = document.getElementById('btn-generate-card');
-            const originalText = btn.querySelector('span').textContent;
-            btn.querySelector('span').textContent = '...';
-            btn.disabled = true;
-
-            try {
-                // Wait for badge image to fully load
-                await imgLoadPromise;
-                // Small delay to ensure DOM updates are flushed before canvas reads it
-                await new Promise(r => setTimeout(r, 50));
-                const canvas = await html2canvas(template, {
-                    scale: 2, // High resolution
-                    backgroundColor: null,
-                    logging: false,
-                    useCORS: true // Ensure images (badges) load
-                });
-
-                const imgData = canvas.toDataURL('image/png');
-                const container = document.getElementById('card-preview-container');
-                container.innerHTML = `<img src="${imgData}" alt="Orion Card">`;
-
-                document.getElementById('cardModal').style.display = 'block';
-            } catch (err) {
-                console.error("Card generation failed", err);
-                alert("Generation failed. Please try again.");
-            } finally {
-                btn.querySelector('span').textContent = originalText;
-                btn.disabled = false;
             }
         }
 
