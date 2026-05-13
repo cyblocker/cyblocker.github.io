@@ -330,7 +330,6 @@
             filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.2));
             object-fit: contain;
         }
-
     </style>
 </head>
 
@@ -802,13 +801,12 @@
                 const mainContent = document.getElementById('main-content');
                 if (mainContent) mainContent.setAttribute('inert', '');
             } else {
-                // Only show migration UI if debug flag is present
+                // Only hide migration banner if debug flag is absent
                 const isDebug = urlParams.get('migration_debug') === 'true';
                 if (!isDebug) {
                     const banner = document.getElementById('migration-banner');
                     if (banner) banner.style.display = 'none';
-                    const card = document.getElementById('migration-card');
-                    if (card) card.style.display = 'none';
+                    // Migration card remains visible
                 }
             }
 
