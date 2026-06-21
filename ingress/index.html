@@ -503,7 +503,15 @@
     <!-- Migrated Overlay -->
     <div id="migrated-overlay"
         class="fixed inset-0 z-[200] bg-slate-900/95 flex flex-col items-center justify-center p-6 text-center"
-        style="display:none; backdrop-filter: blur(8px);">
+        style="display:flex; backdrop-filter: blur(8px);">
+        <!-- Language Toggle in Overlay -->
+        <div class="absolute top-4 right-4 z-[210]">
+            <div class="lang-toggle bg-slate-950/80">
+                <button class="lang-btn active" data-lang="zh">中文</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="ja">日本語</button>
+            </div>
+        </div>
         <h1 id="mig-done-title" class="text-4xl font-bold text-green-400 mb-4">Data Migrated!</h1>
         <p id="mig-done-desc" class="text-xl text-slate-300 mb-8 max-w-lg">Your data has been successfully
             transferred to Agents Kit.
@@ -799,12 +807,11 @@
                 return;
             }
 
-            if (localStorage.getItem('status_migrated_2026Q2') === 'true') {
-                document.getElementById('migrated-overlay').style.display = 'flex';
-                document.body.style.overflow = 'hidden';
-                const mainContent = document.getElementById('main-content');
-                if (mainContent) mainContent.setAttribute('inert', '');
-            }
+            // Always show the migrated overlay as we are ramping down the site
+            document.getElementById('migrated-overlay').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            const mainContent = document.getElementById('main-content');
+            if (mainContent) mainContent.setAttribute('inert', '');
 
             initLangToggle();
             initContact();
@@ -950,14 +957,18 @@
 
         // ==================== LANGUAGE TOGGLE ====================
         function initLangToggle() {
-            const toggle = document.getElementById('lang-toggle');
-            toggle.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.classList.toggle('active', btn.dataset.lang === currentLang);
-                btn.addEventListener('click', () => {
-                    currentLang = btn.dataset.lang;
-                    localStorage.setItem('ingress_orion_lang', currentLang);
-                    toggle.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === currentLang));
-                    applyLanguage();
+            const toggles = document.querySelectorAll('.lang-toggle');
+            toggles.forEach(toggle => {
+                toggle.querySelectorAll('.lang-btn').forEach(btn => {
+                    btn.classList.toggle('active', btn.dataset.lang === currentLang);
+                    btn.addEventListener('click', () => {
+                        currentLang = btn.dataset.lang;
+                        localStorage.setItem('ingress_orion_lang', currentLang);
+                        toggles.forEach(t => {
+                            t.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === currentLang));
+                        });
+                        applyLanguage();
+                    });
                 });
             });
         }
@@ -1007,8 +1018,24 @@
             const elBtnMigrateNow = document.getElementById('btn-migrate-now'); if (elBtnMigrateNow) elBtnMigrateNow.textContent = t('btnMigrateNow');
             const elBtnMigrateNowOverlay = document.getElementById('btn-migrate-now-overlay'); if (elBtnMigrateNowOverlay) elBtnMigrateNowOverlay.textContent = t('btnMigrateNow');
             const elBtnManualExport = document.getElementById('btn-manual-export'); if (elBtnManualExport) elBtnManualExport.textContent = t('btnManualExport');
-            const elMigDoneTitle = document.getElementById('mig-done-title'); if (elMigDoneTitle) elMigDoneTitle.textContent = t('migDoneTitle');
-            const elMigDoneDesc = document.getElementById('mig-done-desc'); if (elMigDoneDesc) elMigDoneDesc.textContent = t('migDoneDesc');
+
+            const isMigrated = localStorage.getItem('status_migrated_2026Q2') === 'true';
+            const elMigDoneTitle = document.getElementById('mig-done-title');
+            if (elMigDoneTitle) {
+                elMigDoneTitle.textContent = isMigrated ? t('migDoneTitle') : t('migMovedTitle');
+                if (isMigrated) {
+                    elMigDoneTitle.classList.remove('text-blue-400');
+                    elMigDoneTitle.classList.add('text-green-400');
+                } else {
+                    elMigDoneTitle.classList.remove('text-green-400');
+                    elMigDoneTitle.classList.add('text-blue-400');
+                }
+            }
+            const elMigDoneDesc = document.getElementById('mig-done-desc');
+            if (elMigDoneDesc) {
+                elMigDoneDesc.textContent = isMigrated ? t('migDoneDesc') : t('migMovedDesc');
+            }
+
             const elBtnGoToNewSite = document.getElementById('btn-go-to-new-site'); if (elBtnGoToNewSite) elBtnGoToNewSite.textContent = t('btnGoToNewSite');
             const elMigBackupHint = document.getElementById('mig-backup-hint'); if (elMigBackupHint) elMigBackupHint.textContent = t('migBackupHint');
             const elBtnExportJsonFile = document.getElementById('btn-export-json-file'); if (elBtnExportJsonFile) elBtnExportJsonFile.textContent = t('btnExportJsonFile');
@@ -1030,7 +1057,7 @@
             }
 
             const elLabelContactOverlay = document.getElementById('label-contact-overlay'); if (elLabelContactOverlay) elLabelContactOverlay.textContent = t('contactMe');
-            
+
             // Re-render dynamic content
             renderTable();
             calculate();
@@ -1052,13 +1079,13 @@
             // Obfuscated email to prevent simple scrapers
             const parts = [105, 110, 103, 114, 101, 115, 115, 64, 99, 121, 98, 108, 111, 99, 107, 101, 114, 46, 99, 111, 109];
             const email = parts.map(c => String.fromCharCode(c)).join('');
-            
+
             const el = document.getElementById('email-link');
             if (el) {
                 el.href = 'mailto:' + email;
                 el.textContent = email;
             }
-            
+
             const elOverlay = document.getElementById('email-link-overlay');
             if (elOverlay) {
                 elOverlay.href = 'mailto:' + email;
