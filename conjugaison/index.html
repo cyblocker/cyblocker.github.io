@@ -1,0 +1,3397 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>法语动词变位速查 • Édito A1 | cyblocker</title>
+<meta name="description" content="3秒看懂法语现在时动词变位动作与 Anki 模板词锚点（Édito A1）">
+<link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem('conjugaison-theme');
+    if (saved === 'light' || saved === 'dark') {
+      document.documentElement.setAttribute('data-theme', saved);
+    }
+  } catch (e) {}
+})();
+</script>
+<style>
+:root {
+  --bg: #f6f7fb;
+  --surface: #ffffff;
+  --surface-2: #f0f3f9;
+  --surface-3: #e7ecf6;
+  --text: #151b2b;
+  --text-soft: #43506c;
+  --muted: #64718d;
+  --border: #dce2ee;
+  --border-strong: #c4cde0;
+  --accent: #2457d6;
+  --accent-bg: rgba(36, 87, 214, 0.10);
+  --accent-border: rgba(36, 87, 214, 0.28);
+
+  --anki-bg: #eef2ff;
+  --anki-fg: #2b45b8;
+  --anki-bd: #c7d4ff;
+
+  --star-bg: #fef7e6;
+  --star-fg: #9a5b00;
+  --star-bd: #f5d88b;
+
+  --cut-bg: rgba(225, 29, 72, 0.12);
+  --cut-fg: #be123c;
+  --cut-line: #e11d48;
+
+  --s1-bg: rgba(37, 99, 235, 0.13);
+  --s1-fg: #1d4ed8;
+  --s1-bd: rgba(37, 99, 235, 0.32);
+
+  --s2-bg: rgba(13, 148, 136, 0.13);
+  --s2-fg: #0f766e;
+  --s2-bd: rgba(13, 148, 136, 0.34);
+
+  --s3-bg: rgba(217, 119, 6, 0.14);
+  --s3-fg: #b45309;
+  --s3-bd: rgba(217, 119, 6, 0.35);
+
+  --ext-bg: rgba(124, 58, 237, 0.12);
+  --ext-fg: #6d28d9;
+
+  --irr-bg: rgba(225, 29, 72, 0.12);
+  --irr-fg: #be123c;
+  --irr-bd: rgba(225, 29, 72, 0.34);
+
+  --boot-bg: rgba(36, 87, 214, 0.055);
+  --boot-bd: rgba(36, 87, 214, 0.24);
+
+  --match-bg: rgba(234, 179, 8, 0.16);
+  --match-bd: #d97706;
+
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
+  --shadow-md: 0 6px 20px rgba(15, 23, 42, 0.07);
+  --radius-lg: 16px;
+  --radius-md: 12px;
+  --radius-sm: 8px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0c111d;
+    --surface: #131b2c;
+    --surface-2: #192438;
+    --surface-3: #22304a;
+    --text: #eef2fb;
+    --text-soft: #c5d0e6;
+    --muted: #8f9db8;
+    --border: #25334d;
+    --border-strong: #36496b;
+    --accent: #6ea0ff;
+    --accent-bg: rgba(110, 160, 255, 0.15);
+    --accent-border: rgba(110, 160, 255, 0.35);
+
+    --anki-bg: rgba(99, 132, 255, 0.16);
+    --anki-fg: #a9c2ff;
+    --anki-bd: rgba(128, 156, 255, 0.32);
+
+    --star-bg: rgba(245, 158, 11, 0.15);
+    --star-fg: #fcd34d;
+    --star-bd: rgba(245, 158, 11, 0.34);
+
+    --cut-bg: rgba(251, 113, 133, 0.17);
+    --cut-fg: #fda4af;
+    --cut-line: #fb7185;
+
+    --s1-bg: rgba(96, 165, 250, 0.18);
+    --s1-fg: #93c5fd;
+    --s1-bd: rgba(96, 165, 250, 0.36);
+
+    --s2-bg: rgba(45, 212, 191, 0.17);
+    --s2-fg: #5eead4;
+    --s2-bd: rgba(45, 212, 191, 0.36);
+
+    --s3-bg: rgba(251, 191, 36, 0.18);
+    --s3-fg: #fcd34d;
+    --s3-bd: rgba(251, 191, 36, 0.38);
+
+    --ext-bg: rgba(192, 132, 252, 0.18);
+    --ext-fg: #d8b4fe;
+
+    --irr-bg: rgba(251, 113, 133, 0.17);
+    --irr-fg: #fda4af;
+    --irr-bd: rgba(251, 113, 133, 0.36);
+
+    --boot-bg: rgba(110, 160, 255, 0.08);
+    --boot-bd: rgba(110, 160, 255, 0.30);
+
+    --match-bg: rgba(250, 204, 21, 0.16);
+    --match-bd: #fbbf24;
+
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.38);
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #0c111d;
+  --surface: #131b2c;
+  --surface-2: #192438;
+  --surface-3: #22304a;
+  --text: #eef2fb;
+  --text-soft: #c5d0e6;
+  --muted: #8f9db8;
+  --border: #25334d;
+  --border-strong: #36496b;
+  --accent: #6ea0ff;
+  --accent-bg: rgba(110, 160, 255, 0.15);
+  --accent-border: rgba(110, 160, 255, 0.35);
+
+  --anki-bg: rgba(99, 132, 255, 0.16);
+  --anki-fg: #a9c2ff;
+  --anki-bd: rgba(128, 156, 255, 0.32);
+
+  --star-bg: rgba(245, 158, 11, 0.15);
+  --star-fg: #fcd34d;
+  --star-bd: rgba(245, 158, 11, 0.34);
+
+  --cut-bg: rgba(251, 113, 133, 0.17);
+  --cut-fg: #fda4af;
+  --cut-line: #fb7185;
+
+  --s1-bg: rgba(96, 165, 250, 0.18);
+  --s1-fg: #93c5fd;
+  --s1-bd: rgba(96, 165, 250, 0.36);
+
+  --s2-bg: rgba(45, 212, 191, 0.17);
+  --s2-fg: #5eead4;
+  --s2-bd: rgba(45, 212, 191, 0.36);
+
+  --s3-bg: rgba(251, 191, 36, 0.18);
+  --s3-fg: #fcd34d;
+  --s3-bd: rgba(251, 191, 36, 0.38);
+
+  --ext-bg: rgba(192, 132, 252, 0.18);
+  --ext-fg: #d8b4fe;
+
+  --irr-bg: rgba(251, 113, 133, 0.17);
+  --irr-fg: #fda4af;
+  --irr-bd: rgba(251, 113, 133, 0.36);
+
+  --boot-bg: rgba(110, 160, 255, 0.08);
+  --boot-bd: rgba(110, 160, 255, 0.30);
+
+  --match-bg: rgba(250, 204, 21, 0.16);
+  --match-bd: #fbbf24;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.38);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.45;
+  overflow-x: clip;
+}
+
+button, input {
+  font: inherit;
+  color: inherit;
+}
+
+.wrap {
+  max-width: 1260px;
+  margin: 0 auto;
+  padding: 12px 12px 44px;
+}
+
+@media (min-width: 640px) {
+  .wrap {
+    padding: 18px 20px 56px;
+  }
+}
+
+/* Header */
+.topbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 12px;
+  margin-bottom: 10px;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.brand-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.brand h1 {
+  margin: 0;
+  font-size: clamp(1.12rem, 4.2vw, 1.55rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.fr-flag {
+  display: inline-flex;
+  width: 18px;
+  height: 12px;
+  border-radius: 3px;
+  overflow: hidden;
+  border: 1px solid var(--border-strong);
+  flex-shrink: 0;
+}
+.fr-flag span { flex: 1; }
+.fr-flag .b { background: #1d4ed8; }
+.fr-flag .w { background: #f8fafc; }
+.fr-flag .r { background: #dc2626; }
+
+.subtitle {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-soft);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.15s, background 0.15s, transform 0.1s;
+}
+.pill-btn:hover {
+  border-color: var(--border-strong);
+  background: var(--surface-2);
+}
+.pill-btn:active {
+  transform: scale(0.98);
+}
+
+/* Sticky Search & Filter Bar */
+.sticky-controls {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: var(--bg);
+  padding: 8px 0 10px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 14px;
+}
+
+.search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 13px;
+  font-size: 0.95rem;
+  color: var(--muted);
+  pointer-events: none;
+}
+
+#searchInput {
+  width: 100%;
+  padding: 10px 38px 10px 36px;
+  border-radius: 12px;
+  border: 1.5px solid var(--border-strong);
+  background: var(--surface);
+  font-size: 0.96rem;
+  font-weight: 500;
+  box-shadow: var(--shadow-sm);
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+#searchInput:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-bg);
+}
+
+#searchInput::placeholder {
+  color: var(--muted);
+  font-size: 0.86rem;
+  font-weight: 400;
+}
+
+#clearSearch {
+  position: absolute;
+  right: 8px;
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  border: none;
+  background: var(--surface-3);
+  color: var(--text-soft);
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+#clearSearch.visible {
+  display: inline-flex;
+}
+
+.quick-examples {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 7px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding-bottom: 2px;
+}
+.quick-examples::-webkit-scrollbar { display: none; }
+
+.quick-label {
+  font-size: 0.72rem;
+  color: var(--muted);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.ex-chip {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-soft);
+  border-radius: 999px;
+  padding: 2px 9px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.ex-chip:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.filter-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px 6px;
+  margin-top: 8px;
+}
+
+.filter-tab {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-soft);
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 0.77rem;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+.filter-tab:hover {
+  background: var(--surface-2);
+}
+.filter-tab.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #ffffff;
+}
+
+.filter-count {
+  margin-left: auto;
+  font-size: 0.74rem;
+  color: var(--muted);
+  white-space: nowrap;
+  padding-left: 4px;
+}
+
+/* Search Diagnostic Banner */
+#searchDiag {
+  display: none;
+  margin-top: 8px;
+  padding: 9px 11px;
+  border-radius: 12px;
+  background: var(--surface);
+  border: 1.5px solid var(--accent-border);
+  box-shadow: var(--shadow-sm);
+}
+#searchDiag.visible {
+  display: block;
+}
+
+.diag-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.diag-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.diag-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px 7px;
+  font-size: 0.82rem;
+  padding: 5px 8px;
+  border-radius: 8px;
+  background: var(--surface-2);
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+.diag-item:hover {
+  border-color: var(--accent-border);
+}
+.diag-verb {
+  font-weight: 800;
+  color: var(--text);
+}
+.diag-arrow {
+  color: var(--muted);
+}
+.diag-rule {
+  color: var(--text-soft);
+}
+.diag-tpl {
+  font-size: 0.74rem;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: var(--anki-bg);
+  color: var(--anki-fg);
+  border: 1px solid var(--anki-bd);
+}
+.diag-tpl.is-star {
+  background: var(--star-bg);
+  color: var(--star-fg);
+  border-color: var(--star-bd);
+}
+
+.diag-reset-filter {
+  border: 1px solid var(--accent-border);
+  background: var(--accent-bg);
+  color: var(--accent);
+  border-radius: 999px;
+  padding: 2px 9px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Master Keys */
+.keys-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+@media (min-width: 860px) {
+  .keys-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+details.key-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+details.key-card summary {
+  list-style: none;
+  padding: 11px 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  user-select: none;
+}
+details.key-card summary::-webkit-details-marker {
+  display: none;
+}
+
+.key-sum-main {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.key-sum-title {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.key-sum-sub {
+  font-size: 0.77rem;
+  color: var(--muted);
+}
+
+.key-chevron {
+  font-size: 0.75rem;
+  color: var(--muted);
+  padding: 3px 7px;
+  border-radius: 999px;
+  background: var(--surface-2);
+  flex-shrink: 0;
+  margin-top: 2px;
+  transition: transform 0.15s;
+}
+details.key-card[open] .key-chevron {
+  transform: rotate(180deg);
+}
+
+.key-body {
+  padding: 0 14px 14px;
+  border-top: 1px solid var(--border);
+  font-size: 0.82rem;
+  color: var(--text-soft);
+}
+
+.key-bullets {
+  margin: 10px 0 0;
+  padding-left: 17px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.exc-boxes {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  margin-top: 10px;
+}
+@media (min-width: 520px) {
+  .exc-boxes {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.exc-box {
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: var(--irr-bg);
+  border: 1px solid var(--irr-bd);
+}
+.exc-box-title {
+  font-size: 0.74rem;
+  font-weight: 800;
+  color: var(--irr-fg);
+  margin-bottom: 4px;
+}
+.exc-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.exc-chip {
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--irr-bd);
+  cursor: pointer;
+}
+
+/* Key 2 Mini Boot Grid */
+.mini-boot-wrap {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  align-items: center;
+}
+@media (min-width: 500px) {
+  .mini-boot-wrap {
+    grid-template-columns: 1.05fr 1fr;
+  }
+}
+
+.mini-boot-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(3, auto);
+  grid-auto-flow: column;
+  gap: 5px;
+  padding: 8px;
+  border-radius: 12px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+}
+
+.mb-cell {
+  padding: 5px 8px;
+  border-radius: 8px;
+  font-size: 0.76rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4px;
+}
+.mb-cell.in-boot {
+  background: var(--s1-bg);
+  border: 1px solid var(--s1-bd);
+  color: var(--text);
+  font-weight: 700;
+}
+.mb-cell.in-boot.mb-3p {
+  background: var(--s3-bg);
+  border-color: var(--s3-bd);
+}
+.mb-cell.out-boot {
+  background: var(--s2-bg);
+  border: 1px dashed var(--s2-bd);
+  color: var(--text-soft);
+}
+.mb-p {
+  font-size: 0.68rem;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.mini-boot-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.78rem;
+}
+
+/* Section Blocks */
+.sec-block {
+  margin-bottom: 24px;
+}
+.sec-block.is-hidden {
+  display: none;
+}
+
+.sec-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--border);
+}
+
+.sec-title {
+  margin: 0;
+  font-size: 1.04rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.sec-desc {
+  margin: 0;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+/* -ir 3-way Decision Diagram */
+.ir-fork {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 12px;
+  margin-bottom: 12px;
+  box-shadow: var(--shadow-sm);
+}
+
+.ir-fork-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.ir-fork-title {
+  font-size: 0.88rem;
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+.ir-fork-root {
+  display: inline-block;
+  padding: 1px 7px;
+  margin: 0 3px;
+  border-radius: 6px;
+  background: var(--accent-bg);
+  color: var(--accent);
+  font-weight: 800;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  vertical-align: baseline;
+}
+
+.ir-fork-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+@media (min-width: 600px) {
+  .ir-fork-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1040px) {
+  .ir-fork-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.fork-branch {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: left;
+  padding: 9px 10px;
+  border-radius: 11px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  cursor: pointer;
+  transition: border-color 0.15s, transform 0.1s, background 0.15s;
+}
+.fork-branch:hover {
+  border-color: var(--accent);
+  background: var(--surface);
+}
+.fork-branch:active {
+  transform: scale(0.99);
+}
+
+.fb-tag {
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: var(--accent);
+}
+.fb-action {
+  font-size: 0.84rem;
+  font-weight: 800;
+  color: var(--text);
+}
+.fb-ex {
+  font-size: 0.76rem;
+  color: var(--text-soft);
+}
+.fb-sibs {
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+/* Subgroup label */
+.sub-label {
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--text-soft);
+  margin: 12px 0 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.sub-label::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+/* Cards Grid */
+.cards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+@media (min-width: 720px) {
+  .cards-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+}
+@media (min-width: 1120px) {
+  .cards-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Verb Card */
+.verb-card {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 12px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.verb-card.is-hidden {
+  display: none;
+}
+
+.verb-card.search-hit {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--accent-bg), var(--shadow-md);
+}
+
+.verb-card.jump-flash {
+  animation: cardFlash 1.4s ease;
+}
+
+@keyframes cardFlash {
+  0% { box-shadow: 0 0 0 4px var(--accent-bg); border-color: var(--accent); }
+  100% { box-shadow: var(--shadow-sm); }
+}
+
+.vc-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.vc-title-wrap {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 5px 7px;
+  min-width: 0;
+}
+
+.vc-inf-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  color: var(--text);
+}
+.vc-inf-btn:hover {
+  color: var(--accent);
+}
+.vc-inf-btn.speaking {
+  color: var(--accent);
+}
+
+.spk-ico {
+  font-size: 0.78rem;
+  opacity: 0.72;
+}
+
+.vc-zh {
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.vc-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  justify-content: flex-end;
+  flex-shrink: 0;
+}
+
+.badge-anki {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 2px 7px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  background: var(--anki-bg);
+  color: var(--anki-fg);
+  border: 1px solid var(--anki-bd);
+  white-space: nowrap;
+}
+
+.badge-star {
+  background: var(--star-bg);
+  color: var(--star-fg);
+  border-color: var(--star-bd);
+}
+
+.badge-warn {
+  background: var(--irr-bg);
+  color: var(--irr-fg);
+  border-color: var(--irr-bd);
+}
+
+.vc-pattern {
+  font-size: 0.79rem;
+  font-weight: 600;
+  color: var(--text-soft);
+  background: var(--surface-2);
+  padding: 6px 9px;
+  border-radius: 9px;
+  border-left: 3px solid var(--accent);
+  line-height: 1.4;
+}
+
+/* 3-Stem Legend */
+.stem-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.stem-pill {
+  font-size: 0.71rem;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.stem-pill.s1 { background: var(--s1-bg); color: var(--s1-fg); border: 1px solid var(--s1-bd); }
+.stem-pill.s2 { background: var(--s2-bg); color: var(--s2-fg); border: 1px solid var(--s2-bd); }
+.stem-pill.s3 { background: var(--s3-bg); color: var(--s3-fg); border: 1px solid var(--s3-bd); }
+.stem-pill.boot { background: var(--boot-bg); color: var(--accent); border: 1px solid var(--boot-bd); }
+
+/* 2x3 Matrix */
+.conj-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-rows: repeat(3, auto);
+  grid-auto-flow: column;
+  gap: 6px;
+  position: relative;
+}
+
+.conj-grid.has-boot {
+  padding: 6px;
+  border-radius: 12px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+}
+
+.cell {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-align: left;
+  padding: 6px 8px;
+  border-radius: 9px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  cursor: pointer;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  transition: border-color 0.14s, background 0.14s, transform 0.08s;
+}
+
+.cell:hover {
+  border-color: var(--accent);
+}
+.cell:active {
+  transform: scale(0.985);
+}
+
+.conj-grid.has-boot .cell.is-boot {
+  background: var(--boot-bg);
+  border-color: var(--boot-bd);
+}
+
+.conj-grid.has-boot .cell:not(.is-boot) {
+  border-style: dashed;
+}
+
+.cell.is-warn {
+  border-color: var(--irr-bd);
+  background: var(--irr-bg);
+}
+
+.cell.is-match {
+  background: var(--match-bg) !important;
+  border-color: var(--match-bd) !important;
+  box-shadow: 0 0 0 1px var(--match-bd);
+}
+
+.cell.speaking {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 2px var(--accent-bg);
+}
+
+.cell-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+  font-size: 0.69rem;
+  line-height: 1.2;
+}
+
+.cell-pron {
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.cell-ipa {
+  color: var(--muted);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.66rem;
+  white-space: nowrap;
+}
+
+.cell-form {
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--text);
+  word-break: break-word;
+}
+
+.cell-refl {
+  font-weight: 600;
+  color: var(--text-soft);
+}
+
+.cell-alt {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.cell-warn-tag {
+  display: inline-block;
+  margin-top: 1px;
+  font-size: 0.66rem;
+  font-weight: 800;
+  color: var(--irr-fg);
+}
+
+/* Morphological Tokens */
+del.cut {
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  padding: 0 2px;
+  margin: 0 1px;
+  border-radius: 4px;
+  background: var(--cut-bg);
+  color: var(--cut-fg);
+  font-weight: 800;
+  user-select: none;
+}
+del.cut::after {
+  content: "";
+  position: absolute;
+  left: -1px;
+  right: -1px;
+  top: 50%;
+  height: 2px;
+  background: var(--cut-line);
+  transform: rotate(-16deg);
+}
+
+.tok-s1 {
+  background: var(--s1-bg);
+  color: var(--s1-fg);
+  border-radius: 4px;
+  padding: 0 2px;
+}
+.tok-s2 {
+  background: var(--s2-bg);
+  color: var(--s2-fg);
+  border-radius: 4px;
+  padding: 0 2px;
+}
+.tok-s3 {
+  background: var(--s3-bg);
+  color: var(--s3-fg);
+  border-radius: 4px;
+  padding: 0 2px;
+}
+.tok-ext {
+  background: var(--ext-bg);
+  color: var(--ext-fg);
+  border-radius: 4px;
+  padding: 0 2px;
+  font-weight: 800;
+}
+.tok-end {
+  color: var(--accent);
+  font-weight: 800;
+}
+.tok-irr {
+  background: var(--irr-bg);
+  color: var(--irr-fg);
+  border-radius: 4px;
+  padding: 0 3px;
+  font-weight: 800;
+}
+
+/* Falloir Single Box */
+.impersonal-box {
+  padding: 12px;
+  border-radius: 12px;
+  background: var(--surface-2);
+  border: 1.5px solid var(--accent-border);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.imp-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 9px 12px;
+  border-radius: 10px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  cursor: pointer;
+}
+.imp-main:hover {
+  border-color: var(--accent);
+}
+.imp-main.is-match {
+  background: var(--match-bg);
+  border-color: var(--match-bd);
+}
+.imp-phrase {
+  font-size: 1.08rem;
+  font-weight: 800;
+}
+.imp-ipa {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+.imp-note {
+  font-size: 0.76rem;
+  color: var(--text-soft);
+}
+
+/* Imperative Row */
+.imp-strip {
+  padding: 8px 9px;
+  border-radius: 10px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.imp-strip-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  font-size: 0.73rem;
+  font-weight: 800;
+  color: var(--anki-fg);
+}
+.imp-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.imp-chip {
+  padding: 4px 9px;
+  border-radius: 8px;
+  border: 1px solid var(--anki-bd);
+  background: var(--surface);
+  font-size: 0.82rem;
+  font-weight: 800;
+  cursor: pointer;
+  color: var(--text);
+}
+.imp-chip:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.imp-chip.is-match {
+  background: var(--match-bg);
+  border-color: var(--match-bd);
+}
+.imp-chip.speaking {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--accent-bg);
+}
+
+/* Siblings Bar */
+.sib-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding-top: 4px;
+  border-top: 1px dashed var(--border);
+}
+.sib-label {
+  font-size: 0.71rem;
+  color: var(--muted);
+  font-weight: 700;
+}
+.sib-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.sib-btn {
+  padding: 4px 9px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text-soft);
+  font-size: 0.76rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.14s, border-color 0.14s, color 0.14s;
+}
+.sib-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.sib-btn.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #ffffff;
+}
+
+/* Card Footnote */
+.vc-note {
+  font-size: 0.73rem;
+  color: var(--muted);
+  line-height: 1.38;
+}
+
+/* Empty State */
+#emptyState {
+  display: none;
+  text-align: center;
+  padding: 28px 16px;
+  background: var(--surface);
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius-lg);
+  margin: 16px 0;
+}
+#emptyState.visible {
+  display: block;
+}
+
+/* Footer */
+footer {
+  margin-top: 26px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 0.76rem;
+  color: var(--muted);
+}
+footer a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-row">
+        <span class="fr-flag" aria-hidden="true"><span class="b"></span><span class="w"></span><span class="r"></span></span>
+        <h1>法语动词变位速查 • Édito A1</h1>
+      </div>
+      <p class="subtitle">3秒看清变形动作 · 锚定 Anki <code>Conjugaison</code> 模板词 · 🔊 点任意变位发音</p>
+    </div>
+    <div class="topbar-actions">
+      <button type="button" id="themeBtn" class="pill-btn" aria-label="切换主题">🌓 跟随系统</button>
+      <a href="/" class="pill-btn">← cyblocker.com</a>
+    </div>
+  </header>
+
+  <div class="sticky-controls">
+    <div class="search-box">
+      <span class="search-icon" aria-hidden="true">🔍</span>
+      <input id="searchInput" type="search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
+             placeholder="搜原形或变位：dormir / buvons / peuvent / faites / suis…">
+      <button type="button" id="clearSearch" aria-label="清除搜索">×</button>
+    </div>
+    <div class="quick-examples" id="quickExamples">
+      <span class="quick-label">试试：</span>
+      <button type="button" class="ex-chip" data-q="dormir">dormir</button>
+      <button type="button" class="ex-chip" data-q="buvons">buvons</button>
+      <button type="button" class="ex-chip" data-q="peuvent">peuvent</button>
+      <button type="button" class="ex-chip" data-q="pars">pars</button>
+      <button type="button" class="ex-chip" data-q="faites">faites</button>
+      <button type="button" class="ex-chip" data-q="apprendre">apprendre</button>
+      <button type="button" class="ex-chip" data-q="suis">suis</button>
+    </div>
+    <div class="filter-row" id="filterRow" role="tablist" aria-label="按动词结尾筛选">
+      <button type="button" class="filter-tab active" data-filter="all">全部</button>
+      <button type="button" class="filter-tab" data-filter="-er">-er</button>
+      <button type="button" class="filter-tab" data-filter="-ir">-ir</button>
+      <button type="button" class="filter-tab" data-filter="-re">-re</button>
+      <button type="button" class="filter-tab" data-filter="-oir">-oir</button>
+      <button type="button" class="filter-tab" data-filter="special">四大特例 &amp; 祈使式</button>
+      <span class="filter-count" id="visibleCount"></span>
+    </div>
+    <div id="searchDiag" aria-live="polite"></div>
+  </div>
+
+  <!-- Two Master Keys -->
+  <section class="keys-grid" aria-label="两把省力总钥匙">
+    <details class="key-card">
+      <summary>
+        <div class="key-sum-main">
+          <span class="key-sum-title">🔑 钥匙 1：词尾骨架统一律（除 -er 与四大特例外）</span>
+          <span class="key-sum-sub">单数 -s/-s/-t 读音 100% 相同；全 A1 打破 vous -ez 仅 3 个，打破 ils -ent 仅 4 个</span>
+        </div>
+        <span class="key-chevron">展开</span>
+      </summary>
+      <div class="key-body">
+        <ul class="key-bullets">
+          <li><strong>单数 (je / tu / il)</strong>：几乎全员 <code>-s, -s, -t</code> 且<strong>读音 100% 相同</strong>！词干本身以 <code>d / t</code> 结尾时，第3单不重复加 <code>t</code>（如 <code>il vend / prend / met</code>）；仅情态双雄 <code>pouvoir / vouloir</code> 用 <code>-x, -x, -t</code>。</li>
+          <li><strong>复数 (nous / vous / ils)</strong>：骨架永远是 <code>-ons, -ez, -ent</code>（<code>-ent</code> 永远静音不发音）。</li>
+        </ul>
+        <div class="exc-boxes">
+          <div class="exc-box">
+            <div class="exc-box-title">⚠️ 全 A1 打破 vous -ez 仅 3 个</div>
+            <div class="exc-chips">
+              <button type="button" class="exc-chip" data-speak="vous êtes">vous êtes</button>
+              <button type="button" class="exc-chip" data-speak="vous faites">vous faites</button>
+              <button type="button" class="exc-chip" data-speak="vous dites">vous dites</button>
+            </div>
+          </div>
+          <div class="exc-box">
+            <div class="exc-box-title">⚠️ 全 A1 打破 ils -ent 仅 4 个</div>
+            <div class="exc-chips">
+              <button type="button" class="exc-chip" data-speak="ils sont">ils sont</button>
+              <button type="button" class="exc-chip" data-speak="ils ont">ils‿ont</button>
+              <button type="button" class="exc-chip" data-speak="ils vont">ils vont</button>
+              <button type="button" class="exc-chip" data-speak="ils font">ils font</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <details class="key-card">
+      <summary>
+        <div class="key-sum-main">
+          <span class="key-sum-title">🥾 钥匙 2：重音“靴子法则”图解</span>
+          <span class="key-sum-sub">je / tu / il + ils 围成靴子：词尾静音 → 重音砸词干裂变；nous / vous 跟原形走</span>
+        </div>
+        <span class="key-chevron">展开</span>
+      </summary>
+      <div class="key-body">
+        <div class="mini-boot-wrap">
+          <div class="mini-boot-grid" aria-label="2乘3靴子图解示例">
+            <div class="mb-cell in-boot"><span class="mb-p">je</span><span>vien<span class="tok-end">s</span> / bois / peux</span></div>
+            <div class="mb-cell in-boot"><span class="mb-p">tu</span><span>vien<span class="tok-end">s</span> / bois / peux</span></div>
+            <div class="mb-cell in-boot"><span class="mb-p">il·elle</span><span>vien<span class="tok-end">t</span> / boit / peut</span></div>
+            <div class="mb-cell out-boot"><span class="mb-p">nous</span><span>ven<span class="tok-end">ons</span> / buvons</span></div>
+            <div class="mb-cell out-boot"><span class="mb-p">vous</span><span>ven<span class="tok-end">ez</span> / buvez</span></div>
+            <div class="mb-cell in-boot mb-3p"><span class="mb-p">ils·elles</span><span>vienn<span class="tok-end">ent</span> / boivent</span></div>
+          </div>
+          <div class="mini-boot-legend">
+            <div><span class="stem-pill s1">🥾 靴子区 (1/2/3单 + 3复)</span> 词尾 <code>-s / -t / -ent</code> 静音不发音 → 重音砸在<strong>词干</strong>上 → 元音裂变或双写辅音（<code>viens / viennent</code>、<code>bois / boivent</code>、<code>peux / peuvent</code>）。</div>
+            <div><span class="stem-pill s2">🧦 靴口外 (nous / vous)</span> 词尾 <code>-ons / -ez</code> 响亮发音抢走重音 → 词干弱化，乖乖跟原形走（<code>venons / venez</code>、<code>buvons / buvez</code>、<code>pouvons / pouvez</code>）。</div>
+          </div>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <main id="appMain"></main>
+
+  <div id="emptyState">
+    <p style="margin:0 0 8px;font-weight:700;">当前筛选下未找到匹配的动词或变位</p>
+    <button type="button" id="resetAllBtn" class="pill-btn">显示全部动词</button>
+  </div>
+
+  <footer>
+    <span>收录 5 大板块 · 24 个 Anki <code>Conjugaison</code> 模板词 + 3 个不规则祈使式 + 全部 *Édito A1* 同族词</span>
+    <span><a href="/">← 返回 cyblocker.com</a></span>
+  </footer>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  /* -------------------------------------------------------------
+     1. VERB DATASET (Exact 24 Anki Templates + 3 Imperatives + Siblings)
+     ------------------------------------------------------------- */
+  function f(pron, segs, ipa, speak, extra) {
+    var obj = { pron: pron, segs: segs, ipa: ipa, speak: speak };
+    if (extra) {
+      for (var k in extra) {
+        if (Object.prototype.hasOwnProperty.call(extra, k)) obj[k] = extra[k];
+      }
+    }
+    return obj;
+  }
+
+  function regularErForms(stem, ipaS, ipaN, ipaV, extraStemNote) {
+    var cutStem = stem;
+    var s1 = cutStem;
+    return [
+      f("je", [[s1, "base"], ["e", "end"]], ipaS, "je " + s1 + "e"),
+      f("tu", [[s1, "base"], ["es", "end"]], ipaS, "tu " + s1 + "es"),
+      f("il/elle", [[s1, "base"], ["e", "end"]], ipaS, "il " + s1 + "e"),
+      f("nous", [[s1, "base"], ["ons", "end"]], ipaN, "nous " + s1 + "ons"),
+      f("vous", [[s1, "base"], ["ez", "end"]], ipaV, "vous " + s1 + "ez"),
+      f("ils/elles", [[s1, "base"], ["ent", "end"]], ipaS, "ils " + s1 + "ent")
+    ];
+  }
+
+  function reflErForms(stem, ipaS, ipaN, ipaV) {
+    return [
+      f("je", [[stem, "base"], ["e", "end"]], ipaS, "je me " + stem + "e", { refl: "me " }),
+      f("tu", [[stem, "base"], ["es", "end"]], ipaS, "tu te " + stem + "es", { refl: "te " }),
+      f("il/elle", [[stem, "base"], ["e", "end"]], ipaS, "il se " + stem + "e", { refl: "se " }),
+      f("nous", [[stem, "base"], ["ons", "end"]], ipaN, "nous nous " + stem + "ons", { refl: "nous " }),
+      f("vous", [[stem, "base"], ["ez", "end"]], ipaV, "vous vous " + stem + "ez", { refl: "vous " }),
+      f("ils/elles", [[stem, "base"], ["ent", "end"]], ipaS, "ils se " + stem + "ent", { refl: "se " })
+    ];
+  }
+
+  function irIssForms(stem, ipaS, ipaN, ipaV, ipa3p) {
+    return [
+      f("je", [[stem, "base"], ["is", "end"]], ipaS, "je " + stem + "is"),
+      f("tu", [[stem, "base"], ["is", "end"]], ipaS, "tu " + stem + "is"),
+      f("il/elle", [[stem, "base"], ["it", "end"]], ipaS, "il " + stem + "it"),
+      f("nous", [[stem, "base"], ["iss", "ext"], ["ons", "end"]], ipaN, "nous " + stem + "issons"),
+      f("vous", [[stem, "base"], ["iss", "ext"], ["ez", "end"]], ipaV, "vous " + stem + "issez"),
+      f("ils/elles", [[stem, "base"], ["iss", "ext"], ["ent", "end"]], ipa3p, "ils " + stem + "issent")
+    ];
+  }
+
+  function dreForms(stem, elideJe, ipaS, ipaN, ipaV, ipa3p) {
+    var jp = elideJe ? "j’" : "je";
+    var js = elideJe ? "j'" + stem + "s" : "je " + stem + "s";
+    return [
+      f(jp, [[stem, "base"], ["s", "end"]], ipaS, js),
+      f("tu", [[stem, "base"], ["s", "end"]], ipaS, "tu " + stem + "s"),
+      f("il/elle", [[stem, "base"]], ipaS, "il " + stem, { badge: "d 不加 t" }),
+      f("nous", [[stem, "base"], ["ons", "end"]], ipaN, "nous " + stem + "ons"),
+      f("vous", [[stem, "base"], ["ez", "end"]], ipaV, "vous " + stem + "ez"),
+      f("ils/elles", [[stem, "base"], ["ent", "end"]], ipa3p, "ils " + stem + "ent")
+    ];
+  }
+
+  var SECTIONS = [
+    {
+      id: "sec1",
+      title: "板块 1：第一组 -er 规则与“靴子微调 ☆”家族",
+      desc: "词尾永远 -e, -es, -e, -ons, -ez, -ent；单数与 3复 同音；微调都发生在靴子区或仅 nous 保音",
+      subgroups: [
+        {
+          id: "1a",
+          label: "1A. 完全规则模板（含所有规则代词式动词）",
+          cards: [
+            {
+              id: "parler",
+              inf: "parler",
+              zh: "说话",
+              badgeType: "anki",
+              badgeText: "📌 Anki 模板词：parler",
+              endings: ["-er"],
+              diagRule: "第一组标准规则：词干不变 + -e/-es/-e/-ons/-ez/-ent（单数与 3复 同音 /paʁl/）",
+              pattern: "标准骨架 -e, -es, -e | -ons, -ez, -ent（parle / parles / parlent 读音完全相同）",
+              note: "同样适用于所有规则代词式动词：只需在变位前加反身代词 me / te / se / nous / vous / se。",
+              forms: regularErForms("parl", "/paʁl/", "/paʁ.lɔ̃/", "/paʁ.le/"),
+              siblings: [
+                {
+                  inf: "se réveiller",
+                  zh: "醒来",
+                  diagRule: "代词式规则 -er（加 me/te/se）",
+                  forms: reflErForms("réveill", "/ʁe.vɛj/", "/ʁe.vɛ.jɔ̃/", "/ʁe.vɛ.je/")
+                },
+                {
+                  inf: "se doucher",
+                  zh: "淋浴",
+                  diagRule: "代词式规则 -er（加 me/te/se）",
+                  forms: reflErForms("douch", "/duʃ/", "/du.ʃɔ̃/", "/du.ʃe/")
+                },
+                {
+                  inf: "se préparer",
+                  zh: "准备",
+                  diagRule: "代词式规则 -er（加 me/te/se）",
+                  forms: reflErForms("prépar", "/pʁe.paʁ/", "/pʁe.pa.ʁɔ̃/", "/pʁe.pa.ʁe/")
+                },
+                {
+                  inf: "se coucher",
+                  zh: "睡觉/上床",
+                  diagRule: "代词式规则 -er（加 me/te/se）",
+                  forms: reflErForms("couch", "/kuʃ/", "/ku.ʃɔ̃/", "/ku.ʃe/")
+                }
+              ]
+            }
+          ]
+        },
+        {
+          id: "1b",
+          label: "1B. 靴子双写辅音（1/2/3单 + 3复 双写，nous/vous 单写）",
+          cards: [
+            {
+              id: "sappeler",
+              inf: "s’appeler",
+              zh: "叫作",
+              badgeType: "anki",
+              badgeText: "📌 Anki 模板词：s’appeler",
+              endings: ["-er"],
+              boot: true,
+              diagRule: "🥾 靴子区双写辅音 l → ll / t → tt（nous/vous 保单写）",
+              pattern: "🥾 靴子区双写 l（appell- / jet-）；nous / vous 恢复单写（appel- / jet-）",
+              forms: [
+                f("je", [["appel", "s1"], ["l", "ext"], ["e", "end"]], "/ma.pɛl/", "je m'appelle", { refl: "m’" }),
+                f("tu", [["appel", "s1"], ["l", "ext"], ["es", "end"]], "/ta.pɛl/", "tu t'appelles", { refl: "t’" }),
+                f("il/elle", [["appel", "s1"], ["l", "ext"], ["e", "end"]], "/sa.pɛl/", "il s'appelle", { refl: "s’" }),
+                f("nous", [["appel", "s2"], ["ons", "end"]], "/a.pə.lɔ̃/", "nous nous appelons", { refl: "nous " }),
+                f("vous", [["appel", "s2"], ["ez", "end"]], "/a.pə.le/", "vous vous appelez", { refl: "vous " }),
+                f("ils/elles", [["appel", "s1"], ["l", "ext"], ["ent", "end"]], "/sa.pɛl/", "ils s'appellent", { refl: "s’" })
+              ],
+              siblings: [
+                {
+                  inf: "jeter",
+                  zh: "扔",
+                  diagRule: "🥾 靴子区双写 t → tt（je jette / nous jetons）",
+                  forms: [
+                    f("je", [["jet", "s1"], ["t", "ext"], ["e", "end"]], "/ʒɛt/", "je jette"),
+                    f("tu", [["jet", "s1"], ["t", "ext"], ["es", "end"]], "/ʒɛt/", "tu jettes"),
+                    f("il/elle", [["jet", "s1"], ["t", "ext"], ["e", "end"]], "/ʒɛt/", "il jette"),
+                    f("nous", [["jet", "s2"], ["ons", "end"]], "/ʒə.tɔ̃/", "nous jetons"),
+                    f("vous", [["jet", "s2"], ["ez", "end"]], "/ʒə.te/", "vous jetez"),
+                    f("ils/elles", [["jet", "s1"], ["t", "ext"], ["ent", "end"]], "/ʒɛt/", "ils jettent")
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          id: "1c",
+          label: "1C. 靴子开口变音符（1/2/3单 + 3复 变 è，nous/vous 保原元音）",
+          cards: [
+            {
+              id: "acheter",
+              inf: "acheter",
+              zh: "买",
+              badgeType: "star",
+              badgeText: "☆ 主牌组代表词",
+              endings: ["-er"],
+              boot: true,
+              diagRule: "🥾 靴子区词干 e → è（nous/vous 保 e）",
+              pattern: "🥾 靴子区 e → è（achète / lève / promène）；nous / vous 恢复原形 e",
+              forms: [
+                f("j’", [["ach", "base"], ["è", "ext"], ["t", "base"], ["e", "end"]], "/a.ʃɛt/", "j'achète"),
+                f("tu", [["ach", "base"], ["è", "ext"], ["t", "base"], ["es", "end"]], "/a.ʃɛt/", "tu achètes"),
+                f("il/elle", [["ach", "base"], ["è", "ext"], ["t", "base"], ["e", "end"]], "/a.ʃɛt/", "il achète"),
+                f("nous", [["achet", "s2"], ["ons", "end"]], "/aʃ.tɔ̃/", "nous achetons"),
+                f("vous", [["achet", "s2"], ["ez", "end"]], "/aʃ.te/", "vous achetez"),
+                f("ils/elles", [["ach", "base"], ["è", "ext"], ["t", "base"], ["ent", "end"]], "/a.ʃɛt/", "ils achètent")
+              ],
+              siblings: [
+                {
+                  inf: "se lever",
+                  zh: "起床",
+                  diagRule: "🥾 靴子区 e → è（je me lève / nous nous levons）",
+                  forms: [
+                    f("je", [["l", "base"], ["è", "ext"], ["v", "base"], ["e", "end"]], "/lɛv/", "je me lève", { refl: "me " }),
+                    f("tu", [["l", "base"], ["è", "ext"], ["v", "base"], ["es", "end"]], "/lɛv/", "tu te lèves", { refl: "te " }),
+                    f("il/elle", [["l", "base"], ["è", "ext"], ["v", "base"], ["e", "end"]], "/lɛv/", "il se lève", { refl: "se " }),
+                    f("nous", [["lev", "s2"], ["ons", "end"]], "/lə.vɔ̃/", "nous nous levons", { refl: "nous " }),
+                    f("vous", [["lev", "s2"], ["ez", "end"]], "/lə.ve/", "vous vous levez", { refl: "vous " }),
+                    f("ils/elles", [["l", "base"], ["è", "ext"], ["v", "base"], ["ent", "end"]], "/lɛv/", "ils se lèvent", { refl: "se " })
+                  ]
+                },
+                {
+                  inf: "se promener",
+                  zh: "散步",
+                  diagRule: "🥾 靴子区 e → è（je me promène / nous nous promenons）",
+                  forms: [
+                    f("je", [["prom", "base"], ["è", "ext"], ["n", "base"], ["e", "end"]], "/pʁɔ.mɛn/", "je me promène", { refl: "me " }),
+                    f("tu", [["prom", "base"], ["è", "ext"], ["n", "base"], ["es", "end"]], "/pʁɔ.mɛn/", "tu te promènes", { refl: "te " }),
+                    f("il/elle", [["prom", "base"], ["è", "ext"], ["n", "base"], ["e", "end"]], "/pʁɔ.mɛn/", "il se promène", { refl: "se " }),
+                    f("nous", [["promen", "s2"], ["ons", "end"]], "/pʁɔm.nɔ̃/", "nous nous promenons", { refl: "nous " }),
+                    f("vous", [["promen", "s2"], ["ez", "end"]], "/pʁɔm.ne/", "vous vous promenez", { refl: "vous " }),
+                    f("ils/elles", [["prom", "base"], ["è", "ext"], ["n", "base"], ["ent", "end"]], "/pʁɔ.mɛn/", "ils se promènent", { refl: "se " })
+                  ]
+                }
+              ]
+            },
+            {
+              id: "preferer",
+              inf: "préférer",
+              zh: "更喜欢",
+              badgeType: "star",
+              badgeText: "☆ 主牌组代表词",
+              endings: ["-er"],
+              boot: true,
+              diagRule: "🥾 靴子区词干末尾 é → è（nous/vous 保 é）",
+              pattern: "🥾 靴子区最后一个 é → è（开口音 /ɛ/）；nous / vous 恢复闭口 é（/e/）",
+              forms: [
+                f("je", [["préf", "base"], ["è", "ext"], ["r", "base"], ["e", "end"]], "/pʁe.fɛʁ/", "je préfère"),
+                f("tu", [["préf", "base"], ["è", "ext"], ["r", "base"], ["es", "end"]], "/pʁe.fɛʁ/", "tu préfères"),
+                f("il/elle", [["préf", "base"], ["è", "ext"], ["r", "base"], ["e", "end"]], "/pʁe.fɛʁ/", "il préfère"),
+                f("nous", [["préfér", "s2"], ["ons", "end"]], "/pʁe.fe.ʁɔ̃/", "nous préférons"),
+                f("vous", [["préfér", "s2"], ["ez", "end"]], "/pʁe.fe.ʁe/", "vous préférez"),
+                f("ils/elles", [["préf", "base"], ["è", "ext"], ["r", "base"], ["ent", "end"]], "/pʁe.fɛʁ/", "ils préfèrent")
+              ],
+              siblings: [
+                {
+                  inf: "répéter",
+                  zh: "重复",
+                  diagRule: "🥾 靴子区末尾 é → è（je répète / nous répétons）",
+                  forms: [
+                    f("je", [["rép", "base"], ["è", "ext"], ["t", "base"], ["e", "end"]], "/ʁe.pɛt/", "je répète"),
+                    f("tu", [["rép", "base"], ["è", "ext"], ["t", "base"], ["es", "end"]], "/ʁe.pɛt/", "tu répètes"),
+                    f("il/elle", [["rép", "base"], ["è", "ext"], ["t", "base"], ["e", "end"]], "/ʁe.pɛt/", "il répète"),
+                    f("nous", [["répét", "s2"], ["ons", "end"]], "/ʁe.pe.tɔ̃/", "nous répétons"),
+                    f("vous", [["répét", "s2"], ["ez", "end"]], "/ʁe.pe.te/", "vous répétez"),
+                    f("ils/elles", [["rép", "base"], ["è", "ext"], ["t", "base"], ["ent", "end"]], "/ʁe.pɛt/", "ils répètent")
+                  ]
+                },
+                {
+                  inf: "compléter",
+                  zh: "补充完整",
+                  diagRule: "🥾 靴子区末尾 é → è（je complète / nous complétons）",
+                  forms: [
+                    f("je", [["compl", "base"], ["è", "ext"], ["t", "base"], ["e", "end"]], "/kɔ̃.plɛt/", "je complète"),
+                    f("tu", [["compl", "base"], ["è", "ext"], ["t", "base"], ["es", "end"]], "/kɔ̃.plɛt/", "tu complètes"),
+                    f("il/elle", [["compl", "base"], ["è", "ext"], ["t", "base"], ["e", "end"]], "/kɔ̃.plɛt/", "il complète"),
+                    f("nous", [["complét", "s2"], ["ons", "end"]], "/kɔ̃.ple.tɔ̃/", "nous complétons"),
+                    f("vous", [["complét", "s2"], ["ez", "end"]], "/kɔ̃.ple.te/", "vous complétez"),
+                    f("ils/elles", [["compl", "base"], ["è", "ext"], ["t", "base"], ["ent", "end"]], "/kɔ̃.plɛt/", "ils complètent")
+                  ]
+                },
+                {
+                  inf: "se repérer",
+                  zh: "辨别方向/定位",
+                  diagRule: "🥾 靴子区末尾 é → è（je me repère / nous nous repérons）",
+                  forms: [
+                    f("je", [["rep", "base"], ["è", "ext"], ["r", "base"], ["e", "end"]], "/ʁə.pɛʁ/", "je me repère", { refl: "me " }),
+                    f("tu", [["rep", "base"], ["è", "ext"], ["r", "base"], ["es", "end"]], "/ʁə.pɛʁ/", "tu te repères", { refl: "te " }),
+                    f("il/elle", [["rep", "base"], ["è", "ext"], ["r", "base"], ["e", "end"]], "/ʁə.pɛʁ/", "il se repère", { refl: "se " }),
+                    f("nous", [["repér", "s2"], ["ons", "end"]], "/ʁə.pe.ʁɔ̃/", "nous nous repérons", { refl: "nous " }),
+                    f("vous", [["repér", "s2"], ["ez", "end"]], "/ʁə.pe.ʁe/", "vous vous repérez", { refl: "vous " }),
+                    f("ils/elles", [["rep", "base"], ["è", "ext"], ["r", "base"], ["ent", "end"]], "/ʁə.pɛʁ/", "ils se repèrent", { refl: "se " })
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          id: "1d",
+          label: "1D. 靴子 y → i 交替（1/2/3单 + 3复 y 变 i）",
+          cards: [
+            {
+              id: "payer",
+              inf: "payer",
+              zh: "支付",
+              badgeType: "star",
+              badgeText: "☆ 主牌组代表词",
+              endings: ["-er"],
+              boot: true,
+              diagRule: "🥾 靴子区 y → i（-ayer 也可保留 y，nous/vous 只用 y）",
+              pattern: "🥾 靴子区 y → i（-ayer 类也允许保 y：paie / paye）；nous / vous 必保 y",
+              forms: [
+                f("je", [["pa", "base"], ["i", "ext"], ["e", "end"]], "/pɛ/", "je paie", { alt: "paye", searchAlt: ["paye"] }),
+                f("tu", [["pa", "base"], ["i", "ext"], ["es", "end"]], "/pɛ/", "tu paies", { alt: "payes", searchAlt: ["payes"] }),
+                f("il/elle", [["pa", "base"], ["i", "ext"], ["e", "end"]], "/pɛ/", "il paie", { alt: "paye", searchAlt: ["paye"] }),
+                f("nous", [["pa", "base"], ["y", "s2"], ["ons", "end"]], "/pɛ.jɔ̃/", "nous payons"),
+                f("vous", [["pa", "base"], ["y", "s2"], ["ez", "end"]], "/pɛ.je/", "vous payez"),
+                f("ils/elles", [["pa", "base"], ["i", "ext"], ["ent", "end"]], "/pɛ/", "ils paient", { alt: "payent", searchAlt: ["payent"] })
+              ],
+              siblings: [
+                {
+                  inf: "essayer",
+                  zh: "尝试",
+                  diagRule: "🥾 靴子区 y → i（-ayer 可选保 y：essaie / essaye）",
+                  forms: [
+                    f("j’", [["essa", "base"], ["i", "ext"], ["e", "end"]], "/e.sɛ/", "j'essaie", { alt: "essaye", searchAlt: ["essaye"] }),
+                    f("tu", [["essa", "base"], ["i", "ext"], ["es", "end"]], "/e.sɛ/", "tu essaies", { alt: "essayes", searchAlt: ["essayes"] }),
+                    f("il/elle", [["essa", "base"], ["i", "ext"], ["e", "end"]], "/e.sɛ/", "il essaie", { alt: "essaye", searchAlt: ["essaye"] }),
+                    f("nous", [["essa", "base"], ["y", "s2"], ["ons", "end"]], "/e.sɛ.jɔ̃/", "nous essayons"),
+                    f("vous", [["essa", "base"], ["y", "s2"], ["ez", "end"]], "/e.sɛ.je/", "vous essayez"),
+                    f("ils/elles", [["essa", "base"], ["i", "ext"], ["ent", "end"]], "/e.sɛ/", "ils essaient", { alt: "essayent", searchAlt: ["essayent"] })
+                  ]
+                }
+              ]
+            },
+            {
+              id: "envoyer",
+              inf: "envoyer",
+              zh: "发送/寄",
+              badgeType: "star",
+              badgeText: "☆ 主牌组代表词",
+              endings: ["-er"],
+              boot: true,
+              diagRule: "🥾 靴子区强制 y → i（-oyer 不可保 y：j’envoie / nous envoyons）",
+              pattern: "🥾 靴子区强制变 i（不可保留 y）；nous / vous 保持 y",
+              forms: [
+                f("j’", [["envo", "base"], ["i", "ext"], ["e", "end"]], "/ɑ̃.vwa/", "j'envoie"),
+                f("tu", [["envo", "base"], ["i", "ext"], ["es", "end"]], "/ɑ̃.vwa/", "tu envoies"),
+                f("il/elle", [["envo", "base"], ["i", "ext"], ["e", "end"]], "/ɑ̃.vwa/", "il envoie"),
+                f("nous", [["envo", "base"], ["y", "s2"], ["ons", "end"]], "/ɑ̃.vwa.jɔ̃/", "nous envoyons"),
+                f("vous", [["envo", "base"], ["y", "s2"], ["ez", "end"]], "/ɑ̃.vwa.je/", "vous envoyez"),
+                f("ils/elles", [["envo", "base"], ["i", "ext"], ["ent", "end"]], "/ɑ̃.vwa/", "ils envoient")
+              ]
+            }
+          ]
+        },
+        {
+          id: "1e",
+          label: "1E. 仅 nous 保音拼写微调（其余 5 人称完全同 parler）",
+          cards: [
+            {
+              id: "manger",
+              inf: "manger",
+              zh: "吃",
+              badgeType: "star",
+              badgeText: "☆ 主牌组代表词",
+              endings: ["-er"],
+              diagRule: "-ger 仅 nous 加 e 保软音 /ʒ/（nous mangeons）",
+              pattern: "-ger 仅 nous 在 g 后垫 e 保软音 /ʒ/（mangeons），其余 5 人称完全规则",
+              forms: [
+                f("je", [["mang", "base"], ["e", "end"]], "/mɑ̃ʒ/", "je mange"),
+                f("tu", [["mang", "base"], ["es", "end"]], "/mɑ̃ʒ/", "tu manges"),
+                f("il/elle", [["mang", "base"], ["e", "end"]], "/mɑ̃ʒ/", "il mange"),
+                f("nous", [["mang", "base"], ["e", "ext"], ["ons", "end"]], "/mɑ̃.ʒɔ̃/", "nous mangeons", { warn: true, warnText: "加 e 保 /ʒ/" }),
+                f("vous", [["mang", "base"], ["ez", "end"]], "/mɑ̃.ʒe/", "vous mangez"),
+                f("ils/elles", [["mang", "base"], ["ent", "end"]], "/mɑ̃ʒ/", "ils mangent")
+              ],
+              siblings: [
+                {
+                  inf: "nager", zh: "游泳", diagRule: "-ger 仅 nous 加 e（nous nageons）",
+                  forms: [
+                    f("je", [["nag", "base"], ["e", "end"]], "/naʒ/", "je nage"),
+                    f("tu", [["nag", "base"], ["es", "end"]], "/naʒ/", "tu nages"),
+                    f("il/elle", [["nag", "base"], ["e", "end"]], "/naʒ/", "il nage"),
+                    f("nous", [["nag", "base"], ["e", "ext"], ["ons", "end"]], "/na.ʒɔ̃/", "nous nageons", { warn: true, warnText: "加 e 保 /ʒ/" }),
+                    f("vous", [["nag", "base"], ["ez", "end"]], "/na.ʒe/", "vous nagez"),
+                    f("ils/elles", [["nag", "base"], ["ent", "end"]], "/naʒ/", "ils nagent")
+                  ]
+                },
+                {
+                  inf: "voyager", zh: "旅行", diagRule: "-ger 仅 nous 加 e（nous voyageons）",
+                  forms: [
+                    f("je", [["voyag", "base"], ["e", "end"]], "/vwa.jaʒ/", "je voyage"),
+                    f("tu", [["voyag", "base"], ["es", "end"]], "/vwa.jaʒ/", "tu voyages"),
+                    f("il/elle", [["voyag", "base"], ["e", "end"]], "/vwa.jaʒ/", "il voyage"),
+                    f("nous", [["voyag", "base"], ["e", "ext"], ["ons", "end"]], "/vwa.ja.ʒɔ̃/", "nous voyageons", { warn: true, warnText: "加 e 保 /ʒ/" }),
+                    f("vous", [["voyag", "base"], ["ez", "end"]], "/vwa.ja.ʒe/", "vous voyagez"),
+                    f("ils/elles", [["voyag", "base"], ["ent", "end"]], "/vwa.jaʒ/", "ils voyagent")
+                  ]
+                },
+                {
+                  inf: "changer", zh: "改变/换乘", diagRule: "-ger 仅 nous 加 e（nous changeons）",
+                  forms: [
+                    f("je", [["chang", "base"], ["e", "end"]], "/ʃɑ̃ʒ/", "je change"),
+                    f("tu", [["chang", "base"], ["es", "end"]], "/ʃɑ̃ʒ/", "tu changes"),
+                    f("il/elle", [["chang", "base"], ["e", "end"]], "/ʃɑ̃ʒ/", "il change"),
+                    f("nous", [["chang", "base"], ["e", "ext"], ["ons", "end"]], "/ʃɑ̃.ʒɔ̃/", "nous changeons", { warn: true, warnText: "加 e 保 /ʒ/" }),
+                    f("vous", [["chang", "base"], ["ez", "end"]], "/ʃɑ̃.ʒe/", "vous changez"),
+                    f("ils/elles", [["chang", "base"], ["ent", "end"]], "/ʃɑ̃ʒ/", "ils changent")
+                  ]
+                },
+                {
+                  inf: "télécharger", zh: "下载", diagRule: "-ger 仅 nous 加 e（nous téléchargeons）",
+                  forms: [
+                    f("je", [["télécharg", "base"], ["e", "end"]], "/te.le.ʃaʁʒ/", "je télécharge"),
+                    f("tu", [["télécharg", "base"], ["es", "end"]], "/te.le.ʃaʁʒ/", "tu télécharges"),
+                    f("il/elle", [["télécharg", "base"], ["e", "end"]], "/te.le.ʃaʁʒ/", "il télécharge"),
+                    f("nous", [["télécharg", "base"], ["e", "ext"], ["ons", "end"]], "/te.le.ʃaʁ.ʒɔ̃/", "nous téléchargeons", { warn: true, warnText: "加 e 保 /ʒ/" }),
+                    f("vous", [["télécharg", "base"], ["ez", "end"]], "/te.le.ʃaʁ.ʒe/", "vous téléchargez"),
+                    f("ils/elles", [["télécharg", "base"], ["ent", "end"]], "/te.le.ʃaʁʒ/", "ils téléchargent")
+                  ]
+                },
+                {
+                  inf: "rédiger", zh: "撰写/起草", diagRule: "-ger 仅 nous 加 e（nous rédigeons）",
+                  forms: [
+                    f("je", [["rédig", "base"], ["e", "end"]], "/ʁe.diʒ/", "je rédige"),
+                    f("tu", [["rédig", "base"], ["es", "end"]], "/ʁe.diʒ/", "tu rédiges"),
+                    f("il/elle", [["rédig", "base"], ["e", "end"]], "/ʁe.diʒ/", "il rédige"),
+                    f("nous", [["rédig", "base"], ["e", "ext"], ["ons", "end"]], "/ʁe.di.ʒɔ̃/", "nous rédigeons", { warn: true, warnText: "加 e 保 /ʒ/" }),
+                    f("vous", [["rédig", "base"], ["ez", "end"]], "/ʁe.di.ʒe/", "vous rédigez"),
+                    f("ils/elles", [["rédig", "base"], ["ent", "end"]], "/ʁe.diʒ/", "ils rédigent")
+                  ]
+                }
+              ]
+            },
+            {
+              id: "commencer",
+              inf: "commencer",
+              zh: "开始",
+              badgeType: "star",
+              badgeText: "☆ 主牌组代表词",
+              endings: ["-er"],
+              diagRule: "-cer 仅 nous 变 ç 保 /s/（nous commençons）",
+              pattern: "-cer 仅 nous 把 c 改 ç 保 /s/ 音（commençons），其余 5 人称完全规则",
+              forms: [
+                f("je", [["commenc", "base"], ["e", "end"]], "/kɔ.mɑ̃s/", "je commence"),
+                f("tu", [["commenc", "base"], ["es", "end"]], "/kɔ.mɑ̃s/", "tu commences"),
+                f("il/elle", [["commenc", "base"], ["e", "end"]], "/kɔ.mɑ̃s/", "il commence"),
+                f("nous", [["commen", "base"], ["ç", "ext"], ["ons", "end"]], "/kɔ.mɑ̃.sɔ̃/", "nous commençons", { warn: true, warnText: "ç 保 /s/" }),
+                f("vous", [["commenc", "base"], ["ez", "end"]], "/kɔ.mɑ̃.se/", "vous commencez"),
+                f("ils/elles", [["commenc", "base"], ["ent", "end"]], "/kɔ.mɑ̃s/", "ils commencent")
+              ],
+              siblings: [
+                {
+                  inf: "se déplacer", zh: "移动/出行", diagRule: "-cer 仅 nous 变 ç（nous nous déplaçons）",
+                  forms: [
+                    f("je", [["déplac", "base"], ["e", "end"]], "/de.plas/", "je me déplace", { refl: "me " }),
+                    f("tu", [["déplac", "base"], ["es", "end"]], "/de.plas/", "tu te déplaces", { refl: "te " }),
+                    f("il/elle", [["déplac", "base"], ["e", "end"]], "/de.plas/", "il se déplace", { refl: "se " }),
+                    f("nous", [["dépla", "base"], ["ç", "ext"], ["ons", "end"]], "/de.pla.sɔ̃/", "nous nous déplaçons", { refl: "nous ", warn: true, warnText: "ç 保 /s/" }),
+                    f("vous", [["déplac", "base"], ["ez", "end"]], "/de.pla.se/", "vous vous déplacez", { refl: "vous " }),
+                    f("ils/elles", [["déplac", "base"], ["ent", "end"]], "/de.plas/", "ils se déplacent", { refl: "se " })
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      id: "sec2",
+      title: "板块 2：-ir 结尾三大分流（字面看不出分组，靠模板锚定）",
+      desc: "看到 -ir 先判断走哪条岔路：加 -iss-、单数砍辅音，还是披外衣按 -er 变？",
+      showIrFork: true,
+      subgroups: [
+        {
+          id: "2a-2c",
+          label: "2A 复数加 -iss- ｜ 2B 单数砍尾辅音 ｜ 2C 按 -er 变",
+          cards: [
+            {
+              id: "choisir",
+              inf: "choisir",
+              zh: "选择",
+              badgeType: "anki",
+              badgeText: "📌 Anki 模板词：choisir",
+              endings: ["-ir"],
+              diagRule: "二组规则 -ir：单数 -is/-is/-it，复数加 -iss- 扩展词干",
+              pattern: "2A 第二组规则：单数 -is, -is, -it ｜ 复数嵌入 -iss-（choisissons）",
+              forms: irIssForms("chois", "/ʃwa.zi/", "/ʃwa.zi.sɔ̃/", "/ʃwa.zi.se/", "/ʃwa.zis/"),
+              siblings: [
+                { inf: "finir", zh: "完成", diagRule: "二组规则 -ir（复数加 -iss-：nous finissons）", forms: irIssForms("fin", "/fi.ni/", "/fi.ni.sɔ̃/", "/fi.ni.se/", "/fi.nis/") },
+                { inf: "remplir", zh: "填满/填写", diagRule: "二组规则 -ir（复数加 -iss-：nous remplissons）", forms: irIssForms("rempl", "/ʁɑ̃.pli/", "/ʁɑ̃.pli.sɔ̃/", "/ʁɑ̃.pli.se/", "/ʁɑ̃.plis/") },
+                { inf: "réfléchir", zh: "思考", diagRule: "二组规则 -ir（复数加 -iss-：nous réfléchissons）", forms: irIssForms("réfléch", "/ʁe.fle.ʃi/", "/ʁe.fle.ʃi.sɔ̃/", "/ʁe.fle.ʃi.se/", "/ʁe.fle.ʃis/") }
+              ]
+            },
+            {
+              id: "servir",
+              inf: "servir",
+              zh: "服务/端菜",
+              badgeType: "anki",
+              badgeText: "📌 Anki 模板词：servir",
+              endings: ["-ir"],
+              diagRule: "✂️ 单数砍掉词根末辅音 v，复数恢复 v（不加 -iss-！）",
+              pattern: "2B 第三组双词干：不加 -iss-！单数砍掉词根末辅音（v / t / m），复数恢复",
+              forms: [
+                f("je", [["ser", "base"], ["v", "cut"], ["s", "end"]], "/sɛʁ/", "je sers"),
+                f("tu", [["ser", "base"], ["v", "cut"], ["s", "end"]], "/sɛʁ/", "tu sers"),
+                f("il/elle", [["ser", "base"], ["v", "cut"], ["t", "end"]], "/sɛʁ/", "il sert"),
+                f("nous", [["serv", "s2"], ["ons", "end"]], "/sɛʁ.vɔ̃/", "nous servons"),
+                f("vous", [["serv", "s2"], ["ez", "end"]], "/sɛʁ.ve/", "vous servez"),
+                f("ils/elles", [["serv", "s2"], ["ent", "end"]], "/sɛʁv/", "ils servent")
+              ],
+              siblings: [
+                {
+                  inf: "partir", zh: "出发/离开", diagRule: "✂️ 单数砍词根末辅音 t（je pars / nous partons）",
+                  forms: [
+                    f("je", [["par", "base"], ["t", "cut"], ["s", "end"]], "/paʁ/", "je pars"),
+                    f("tu", [["par", "base"], ["t", "cut"], ["s", "end"]], "/paʁ/", "tu pars"),
+                    f("il/elle", [["par", "base"], ["t", "cut"], ["t", "end"]], "/paʁ/", "il part"),
+                    f("nous", [["part", "s2"], ["ons", "end"]], "/paʁ.tɔ̃/", "nous partons"),
+                    f("vous", [["part", "s2"], ["ez", "end"]], "/paʁ.te/", "vous partez"),
+                    f("ils/elles", [["part", "s2"], ["ent", "end"]], "/paʁt/", "ils partent")
+                  ]
+                },
+                {
+                  inf: "sortir", zh: "出去", diagRule: "✂️ 单数砍词根末辅音 t（je sors / nous sortons）",
+                  forms: [
+                    f("je", [["sor", "base"], ["t", "cut"], ["s", "end"]], "/sɔʁ/", "je sors"),
+                    f("tu", [["sor", "base"], ["t", "cut"], ["s", "end"]], "/sɔʁ/", "tu sors"),
+                    f("il/elle", [["sor", "base"], ["t", "cut"], ["t", "end"]], "/sɔʁ/", "il sort"),
+                    f("nous", [["sort", "s2"], ["ons", "end"]], "/sɔʁ.tɔ̃/", "nous sortons"),
+                    f("vous", [["sort", "s2"], ["ez", "end"]], "/sɔʁ.te/", "vous sortez"),
+                    f("ils/elles", [["sort", "s2"], ["ent", "end"]], "/sɔʁt/", "ils sortent")
+                  ]
+                },
+                {
+                  inf: "dormir", zh: "睡觉", diagRule: "✂️ 单数砍词根末辅音 m（je dors / nous dormons）",
+                  forms: [
+                    f("je", [["dor", "base"], ["m", "cut"], ["s", "end"]], "/dɔʁ/", "je dors"),
+                    f("tu", [["dor", "base"], ["m", "cut"], ["s", "end"]], "/dɔʁ/", "tu dors"),
+                    f("il/elle", [["dor", "base"], ["m", "cut"], ["t", "end"]], "/dɔʁ/", "il dort"),
+                    f("nous", [["dorm", "s2"], ["ons", "end"]], "/dɔʁ.mɔ̃/", "nous dormons"),
+                    f("vous", [["dorm", "s2"], ["ez", "end"]], "/dɔʁ.me/", "vous dormez"),
+                    f("ils/elles", [["dorm", "s2"], ["ent", "end"]], "/dɔʁm/", "ils dorment")
+                  ]
+                }
+              ]
+            },
+            {
+              id: "ouvrir",
+              inf: "ouvrir",
+              zh: "打开",
+              badgeType: "star",
+              badgeText: "代表词 · 词尾同 📌 parler",
+              endings: ["-ir"],
+              diagRule: "🎭 -vrir/-frir 披着 -ir 外衣，现在时词尾 100% 同第一组 parler",
+              pattern: "2C -vrir / -frir 披着 -ir 外衣，现在时词尾 100% 同 parler（-e, -es, -e, -ons, -ez, -ent）",
+              forms: [
+                f("j’", [["ouvr", "base"], ["e", "end"]], "/uvʁ/", "j'ouvre"),
+                f("tu", [["ouvr", "base"], ["es", "end"]], "/uvʁ/", "tu ouvres"),
+                f("il/elle", [["ouvr", "base"], ["e", "end"]], "/uvʁ/", "il ouvre"),
+                f("nous", [["ouvr", "base"], ["ons", "end"]], "/u.vʁɔ̃/", "nous ouvrons"),
+                f("vous", [["ouvr", "base"], ["ez", "end"]], "/u.vʁe/", "vous ouvrez"),
+                f("ils/elles", [["ouvr", "base"], ["ent", "end"]], "/uvʁ/", "ils ouvrent")
+              ],
+              siblings: [
+                {
+                  inf: "découvrir", zh: "发现", diagRule: "🎭 -vrir 词尾同 parler（je découvre）",
+                  forms: regularErForms("découvr", "/de.kuvʁ/", "/de.ku.vʁɔ̃/", "/de.ku.vʁe/")
+                },
+                {
+                  inf: "offrir", zh: "赠送/提供", diagRule: "🎭 -frir 词尾同 parler（j’offre）",
+                  forms: [
+                    f("j’", [["offr", "base"], ["e", "end"]], "/ɔfʁ/", "j'offre"),
+                    f("tu", [["offr", "base"], ["es", "end"]], "/ɔfʁ/", "tu offres"),
+                    f("il/elle", [["offr", "base"], ["e", "end"]], "/ɔfʁ/", "il offre"),
+                    f("nous", [["offr", "base"], ["ons", "end"]], "/ɔ.fʁɔ̃/", "nous offrons"),
+                    f("vous", [["offr", "base"], ["ez", "end"]], "/ɔ.fʁe/", "vous offrez"),
+                    f("ils/elles", [["offr", "base"], ["ent", "end"]], "/ɔfʁ/", "ils offrent")
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      id: "sec3",
+      title: "板块 3：双词干家族（2 Bases：单数 -s/-s/-t 同音，复数 -ons/-ez/-ent）",
+      desc: "全部 9 张卡均为 📌 Anki Conjugaison 已收录模板词；单数一套短词干，复数全员一套扩展词干",
+      subgroups: [
+        {
+          id: "3ab",
+          label: "3A. -dre 标准型 ｜ 3B. 单数减写双辅音型",
+          cards: [
+            {
+              id: "vendre",
+              inf: "vendre",
+              zh: "卖",
+              badgeType: "anki",
+              badgeText: "📌 Anki 模板词：vendre",
+              endings: ["-re"],
+              diagRule: "3A -dre 标准型：单词干 vend-，单数 d 静音且第3单不加 t",
+              pattern: "写法单词干 vend-：单数 d 静音且第3单不加 t（/vɑ̃/）｜ 复数读出 /vɑ̃d/",
+              forms: dreForms("vend", false, "/vɑ̃/", "/vɑ̃.dɔ̃/", "/vɑ̃.de/", "/vɑ̃d/"),
+              siblings: [
+                { inf: "attendre", zh: "等待", diagRule: "-dre 标准型（第3单 il attend 不加 t）", forms: dreForms("attend", true, "/a.tɑ̃/", "/a.tɑ̃.dɔ̃/", "/a.tɑ̃.de/", "/a.tɑ̃d/") },
+                { inf: "entendre", zh: "听见", diagRule: "-dre 标准型（第3单 il entend 不加 t）", forms: dreForms("entend", true, "/ɑ̃.tɑ̃/", "/ɑ̃.tɑ̃.dɔ̃/", "/ɑ̃.tɑ̃.de/", "/ɑ̃.tɑ̃d/") },
+                { inf: "descendre", zh: "下来/下车", diagRule: "-dre 标准型（第3单 il descend 不加 t）", forms: dreForms("descend", false, "/de.sɑ̃/", "/de.sɑ̃.dɔ̃/", "/de.sɑ̃.de/", "/de.sɑ̃d/") },
+                { inf: "répondre", zh: "回答", diagRule: "-dre 标准型（第3单 il répond 不加 t）", forms: dreForms("répond", false, "/ʁe.pɔ̃/", "/ʁe.pɔ̃.dɔ̃/", "/ʁe.pɔ̃.de/", "/ʁe.pɔ̃d/") },
+                { inf: "correspondre", zh: "通信/符合", diagRule: "-dre 标准型（第3单 il correspond 不加 t）", forms: dreForms("correspond", false, "/kɔ.ʁɛs.pɔ̃/", "/kɔ.ʁɛs.pɔ̃.dɔ̃/", "/kɔ.ʁɛs.pɔ̃.de/", "/kɔ.ʁɛs.pɔ̃d/") }
+              ]
+            },
+            {
+              id: "mettre",
+              inf: "mettre",
+              zh: "放/穿戴",
+              badgeType: "anki",
+              badgeText: "📌 Anki 模板词：mettre",
+              endings: ["-re"],
+              diagRule: "✂️ 单数砍掉多余的 t 只留 1 个 t（il met 不重复加 t）｜ 复数恢复 tt",
+              pattern: "单数砍双辅音只留 1 个 t（/mɛ/），第3单不加 t ｜ 复数恢复双 tt（/mɛt/）",
+              forms: [
+                f("je", [["met", "base"], ["t", "cut"], ["s", "end"]], "/mɛ/", "je mets"),
+                f("tu", [["met", "base"], ["t", "cut"], ["s", "end"]], "/mɛ/", "tu mets"),
+                f("il/elle", [["met", "base"], ["t", "cut"]], "/mɛ/", "il met", { badge: "单 t 不加 t" }),
+                f("nous", [["mett", "s2"], ["ons", "end"]], "/mɛ.tɔ̃/", "nous mettons"),
+                f("vous", [["mett", "s2"], ["ez", "end"]], "/mɛ.te/", "vous mettez"),
+                f("ils/elles", [["mett", "s2"], ["ent", "end"]], "/mɛt/", "ils mettent")
+              ],
+              siblings: [
+                {
+                  inf: "permettre", zh: "允许", diagRule: "✂️ 同 mettre：单数单 t，复数双 tt",
+                  forms: [
+                    f("je", [["permet", "base"], ["t", "cut"], ["s", "end"]], "/pɛʁ.mɛ/", "je permets"),
+                    f("tu", [["permet", "base"], ["t", "cut"], ["s", "end"]], "/pɛʁ.mɛ/", "tu permets"),
+                    f("il/elle", [["permet", "base"], ["t", "cut"]], "/pɛʁ.mɛ/", "il permet", { badge: "单 t 不加 t" }),
+                    f("nous", [["permett", "s2"], ["ons", "end"]], "/pɛʁ.mɛ.tɔ̃/", "nous permettons"),
+                    f("vous", [["permett", "s2"], ["ez", "end"]], "/pɛʁ.mɛ.te/", "vous permettez"),
+                    f("ils/elles", [["permett", "s2"], ["ent", "end"]], "/pɛʁ.mɛt/", "ils permettent")
+                  ]
+                },
+                {
+                  inf: "promettre", zh: "承诺", diagRule: "✂️ 同 mettre：单数单 t，复数双 tt",
+                  forms: [
+                    f("je", [["promet", "base"], ["t", "cut"], ["s", "end"]], "/pʁɔ.mɛ/", "je promets"),
+                    f("tu", [["promet", "base"], ["t", "cut"], ["s", "end"]], "/pʁɔ.mɛ/", "tu promets"),
+                    f("il/elle", [["promet", "base"], ["t", "cut"]], "/pʁɔ.mɛ/", "il promet", { badge: "单 t 不加 t" }),
+                    f("nous", [["promett", "s2"], ["ons", "end"]], "/pʁɔ.mɛ.tɔ̃/", "nous promettons"),
+                    f("vous", [["promett", "s2"], ["ez", "end"]], "/pʁɔ.mɛ.te/", "vous promettez"),
+                    f("ils/elles", [["promett", "s2"], ["ent", "end"]], "/pʁɔ.mɛt/", "ils promettent")
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          id: "3c",
+          label: "3C. 单数短词干 vs 复数扩展辅音/元音词干（7 张独立 📌 Anki 模板卡）",
+          cards: [
+            {
+              id: "savoir",
+              inf: "savoir",
+              zh: "知道/会",
+              badgeType: "anki",
+              badgeText: "📌 Anki 模板词：savoir",
+              endings: ["-oir"],
+              diagRule: "双词干：单数 sai- /sɛ/ ｜ 复数回归 sav- /sav/",
+              pattern: "单数 sai-（/sɛ/）｜ 复数回归词根 sav-（/sav/）",
+              forms: [
+                f("je", [["sai", "s1"], ["s", "end"]], "/sɛ/", "je sais"),
+                f("tu", [["sai", "s1"], ["s", "end"]], "/sɛ/", "tu sais"),
+                f("il/elle", [["sai", "s1"], ["t", "end"]], "/sɛ/", "il sait"),
+                f("nous", [["sav", "s2"], ["ons", "end"]], "/sa.vɔ̃/", "nous savons"),
+                f("vous", [["sav", "s2"], ["ez", "end"]], "/sa.ve/", "vous savez"),
+                f("ils/elles", [["sav", "s2"], ["ent", "end"]], "/sav/", "ils savent")
+              ]
+            },
+            {
+              id: "connaitre",
+              inf: "connaître",
+              zh: "认识/熟悉",
+              badgeType: "anki",
+              badgeText: "📌 Anki 模板词：connaître",
+              endings: ["-re"],
+              diagRule: "双词干：单数 connai-（第3单 î），复数加 -ss- 扩展",
+              pattern: "单数 connai- /kɔ.nɛ/（il connaît 保长音符 î）｜ 复数加 -ss-（/kɔ.nɛs/）",
+              forms: [
+                f("je", [["connai", "s1"], ["s", "end"]], "/kɔ.nɛ/", "je connais"),
+                f("tu", [["connai", "s1"], ["s", "end"]], "/kɔ.nɛ/", "tu connais"),
+                f("il/elle", [["conna", "s1"], ["î", "ext"], ["t", "end"]], "/kɔ.nɛ/", "il connaît"),
+                f("nous", [["conna", "s2"], ["iss", "ext"], ["ons", "end"]], "/kɔ.nɛ.sɔ̃/", "nous connaissons"),
+                f("vous", [["conna", "s2"], ["iss", "ext"], ["ez", "end"]], "/kɔ.nɛ.se/", "vous connaissez"),
+                f("ils/elles", [["conna", "s2"], ["iss", "ext"], ["ent", "end"]], "/kɔ.nɛs/", "ils connaissent")
+              ]
+            },
+            {
+              id: "lire",
+              inf: "lire",
+              zh: "读",
+              badgeType: "anki",
+              badgeText: "📌 Anki 模板词：lire",
+              endings: ["-re"],
+              diagRule: "双词干：单数 li- /li/ ｜ 复数加 -s- 读 /liz/",
+              pattern: "单数 li-（/li/）｜ 复数嵌入浊辅音 -s- /z/（/liz/）",
+              forms: [
+                f("je", [["li", "s1"], ["s", "end"]], "/li/", "je lis"),
+                f("tu", [["li", "s1"], ["s", "end"]], "/li/", "tu lis"),
+                f("il/elle", [["li", "s1"], ["t", "end"]], "/li/", "il lit"),
+                f("nous", [["li", "s2"], ["s", "ext"], ["ons", "end"]], "/li.zɔ̃/", "nous lisons"),
+                f("vous", [["li", "s2"], ["s", "ext"], ["ez", "end"]], "/li.ze/", "vous lisez"),
+                f("ils/elles", [["li", "s2"], ["s", "ext"], ["ent", "end"]], "/liz/", "ils lisent")
+              ]
+            },
+            {
+              id: "dire",
+              inf: "dire",
+              zh: "说",
+              badgeType: "anki",
+              badgeText: "📌 Anki 模板词：dire",
+              extraBadge: "⚠️ vous dites",
+              endings: ["-re", "special"],
+              diagRule: "双词干 + ⚠️ vous dites 打破 -ez 规律！（全 A1 仅此 3 词之一）",
+              pattern: "同 lire 复数加 -s-，但 ⚠️ vous dites 直接用 -tes（打破 -ez！）",
+              forms: [
+                f("je", [["di", "s1"], ["s", "end"]], "/di/", "je dis"),
+                f("tu", [["di", "s1"], ["s", "end"]], "/di/", "tu dis"),
+                f("il/elle", [["di", "s1"], ["t", "end"]], "/di/", "il dit"),
+                f("nous", [["di", "s2"], ["s", "ext"], ["ons", "end"]], "/di.zɔ̃/", "nous disons"),
+                f("vous", [["di", "s2"], ["tes", "irr"]], "/dit/", "vous dites", { warn: true, warnText: "⚠️ 打破 -ez" }),
+                f("ils/elles", [["di", "s2"], ["s", "ext"], ["ent", "end"]], "/diz/", "ils disent")
+              ]
+            },
+            {
+              id: "ecrire",
+              inf: "écrire",
+              zh: "写",
+              badgeType: "anki",
+              badgeText: "📌 Anki 模板词：écrire",
+              endings: ["-re"],
+              diagRule: "双词干：单数 écri- /e.kʁi/ ｜ 复数加 -v-（écrivons）",
+              pattern: "单数短词干 écri-（/e.kʁi/）｜ 复数加 -v-（écriv- /e.kʁiv/）",
+              forms: [
+                f("j’", [["écri", "s1"], ["s", "end"]], "/e.kʁi/", "j'écris"),
+                f("tu", [["écri", "s1"], ["s", "end"]], "/e.kʁi/", "tu écris"),
+                f("il/elle", [["écri", "s1"], ["t", "end"]], "/e.kʁi/", "il écrit"),
+                f("nous", [["écri", "s2"], ["v", "ext"], ["ons", "end"]], "/e.kʁi.vɔ̃/", "nous écrivons"),
+                f("vous", [["écri", "s2"], ["v", "ext"], ["ez", "end"]], "/e.kʁi.ve/", "vous écrivez"),
+                f("ils/elles", [["écri", "s2"], ["v", "ext"], ["ent", "end"]], "/e.kʁiv/", "ils écrivent")
+              ],
+              siblings: [
+                {
+                  inf: "décrire", zh: "描述", diagRule: "同 écrire：复数加 -v-（nous décrivons）",
+                  forms: [
+                    f("je", [["décri", "s1"], ["s", "end"]], "/de.kʁi/", "je décris"),
+                    f("tu", [["décri", "s1"], ["s", "end"]], "/de.kʁi/", "tu décris"),
+                    f("il/elle", [["décri", "s1"], ["t", "end"]], "/de.kʁi/", "il décrit"),
+                    f("nous", [["décri", "s2"], ["v", "ext"], ["ons", "end"]], "/de.kʁi.vɔ̃/", "nous décrivons"),
+                    f("vous", [["décri", "s2"], ["v", "ext"], ["ez", "end"]], "/de.kʁi.ve/", "vous décrivez"),
+                    f("ils/elles", [["décri", "s2"], ["v", "ext"], ["ent", "end"]], "/de.kʁiv/", "ils décrivent")
+                  ]
+                },
+                {
+                  inf: "s’inscrire", zh: "报名/注册", diagRule: "同 écrire：代词式，复数加 -v-（nous nous inscrivons）",
+                  forms: [
+                    f("je", [["inscri", "s1"], ["s", "end"]], "/ɛ̃s.kʁi/", "je m'inscris", { refl: "m’" }),
+                    f("tu", [["inscri", "s1"], ["s", "end"]], "/ɛ̃s.kʁi/", "tu t'inscris", { refl: "t’" }),
+                    f("il/elle", [["inscri", "s1"], ["t", "end"]], "/ɛ̃s.kʁi/", "il s'inscrit", { refl: "s’" }),
+                    f("nous", [["inscri", "s2"], ["v", "ext"], ["ons", "end"]], "/ɛ̃s.kʁi.vɔ̃/", "nous nous inscrivons", { refl: "nous " }),
+                    f("vous", [["inscri", "s2"], ["v", "ext"], ["ez", "end"]], "/ɛ̃s.kʁi.ve/", "vous vous inscrivez", { refl: "vous " }),
+                    f("ils/elles", [["inscri", "s2"], ["v", "ext"], ["ent", "end"]], "/ɛ̃s.kʁiv/", "ils s'inscrivent", { refl: "s’" })
+                  ]
+                }
+              ]
+            },
+            {
+              id: "suivre",
+              inf: "suivre",
+              zh: "跟随/修读",
+              badgeType: "anki",
+              badgeText: "📌 Anki 模板词：suivre",
+              endings: ["-re"],
+              diagRule: "✂️ 单数砍 v（⚠️ je suis 与 être 同形同音！）｜ 复数恢复 v",
+              pattern: "✂️ 单数砍 v（sui- /sɥi/）｜ 复数恢复 v（suiv- /sɥiv/）；警惕 je suis 同形撞车 être！",
+              forms: [
+                f("je", [["sui", "base"], ["v", "cut"], ["s", "end"]], "/sɥi/", "je suis", { warn: true, warnText: "⚠️ 同 être" }),
+                f("tu", [["sui", "base"], ["v", "cut"], ["s", "end"]], "/sɥi/", "tu suis"),
+                f("il/elle", [["sui", "base"], ["v", "cut"], ["t", "end"]], "/sɥi/", "il suit"),
+                f("nous", [["suiv", "s2"], ["ons", "end"]], "/sɥi.vɔ̃/", "nous suivons"),
+                f("vous", [["suiv", "s2"], ["ez", "end"]], "/sɥi.ve/", "vous suivez"),
+                f("ils/elles", [["suiv", "s2"], ["ent", "end"]], "/sɥiv/", "ils suivent")
+              ]
+            },
+            {
+              id: "voir",
+              inf: "voir",
+              zh: "看见",
+              badgeType: "anki",
+              badgeText: "📌 Anki 模板词：voir",
+              endings: ["-oir"],
+              boot: true,
+              diagRule: "🥾 靴子区 voi- /vwa/（单数与 3复 同音！）｜ nous/vous i → y（voy-）",
+              pattern: "🥾 靴子区 voi- /vwa/（单数与 ils voient 同音！）｜ nous / vous 变 y（voyons / voyez）",
+              forms: [
+                f("je", [["voi", "s1"], ["s", "end"]], "/vwa/", "je vois"),
+                f("tu", [["voi", "s1"], ["s", "end"]], "/vwa/", "tu vois"),
+                f("il/elle", [["voi", "s1"], ["t", "end"]], "/vwa/", "il voit"),
+                f("nous", [["vo", "base"], ["y", "ext"], ["ons", "end"]], "/vwa.jɔ̃/", "nous voyons"),
+                f("vous", [["vo", "base"], ["y", "ext"], ["ez", "end"]], "/vwa.je/", "vous voyez"),
+                f("ils/elles", [["voi", "s1"], ["ent", "end"]], "/vwa/", "ils voient")
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      id: "sec4",
+      title: "板块 4：三词干“靴子重音”家族（3 Bases：全员 📌 Anki 模板词）",
+      desc: "词干1 单数重音 ｜ 词干2 nous/vous 弱化跟原形 ｜ 词干3 ils/elles 重音裂变或双写",
+      subgroups: [
+        {
+          id: "4a",
+          label: "日常核心四词（-re / -ir / -oir）",
+          cards: [
+            {
+              id: "prendre",
+              inf: "prendre",
+              zh: "拿/乘/吃喝",
+              badgeType: "anki",
+              badgeText: "📌 Anki 模板词：prendre",
+              endings: ["-re"],
+              boot: true,
+              stems: ["prend- (单数)", "pren- (nous/vous)", "prenn- (3复)"],
+              diagRule: "🥾 三词干靴子：prend- /pʁɑ̃/ ｜ pren- /pʁə.n-/ ｜ prenn- /pʁɛn/",
+              pattern: "单数留 d（第3单不加 t）｜ nous/vous 丢 d ｜ 3复丢 d 并双写 nn（prennent）",
+              forms: [
+                f("je", [["prend", "s1"], ["s", "end"]], "/pʁɑ̃/", "je prends"),
+                f("tu", [["prend", "s1"], ["s", "end"]], "/pʁɑ̃/", "tu prends"),
+                f("il/elle", [["prend", "s1"]], "/pʁɑ̃/", "il prend", { badge: "d 不加 t" }),
+                f("nous", [["pren", "s2"], ["ons", "end"]], "/pʁə.nɔ̃/", "nous prenons"),
+                f("vous", [["pren", "s2"], ["ez", "end"]], "/pʁə.ne/", "vous prenez"),
+                f("ils/elles", [["prenn", "s3"], ["ent", "end"]], "/pʁɛn/", "ils prennent")
+              ],
+              siblings: [
+                {
+                  inf: "apprendre", zh: "学习", diagRule: "🥾 三词干同 prendre（apprends / apprenons / apprennent）",
+                  forms: [
+                    f("j’", [["apprend", "s1"], ["s", "end"]], "/a.pʁɑ̃/", "j'apprends"),
+                    f("tu", [["apprend", "s1"], ["s", "end"]], "/a.pʁɑ̃/", "tu apprends"),
+                    f("il/elle", [["apprend", "s1"]], "/a.pʁɑ̃/", "il apprend", { badge: "d 不加 t" }),
+                    f("nous", [["appren", "s2"], ["ons", "end"]], "/a.pʁə.nɔ̃/", "nous apprenons"),
+                    f("vous", [["appren", "s2"], ["ez", "end"]], "/a.pʁə.ne/", "vous apprenez"),
+                    f("ils/elles", [["apprenn", "s3"], ["ent", "end"]], "/a.pʁɛn/", "ils apprennent")
+                  ]
+                },
+                {
+                  inf: "comprendre", zh: "理解/包含", diagRule: "🥾 三词干同 prendre（comprends / comprenons / comprennent）",
+                  forms: [
+                    f("je", [["comprend", "s1"], ["s", "end"]], "/kɔ̃.pʁɑ̃/", "je comprends"),
+                    f("tu", [["comprend", "s1"], ["s", "end"]], "/kɔ̃.pʁɑ̃/", "tu comprends"),
+                    f("il/elle", [["comprend", "s1"]], "/kɔ̃.pʁɑ̃/", "il comprend", { badge: "d 不加 t" }),
+                    f("nous", [["compren", "s2"], ["ons", "end"]], "/kɔ̃.pʁə.nɔ̃/", "nous comprenons"),
+                    f("vous", [["compren", "s2"], ["ez", "end"]], "/kɔ̃.pʁə.ne/", "vous comprenez"),
+                    f("ils/elles", [["comprenn", "s3"], ["ent", "end"]], "/kɔ̃.pʁɛn/", "ils comprennent")
+                  ]
+                }
+              ]
+            },
+            {
+              id: "venir",
+              inf: "venir",
+              zh: "来",
+              badgeType: "anki",
+              badgeText: "📌 Anki 模板词：venir",
+              endings: ["-ir"],
+              boot: true,
+              stems: ["vien- (单数)", "ven- (nous/vous)", "vienn- (3复)"],
+              diagRule: "🥾 三词干靴子（-ir 特例）：vien- /vjɛ̃/ ｜ ven- /və.n-/ ｜ vienn- /vjɛn/",
+              pattern: "靴子区 e → ie 裂变，3复还双写 nn（viennent）；nous/vous 弱化回原形 ven-",
+              forms: [
+                f("je", [["vien", "s1"], ["s", "end"]], "/vjɛ̃/", "je viens"),
+                f("tu", [["vien", "s1"], ["s", "end"]], "/vjɛ̃/", "tu viens"),
+                f("il/elle", [["vien", "s1"], ["t", "end"]], "/vjɛ̃/", "il vient"),
+                f("nous", [["ven", "s2"], ["ons", "end"]], "/və.nɔ̃/", "nous venons"),
+                f("vous", [["ven", "s2"], ["ez", "end"]], "/və.ne/", "vous venez"),
+                f("ils/elles", [["vienn", "s3"], ["ent", "end"]], "/vjɛn/", "ils viennent")
+              ],
+              siblings: [
+                {
+                  inf: "revenir", zh: "回来", diagRule: "🥾 三词干同 venir（reviens / revenons / reviennent）",
+                  forms: [
+                    f("je", [["revien", "s1"], ["s", "end"]], "/ʁə.vjɛ̃/", "je reviens"),
+                    f("tu", [["revien", "s1"], ["s", "end"]], "/ʁə.vjɛ̃/", "tu reviens"),
+                    f("il/elle", [["revien", "s1"], ["t", "end"]], "/ʁə.vjɛ̃/", "il revient"),
+                    f("nous", [["reven", "s2"], ["ons", "end"]], "/ʁə.və.nɔ̃/", "nous revenons"),
+                    f("vous", [["reven", "s2"], ["ez", "end"]], "/ʁə.və.ne/", "vous revenez"),
+                    f("ils/elles", [["revienn", "s3"], ["ent", "end"]], "/ʁə.vjɛn/", "ils reviennent")
+                  ]
+                },
+                {
+                  inf: "devenir", zh: "变成", diagRule: "🥾 三词干同 venir（deviens / devenons / deviennent）",
+                  forms: [
+                    f("je", [["devien", "s1"], ["s", "end"]], "/də.vjɛ̃/", "je deviens"),
+                    f("tu", [["devien", "s1"], ["s", "end"]], "/də.vjɛ̃/", "tu deviens"),
+                    f("il/elle", [["devien", "s1"], ["t", "end"]], "/də.vjɛ̃/", "il devient"),
+                    f("nous", [["deven", "s2"], ["ons", "end"]], "/də.və.nɔ̃/", "nous devenons"),
+                    f("vous", [["deven", "s2"], ["ez", "end"]], "/də.və.ne/", "vous devenez"),
+                    f("ils/elles", [["devienn", "s3"], ["ent", "end"]], "/də.vjɛn/", "ils deviennent")
+                  ]
+                },
+                {
+                  inf: "se souvenir", zh: "记得", diagRule: "🥾 三词干同 venir（je me souviens / nous nous souvenons / ils se souviennent）",
+                  forms: [
+                    f("je", [["souvien", "s1"], ["s", "end"]], "/su.vjɛ̃/", "je me souviens", { refl: "me " }),
+                    f("tu", [["souvien", "s1"], ["s", "end"]], "/su.vjɛ̃/", "tu te souviens", { refl: "te " }),
+                    f("il/elle", [["souvien", "s1"], ["t", "end"]], "/su.vjɛ̃/", "il se souvient", { refl: "se " }),
+                    f("nous", [["souven", "s2"], ["ons", "end"]], "/su.və.nɔ̃/", "nous nous souvenons", { refl: "nous " }),
+                    f("vous", [["souven", "s2"], ["ez", "end"]], "/su.və.ne/", "vous vous souvenez", { refl: "vous " }),
+                    f("ils/elles", [["souvienn", "s3"], ["ent", "end"]], "/su.vjɛn/", "ils se souviennent", { refl: "se " })
+                  ]
+                }
+              ]
+            },
+            {
+              id: "boire",
+              inf: "boire",
+              zh: "喝",
+              badgeType: "anki",
+              badgeText: "📌 Anki 模板词：boire",
+              endings: ["-re"],
+              boot: true,
+              stems: ["boi- (单数)", "buv- (nous/vous)", "boiv- (3复)"],
+              diagRule: "🥾 三词干靴子：boi- /bwa/ ｜ buv- /by.v-/ ｜ boiv- /bwav/",
+              pattern: "靴子区保留 oi（3复加 v），nous/vous 词干缩成 buv- /byv/",
+              forms: [
+                f("je", [["boi", "s1"], ["s", "end"]], "/bwa/", "je bois"),
+                f("tu", [["boi", "s1"], ["s", "end"]], "/bwa/", "tu bois"),
+                f("il/elle", [["boi", "s1"], ["t", "end"]], "/bwa/", "il boit"),
+                f("nous", [["buv", "s2"], ["ons", "end"]], "/by.vɔ̃/", "nous buvons"),
+                f("vous", [["buv", "s2"], ["ez", "end"]], "/by.ve/", "vous buvez"),
+                f("ils/elles", [["boiv", "s3"], ["ent", "end"]], "/bwav/", "ils boivent")
+              ]
+            },
+            {
+              id: "recevoir",
+              inf: "recevoir",
+              zh: "收到/接待",
+              badgeType: "anki",
+              badgeText: "📌 Anki 模板词：recevoir",
+              endings: ["-oir"],
+              boot: true,
+              stems: ["reçoi- (单数)", "recev- (nous/vous)", "reçoiv- (3复)"],
+              diagRule: "🥾 三词干靴子：reçoi- /ʁə.swa/ ｜ recev- ｜ reçoiv-（o 前加 ç 保 /s/）",
+              pattern: "靴子区 o 前加 ç 保 /s/ 音（reçois / reçoivent）；nous/vous 回原形 recev-",
+              forms: [
+                f("je", [["re", "base"], ["ç", "ext"], ["oi", "s1"], ["s", "end"]], "/ʁə.swa/", "je reçois"),
+                f("tu", [["re", "base"], ["ç", "ext"], ["oi", "s1"], ["s", "end"]], "/ʁə.swa/", "tu reçois"),
+                f("il/elle", [["re", "base"], ["ç", "ext"], ["oi", "s1"], ["t", "end"]], "/ʁə.swa/", "il reçoit"),
+                f("nous", [["recev", "s2"], ["ons", "end"]], "/ʁə.sə.vɔ̃/", "nous recevons"),
+                f("vous", [["recev", "s2"], ["ez", "end"]], "/ʁə.sə.ve/", "vous recevez"),
+                f("ils/elles", [["re", "base"], ["ç", "ext"], ["oiv", "s3"], ["ent", "end"]], "/ʁə.swav/", "ils reçoivent")
+              ],
+              siblings: [
+                {
+                  inf: "apercevoir", zh: "察觉/隐约看见", diagRule: "🥾 三词干同 recevoir（j’aperçois / nous apercevons / ils aperçoivent）",
+                  forms: [
+                    f("j’", [["aper", "base"], ["ç", "ext"], ["oi", "s1"], ["s", "end"]], "/a.pɛʁ.swa/", "j'aperçois"),
+                    f("tu", [["aper", "base"], ["ç", "ext"], ["oi", "s1"], ["s", "end"]], "/a.pɛʁ.swa/", "tu aperçois"),
+                    f("il/elle", [["aper", "base"], ["ç", "ext"], ["oi", "s1"], ["t", "end"]], "/a.pɛʁ.swa/", "il aperçoit"),
+                    f("nous", [["apercev", "s2"], ["ons", "end"]], "/a.pɛʁ.sə.vɔ̃/", "nous apercevons"),
+                    f("vous", [["apercev", "s2"], ["ez", "end"]], "/a.pɛʁ.sə.ve/", "vous apercevez"),
+                    f("ils/elles", [["aper", "base"], ["ç", "ext"], ["oiv", "s3"], ["ent", "end"]], "/a.pɛʁ.swav/", "ils aperçoivent")
+                  ]
+                },
+                {
+                  inf: "décevoir", zh: "使失望", diagRule: "🥾 三词干同 recevoir（je déçois / nous décevons / ils déçoivent）",
+                  forms: [
+                    f("je", [["dé", "base"], ["ç", "ext"], ["oi", "s1"], ["s", "end"]], "/de.swa/", "je déçois"),
+                    f("tu", [["dé", "base"], ["ç", "ext"], ["oi", "s1"], ["s", "end"]], "/de.swa/", "tu déçois"),
+                    f("il/elle", [["dé", "base"], ["ç", "ext"], ["oi", "s1"], ["t", "end"]], "/de.swa/", "il déçoit"),
+                    f("nous", [["décev", "s2"], ["ons", "end"]], "/de.sə.vɔ̃/", "nous décevons"),
+                    f("vous", [["décev", "s2"], ["ez", "end"]], "/de.sə.ve/", "vous décevez"),
+                    f("ils/elles", [["dé", "base"], ["ç", "ext"], ["oiv", "s3"], ["ent", "end"]], "/de.swav/", "ils déçoivent")
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          id: "4b",
+          label: "情态三剑客（-oir + 动词原形；前两个单数用罕见 -x, -x, -t！）",
+          cards: [
+            {
+              id: "pouvoir",
+              inf: "pouvoir",
+              zh: "能够",
+              badgeType: "anki",
+              badgeText: "📌 Anki 模板词：pouvoir",
+              extraBadge: "⚠️ 单数 -x,-x,-t",
+              endings: ["-oir"],
+              boot: true,
+              stems: ["peu- (单数 -x,-x,-t)", "pouv- (nous/vous)", "peuv- (3复)"],
+              diagRule: "🥾 三词干靴子 + ⚠️ 单数罕见 -x, -x, -t（peux / pouvons / peuvent）",
+              pattern: "⚠️ 单数用罕见 -x, -x, -t（peux / peut）；靴子重音 ou → eu（3复 peuvent）",
+              forms: [
+                f("je", [["peu", "s1"], ["x", "irr"]], "/pø/", "je peux", { warn: true, warnText: "罕见 -x" }),
+                f("tu", [["peu", "s1"], ["x", "irr"]], "/pø/", "tu peux", { warn: true, warnText: "罕见 -x" }),
+                f("il/elle", [["peu", "s1"], ["t", "end"]], "/pø/", "il peut"),
+                f("nous", [["pouv", "s2"], ["ons", "end"]], "/pu.vɔ̃/", "nous pouvons"),
+                f("vous", [["pouv", "s2"], ["ez", "end"]], "/pu.ve/", "vous pouvez"),
+                f("ils/elles", [["peuv", "s3"], ["ent", "end"]], "/pœv/", "ils peuvent")
+              ]
+            },
+            {
+              id: "vouloir",
+              inf: "vouloir",
+              zh: "想要",
+              badgeType: "anki",
+              badgeText: "📌 Anki 模板词：vouloir",
+              extraBadge: "⚠️ 单数 -x,-x,-t",
+              endings: ["-oir"],
+              boot: true,
+              stems: ["veu- (单数 -x,-x,-t)", "voul- (nous/vous)", "veul- (3复)"],
+              diagRule: "🥾 三词干靴子 + ⚠️ 单数罕见 -x, -x, -t（veux / voulons / veulent）",
+              pattern: "⚠️ 单数用罕见 -x, -x, -t（veux / veut）；靴子重音 ou → eu（3复 veulent）",
+              forms: [
+                f("je", [["veu", "s1"], ["x", "irr"]], "/vø/", "je veux", { warn: true, warnText: "罕见 -x" }),
+                f("tu", [["veu", "s1"], ["x", "irr"]], "/vø/", "tu veux", { warn: true, warnText: "罕见 -x" }),
+                f("il/elle", [["veu", "s1"], ["t", "end"]], "/vø/", "il veut"),
+                f("nous", [["voul", "s2"], ["ons", "end"]], "/vu.lɔ̃/", "nous voulons"),
+                f("vous", [["voul", "s2"], ["ez", "end"]], "/vu.le/", "vous voulez"),
+                f("ils/elles", [["veul", "s3"], ["ent", "end"]], "/vœl/", "ils veulent")
+              ]
+            },
+            {
+              id: "devoir",
+              inf: "devoir",
+              zh: "必须/应该",
+              badgeType: "anki",
+              badgeText: "📌 Anki 模板词：devoir",
+              endings: ["-oir"],
+              boot: true,
+              stems: ["doi- (单数 -s,-s,-t)", "dev- (nous/vous)", "doiv- (3复)"],
+              diagRule: "🥾 三词干靴子（单数回归 -s/-s/-t）：dois / devons / doivent",
+              pattern: "单数回归标准 -s, -s, -t；靴子重音 e → oi（dois / doivent）；nous/vous 弱化 dev-",
+              forms: [
+                f("je", [["doi", "s1"], ["s", "end"]], "/dwa/", "je dois"),
+                f("tu", [["doi", "s1"], ["s", "end"]], "/dwa/", "tu dois"),
+                f("il/elle", [["doi", "s1"], ["t", "end"]], "/dwa/", "il doit"),
+                f("nous", [["dev", "s2"], ["ons", "end"]], "/də.vɔ̃/", "nous devons"),
+                f("vous", [["dev", "s2"], ["ez", "end"]], "/də.ve/", "vous devez"),
+                f("ils/elles", [["doiv", "s3"], ["ent", "end"]], "/dwav/", "ils doivent")
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      id: "sec5",
+      title: "板块 5：四大特例巨头 + 不规则祈使式 + 无人称固定式",
+      desc: "最高频 4 大特例全部收录于 📌 Anki Conjugaison；包含 3 组不规则祈使式与 falloir",
+      subgroups: [
+        {
+          id: "5a",
+          label: "四大特例巨头（3 个含不规则祈使式）+ falloir 无人称固定式",
+          cards: [
+            {
+              id: "etre",
+              inf: "être",
+              zh: "是/在",
+              badgeType: "anki",
+              badgeText: "📌 Anki 模板词：être",
+              extraBadge: "⚠️ 2大破例位",
+              endings: ["-re", "special"],
+              diagRule: "四大特例巨头：词干彻底重组，⚠️ vous êtes & ils sont 双破常规（含祈使式）",
+              pattern: "彻底不规则！⚠️ vous êtes（打破 -ez）与 ⚠️ ils sont（打破 -ent）；je suis 同形 suivre",
+              forms: [
+                f("je", [["suis", "irr"]], "/sɥi/", "je suis"),
+                f("tu", [["es", "irr"]], "/ɛ/", "tu es"),
+                f("il/elle", [["est", "irr"]], "/ɛ/", "il est"),
+                f("nous", [["sommes", "irr"]], "/sɔm/", "nous sommes"),
+                f("vous", [["êtes", "irr"]], "/ɛt/", "vous êtes", { warn: true, warnText: "⚠️ 打破 -ez" }),
+                f("ils/elles", [["sont", "irr"]], "/sɔ̃/", "ils sont", { warn: true, warnText: "⚠️ 打破 -ent" })
+              ],
+              imperative: {
+                badge: "📌 不规则祈使式（已收录）",
+                items: [
+                  { label: "Sois !", ipa: "/swa/", speak: "Sois" },
+                  { label: "Soyons !", ipa: "/swa.jɔ̃/", speak: "Soyons" },
+                  { label: "Soyez !", ipa: "/swa.je/", speak: "Soyez" }
+                ]
+              }
+            },
+            {
+              id: "avoir",
+              inf: "avoir",
+              zh: "有",
+              badgeType: "anki",
+              badgeText: "📌 Anki 模板词：avoir",
+              extraBadge: "⚠️ 联诵 [z]",
+              endings: ["-oir", "special"],
+              diagRule: "四大特例巨头：复数强制联诵 [z]，⚠️ ils‿ont [z] 严防混成 ils sont [s]（含祈使式）",
+              pattern: "复数强制联诵 [z]：区分 ⚠️ ils‿ont /zɔ̃/（有）vs ils sont /sɔ̃/（是）！",
+              forms: [
+                f("j’", [["ai", "irr"]], "/e/", "j'ai"),
+                f("tu", [["as", "irr"]], "/a/", "tu as"),
+                f("il/elle", [["a", "irr"]], "/a/", "il a"),
+                f("nous‿", [["avons", "base"]], "/a.vɔ̃/", "nous avons", { badge: "联诵 [z]" }),
+                f("vous‿", [["avez", "base"]], "/a.ve/", "vous avez", { badge: "联诵 [z]" }),
+                f("ils/elles‿", [["ont", "irr"]], "/ɔ̃/", "ils ont", { warn: true, warnText: "⚠️ 打破 -ent · [z]" })
+              ],
+              imperative: {
+                badge: "📌 不规则祈使式（已收录）",
+                items: [
+                  { label: "Aie !", ipa: "/ɛ/", speak: "Aie" },
+                  { label: "Ayons !", ipa: "/ɛ.jɔ̃/", speak: "Ayons" },
+                  { label: "Ayez !", ipa: "/ɛ.je/", speak: "Ayez" }
+                ]
+              }
+            },
+            {
+              id: "aller",
+              inf: "aller",
+              zh: "去",
+              badgeType: "anki",
+              badgeText: "📌 Anki 模板词：aller",
+              extraBadge: "⚠️ 伪 -er 第三组",
+              endings: ["-er", "special"],
+              diagRule: "⚠️ 虽以 -er 结尾但属第三组！vais/allons/vont 三词干混用，祈使式 Va 去 -s",
+              pattern: "⚠️ 披着 -er 外衣的第三组巨头！⚠️ ils vont 打破 -ent；祈使式 Va ! 去掉 -s",
+              forms: [
+                f("je", [["vais", "irr"]], "/vɛ/", "je vais"),
+                f("tu", [["vas", "irr"]], "/va/", "tu vas"),
+                f("il/elle", [["va", "irr"]], "/va/", "il va"),
+                f("nous‿", [["allons", "s2"]], "/a.lɔ̃/", "nous allons", { badge: "联诵 [z]" }),
+                f("vous‿", [["allez", "s2"]], "/a.le/", "vous allez", { badge: "联诵 [z]" }),
+                f("ils/elles", [["vont", "irr"]], "/vɔ̃/", "ils vont", { warn: true, warnText: "⚠️ 打破 -ent" })
+              ],
+              imperative: {
+                badge: "📌 不规则祈使式（已收录）",
+                items: [
+                  { label: "⚠️ Va !", ipa: "去掉 -s · /va/", speak: "Va" },
+                  { label: "Allons !", ipa: "/a.lɔ̃/", speak: "Allons" },
+                  { label: "Allez !", ipa: "/a.le/", speak: "Allez" }
+                ]
+              }
+            },
+            {
+              id: "faire",
+              inf: "faire",
+              zh: "做/制作",
+              badgeType: "anki",
+              badgeText: "📌 Anki 模板词：faire",
+              extraBadge: "⚠️ 3个重磅坑",
+              endings: ["-re", "special"],
+              diagRule: "四大特例巨头：⚠️ nous faisons 读 /fə.zɔ̃/、⚠️ vous faites、⚠️ ils font",
+              pattern: "单数平平无奇，复数连踩 3 坑：nous faisons 读 /fə.zɔ̃/ ｜ vous faites ｜ ils font",
+              forms: [
+                f("je", [["fai", "s1"], ["s", "end"]], "/fɛ/", "je fais"),
+                f("tu", [["fai", "s1"], ["s", "end"]], "/fɛ/", "tu fais"),
+                f("il/elle", [["fai", "s1"], ["t", "end"]], "/fɛ/", "il fait"),
+                f("nous", [["fais", "irr"], ["ons", "end"]], "/fə.zɔ̃/", "nous faisons", { warn: true, warnText: "⚠️ 读 /fə.zɔ̃/" }),
+                f("vous", [["fai", "base"], ["tes", "irr"]], "/fɛt/", "vous faites", { warn: true, warnText: "⚠️ 打破 -ez" }),
+                f("ils/elles", [["font", "irr"]], "/fɔ̃/", "ils font", { warn: true, warnText: "⚠️ 打破 -ent" })
+              ]
+            },
+            {
+              id: "falloir",
+              inf: "falloir",
+              zh: "必须/需要",
+              badgeType: "star",
+              badgeText: "无人称固定式",
+              endings: ["-oir", "special"],
+              diagRule: "无人称动词：仅第3人称单数 Il faut… /il fo/（无其他人称变位）",
+              pattern: "无人称高频固定句式：仅存在第3人称单数，后接动词原形（Il faut partir）或名词",
+              impersonal: {
+                phrase: "Il faut…",
+                ipa: "/il fo/",
+                speak: "Il faut",
+                searchForm: "faut",
+                note: "❌ 无 je / tu / nous / vous / ils 其他人称变位；否定：Il ne faut pas…"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ];
+
+  /* -------------------------------------------------------------
+     2. NORMALIZATION & SEARCH INDEXING
+     ------------------------------------------------------------- */
+  function norm(str) {
+    return String(str || "")
+      .toLowerCase()
+      .replace(/[’'`]/g, "'")
+      .replace(/[‿…!.,?]/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+
+  function stripAccents(str) {
+    return norm(str).normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  }
+
+  function stripPronPrefix(q) {
+    return q.replace(/^(?:j'|je |tu |il |elle |on |il\/elle |nous |vous |ils |elles |ils\/elles )+/, "").trim();
+  }
+
+  function plainVerbFromSegs(segs) {
+    var out = "";
+    for (var i = 0; i < segs.length; i++) {
+      if (segs[i][1] !== "cut") out += segs[i][0];
+    }
+    return out;
+  }
+
+  function fullPhraseFromCell(cell) {
+    var v = plainVerbFromSegs(cell.segs);
+    var p = cell.pron.replace("‿", "");
+    var r = cell.refl || "";
+    var joiner = p.endsWith("’") ? "" : " ";
+    return p + joiner + r + v;
+  }
+
+  var CARDS_BY_ID = {};
+  var SEARCH_INDEX = []; // { card, sibIdx, inf, infNorm, infAscii, bareInfNorm, bareInfAscii, tokens: [{norm, ascii, kind, cellIdx, label}] }
+
+  function buildTokensForVariant(card, sibIdx, variant) {
+    var inf = variant.inf;
+    var infNorm = norm(inf);
+    var infAscii = stripAccents(inf);
+    var bare = infNorm.replace(/^(?:s'|se )/, "");
+    var bareAscii = stripAccents(bare);
+    var tokens = [];
+
+    if (variant.forms) {
+      for (var i = 0; i < variant.forms.length; i++) {
+        var c = variant.forms[i];
+        var v = plainVerbFromSegs(c.segs);
+        var r = c.refl || "";
+        var rv = r + v;
+        var full = fullPhraseFromCell(c);
+        var label = c.pron.replace("‿", "") + (c.pron.endsWith("’") ? "" : " ") + rv;
+
+        tokens.push({ norm: norm(v), ascii: stripAccents(v), kind: "form", cellIdx: i, label: label });
+        if (r) {
+          tokens.push({ norm: norm(rv), ascii: stripAccents(rv), kind: "form", cellIdx: i, label: label });
+        }
+        tokens.push({ norm: norm(full), ascii: stripAccents(full), kind: "form", cellIdx: i, label: label });
+        if (c.searchAlt) {
+          for (var a = 0; a < c.searchAlt.length; a++) {
+            var alt = c.searchAlt[a];
+            tokens.push({ norm: norm(alt), ascii: stripAccents(alt), kind: "form", cellIdx: i, label: label + " (" + alt + ")" });
+          }
+        }
+      }
+    }
+
+    if (variant.imperative) {
+      for (var k = 0; k < variant.imperative.items.length; k++) {
+        var imp = variant.imperative.items[k];
+        var cleanImp = imp.label.replace("⚠️", "").replace("!", "").trim();
+        tokens.push({ norm: norm(cleanImp), ascii: stripAccents(cleanImp), kind: "imp", cellIdx: k, label: "祈使式 " + cleanImp });
+      }
+    }
+
+    if (variant.impersonal) {
+      tokens.push({ norm: "faut", ascii: "faut", kind: "imp-only", cellIdx: 0, label: "Il faut…" });
+      tokens.push({ norm: "il faut", ascii: "il faut", kind: "imp-only", cellIdx: 0, label: "Il faut…" });
+    }
+
+    return {
+      card: card,
+      sibIdx: sibIdx, // -1 for primary, >= 0 for sibling
+      inf: inf,
+      zh: variant.zh,
+      diagRule: variant.diagRule || card.diagRule,
+      infNorm: infNorm,
+      infAscii: infAscii,
+      bareInfNorm: bare,
+      bareInfAscii: bareAscii,
+      tokens: tokens
+    };
+  }
+
+  SECTIONS.forEach(function (sec) {
+    sec.subgroups.forEach(function (sg) {
+      sg.cards.forEach(function (card) {
+        CARDS_BY_ID[card.id] = card;
+        SEARCH_INDEX.push(buildTokensForVariant(card, -1, card));
+        if (card.siblings) {
+          card.siblings.forEach(function (sib, idx) {
+            SEARCH_INDEX.push(buildTokensForVariant(card, idx, sib));
+          });
+        }
+      });
+    });
+  });
+
+  /* -------------------------------------------------------------
+     3. RENDERING HELPERS
+     ------------------------------------------------------------- */
+  function esc(str) {
+    return String(str)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+
+  function renderSegsHtml(segs) {
+    var html = "";
+    for (var i = 0; i < segs.length; i++) {
+      var text = esc(segs[i][0]);
+      var kind = segs[i][1];
+      if (kind === "cut") {
+        html += '<del class="cut" aria-hidden="true">' + text + "</del>";
+      } else if (kind && kind !== "base") {
+        html += '<span class="tok-' + esc(kind) + '">' + text + "</span>";
+      } else {
+        html += text;
+      }
+    }
+    return html;
+  }
+
+  function renderFormsGridHtml(card, variant, matchedCells) {
+    if (variant.impersonal) {
+      var imp = variant.impersonal;
+      var hitCls = matchedCells && matchedCells.has(0) ? " is-match" : "";
+      return (
+        '<div class="impersonal-box">' +
+          '<button type="button" class="imp-main' + hitCls + '" data-speak="' + esc(imp.speak) + '">' +
+            '<span class="imp-phrase">' + esc(imp.phrase) + '</span>' +
+            '<span class="imp-ipa">' + esc(imp.ipa) + ' 🔊</span>' +
+          '</button>' +
+          '<div class="imp-note">' + esc(imp.note) + '</div>' +
+        '</div>'
+      );
+    }
+
+    var isBoot = !!card.boot;
+    var bootCells = { 0: true, 1: true, 2: true, 5: true };
+    var html = '<div class="conj-grid' + (isBoot ? " has-boot" : "") + '">';
+
+    for (var i = 0; i < variant.forms.length; i++) {
+      var c = variant.forms[i];
+      var cls = ["cell"];
+      if (isBoot && bootCells[i]) cls.push("is-boot");
+      if (c.warn) cls.push("is-warn");
+      if (matchedCells && matchedCells.has(i)) cls.push("is-match");
+
+      var reflHtml = c.refl ? '<span class="cell-refl">' + esc(c.refl) + "</span>" : "";
+      var altHtml = c.alt ? ' <span class="cell-alt">(' + esc(c.alt) + ")</span>" : "";
+      var warnTag = c.warnText
+        ? '<span class="cell-warn-tag">' + esc(c.warnText) + "</span>"
+        : (c.badge ? '<span class="cell-warn-tag" style="color:var(--accent)">' + esc(c.badge) + "</span>" : "");
+
+      html +=
+        '<button type="button" class="' + cls.join(" ") + '" data-speak="' + esc(c.speak) + '">' +
+          '<span class="cell-meta">' +
+            '<span class="cell-pron">' + esc(c.pron) + '</span>' +
+            '<span class="cell-ipa">' + esc(c.ipa) + '</span>' +
+          '</span>' +
+          '<span class="cell-form">' + reflHtml + renderSegsHtml(c.segs) + altHtml + '</span>' +
+          warnTag +
+        '</button>';
+    }
+
+    html += "</div>";
+    return html;
+  }
+
+  function renderCardInner(card, activeSibIdx, matchedCells, matchedImpCells) {
+    var active = activeSibIdx >= 0 && card.siblings && card.siblings[activeSibIdx]
+      ? card.siblings[activeSibIdx]
+      : card;
+
+    var badgeCls = "badge-anki" + (card.badgeType === "star" ? " badge-star" : "");
+    var extraHtml = card.extraBadge ? '<span class="badge-anki badge-warn">' + esc(card.extraBadge) + "</span>" : "";
+
+    var stemsHtml = "";
+    if (card.stems && card.stems.length === 3) {
+      stemsHtml =
+        '<div class="stem-legend">' +
+          '<span class="stem-pill s1">词干1: ' + esc(card.stems[0]) + "</span>" +
+          '<span class="stem-pill s2">词干2: ' + esc(card.stems[1]) + "</span>" +
+          '<span class="stem-pill s3">词干3: ' + esc(card.stems[2]) + "</span>" +
+          '<span class="stem-pill boot">🥾 靴子区</span>' +
+        "</div>";
+    } else if (card.boot) {
+      stemsHtml =
+        '<div class="stem-legend"><span class="stem-pill boot">🥾 靴子区高亮（1/2/3单 + 3复）</span></div>';
+    }
+
+    var impHtml = "";
+    if (card.imperative) {
+      var itemsHtml = card.imperative.items.map(function (it, idx) {
+        var mCls = matchedImpCells && matchedImpCells.has(idx) ? " is-match" : "";
+        return (
+          '<button type="button" class="imp-chip' + mCls + '" data-speak="' + esc(it.speak) + '" title="' + esc(it.ipa) + '">' +
+            esc(it.label) + ' <span style="font-weight:500;font-size:0.7em;color:var(--muted)">' + esc(it.ipa) + "</span>" +
+          "</button>"
+        );
+      }).join("");
+      impHtml =
+        '<div class="imp-strip">' +
+          '<div class="imp-strip-head"><span>' + esc(card.imperative.badge) + "</span><span>点胶囊发音</span></div>" +
+          '<div class="imp-chips">' + itemsHtml + "</div>" +
+        "</div>";
+    }
+
+    var sibHtml = "";
+    if (card.siblings && card.siblings.length) {
+      var btns =
+        '<button type="button" class="sib-btn' + (activeSibIdx === -1 ? " active" : "") + '" data-card="' + esc(card.id) + '" data-sib="-1">' +
+          esc(card.inf) + "（模板）" +
+        "</button>";
+      for (var s = 0; s < card.siblings.length; s++) {
+        var sb = card.siblings[s];
+        btns +=
+          '<button type="button" class="sib-btn' + (activeSibIdx === s ? " active" : "") + '" data-card="' + esc(card.id) + '" data-sib="' + s + '">' +
+            esc(sb.inf) + " · " + esc(sb.zh) +
+          "</button>";
+      }
+      sibHtml =
+        '<div class="sib-wrap">' +
+          '<span class="sib-label">同族兄弟词（点击直接切换 6 人称预览）：</span>' +
+          '<div class="sib-row">' + btns + "</div>" +
+        "</div>";
+    }
+
+    var activeZh = active.zh || card.zh;
+    var subTemplateNote = activeSibIdx >= 0
+      ? '<span style="font-size:0.72rem;color:var(--anki-fg);font-weight:700;">（按 ' + esc(card.inf) + " 变）</span>"
+      : "";
+
+    return (
+      '<div class="vc-top">' +
+        '<div class="vc-title-wrap">' +
+          '<button type="button" class="vc-inf-btn" data-speak="' + esc(active.inf) + '">' +
+            '<span>' + esc(active.inf) + '</span>' +
+            '<span class="spk-ico" aria-hidden="true">🔊</span>' +
+          '</button>' +
+          '<span class="vc-zh">' + esc(activeZh) + "</span>" +
+          subTemplateNote +
+        "</div>" +
+        '<div class="vc-badges">' +
+          '<span class="' + badgeCls + '">' + esc(card.badgeText) + "</span>" +
+          extraHtml +
+        "</div>" +
+      "</div>" +
+      '<div class="vc-pattern">' + esc(card.pattern) + "</div>" +
+      stemsHtml +
+      renderFormsGridHtml(card, active, matchedCells) +
+      impHtml +
+      sibHtml +
+      (card.note ? '<div class="vc-note">' + esc(card.note) + "</div>" : "")
+    );
+  }
+
+  function renderIrForkHtml() {
+    return (
+      '<div class="ir-fork" aria-label="-ir 动词三岔路口决策图">' +
+        '<div class="ir-fork-head">' +
+          '<div class="ir-fork-title">🚦 遇到<span class="ir-fork-root">-ir</span>结尾？3秒分流决策图（点击直达卡片）</div>' +
+        '</div>' +
+        '<div class="ir-fork-grid">' +
+          '<button type="button" class="fork-branch" data-jump="choisir">' +
+            '<span class="fb-tag">① 二组规则</span>' +
+            '<span class="fb-action">复数加 -iss-</span>' +
+            '<span class="fb-ex">📌 模板 <strong>choisir</strong> · nous choisissons</span>' +
+            '<span class="fb-sibs">同族：finir, remplir, réfléchir</span>' +
+          '</button>' +
+          '<button type="button" class="fork-branch" data-jump="servir">' +
+            '<span class="fb-tag">② 第三组双词干</span>' +
+            '<span class="fb-action">✂️ 单数砍尾辅音</span>' +
+            '<span class="fb-ex">📌 模板 <strong>servir</strong> · je ser<del class="cut">v</del>s</span>' +
+            '<span class="fb-sibs">同族：partir (砍t), sortir (砍t), dormir (砍m)</span>' +
+          '</button>' +
+          '<button type="button" class="fork-branch" data-jump="ouvrir">' +
+            '<span class="fb-tag">③ -vrir / -frir</span>' +
+            '<span class="fb-action">🎭 披 -ir 外衣按 -er 变</span>' +
+            '<span class="fb-ex">代表 <strong>ouvrir</strong> · j’ouvre, tu ouvres</span>' +
+            '<span class="fb-sibs">同族：découvrir, offrir（同 📌 parler）</span>' +
+          '</button>' +
+          '<button type="button" class="fork-branch" data-jump="venir">' +
+            '<span class="fb-tag">➕ 外加三词干靴子</span>' +
+            '<span class="fb-action">🥾 vien- / ven- / vienn-</span>' +
+            '<span class="fb-ex">📌 模板 <strong>venir</strong> · viens / venons / viennent</span>' +
+            '<span class="fb-sibs">同族：revenir, devenir, se souvenir</span>' +
+          '</button>' +
+        '</div>' +
+      '</div>'
+    );
+  }
+
+  /* -------------------------------------------------------------
+     4. INITIAL DOM BUILD
+     ------------------------------------------------------------- */
+  var appMain = document.getElementById("appMain");
+  var activeSibState = {}; // cardId -> -1 or sibling index
+
+  function buildPage() {
+    var html = "";
+    SECTIONS.forEach(function (sec) {
+      html += '<section class="sec-block" id="' + esc(sec.id) + '" data-sec="' + esc(sec.id) + '">';
+      html += '<div class="sec-head"><h2 class="sec-title">' + esc(sec.title) + '</h2><p class="sec-desc">' + esc(sec.desc) + "</p></div>";
+      if (sec.showIrFork) html += renderIrForkHtml();
+      sec.subgroups.forEach(function (sg) {
+        html += '<div class="sub-group" data-sg="' + esc(sg.id) + '">';
+        html += '<div class="sub-label">' + esc(sg.label) + "</div>";
+        html += '<div class="cards-grid">';
+        sg.cards.forEach(function (card) {
+          activeSibState[card.id] = -1;
+          html += '<article class="verb-card" id="card-' + esc(card.id) + '" data-card-id="' + esc(card.id) + '">';
+          html += renderCardInner(card, -1, null, null);
+          html += "</article>";
+        });
+        html += "</div></div>";
+      });
+      html += "</section>";
+    });
+    appMain.innerHTML = html;
+  }
+
+  buildPage();
+
+  /* -------------------------------------------------------------
+     5. SEARCH, FILTER & DIAGNOSTIC BANNER
+     ------------------------------------------------------------- */
+  var currentFilter = "all";
+  var searchInput = document.getElementById("searchInput");
+  var clearSearchBtn = document.getElementById("clearSearch");
+  var searchDiag = document.getElementById("searchDiag");
+  var visibleCountEl = document.getElementById("visibleCount");
+  var emptyStateEl = document.getElementById("emptyState");
+
+  function evaluateSearch(rawQuery) {
+    var qNorm = norm(rawQuery);
+    var qAscii = stripAccents(rawQuery);
+    var qBareNorm = stripPronPrefix(qNorm);
+    var qBareAscii = stripPronPrefix(qAscii);
+    if (!qNorm) return null;
+
+    var cardResults = {}; // cardId -> { score, bestSibIdx, entries: [], cellMatchesBySib: { sibIdx: Set }, impMatches: Set }
+
+    function ensureCardRes(card) {
+      if (!cardResults[card.id]) {
+        cardResults[card.id] = {
+          card: card,
+          score: 0,
+          bestSibIdx: -1,
+          entries: [],
+          cellMatchesBySib: {},
+          impMatches: new Set()
+        };
+      }
+      return cardResults[card.id];
+    }
+
+    SEARCH_INDEX.forEach(function (item) {
+      var bestScore = 0;
+      var matchedFormLabels = [];
+      var seenLabels = {};
+
+      // Check infinitive match
+      if (item.infNorm === qNorm || item.bareInfNorm === qNorm || item.infAscii === qAscii || item.bareInfAscii === qAscii) {
+        bestScore = Math.max(bestScore, 100);
+      } else if (
+        item.infNorm.indexOf(qNorm) !== -1 ||
+        item.infAscii.indexOf(qAscii) !== -1 ||
+        item.bareInfAscii.indexOf(qBareAscii) !== -1
+      ) {
+        bestScore = Math.max(bestScore, item.infAscii.indexOf(qAscii) === 0 ? 75 : 55);
+      }
+
+      // Check conjugated / imperative tokens
+      var res = ensureCardRes(item.card);
+      item.tokens.forEach(function (tok) {
+        var s = 0;
+        if (tok.norm === qNorm || tok.norm === qBareNorm || tok.ascii === qAscii || tok.ascii === qBareAscii) {
+          s = 95;
+        } else if (
+          qAscii.length >= 2 &&
+          (tok.norm.indexOf(qNorm) !== -1 || tok.ascii.indexOf(qAscii) !== -1 || (qBareAscii.length >= 2 && tok.ascii.indexOf(qBareAscii) !== -1))
+        ) {
+          s = tok.ascii.indexOf(qBareAscii) === 0 ? 68 : 45;
+        }
+        if (s > 0) {
+          bestScore = Math.max(bestScore, s);
+          if (tok.kind === "imp") {
+            res.impMatches.add(tok.cellIdx);
+          } else {
+            if (!res.cellMatchesBySib[item.sibIdx]) res.cellMatchesBySib[item.sibIdx] = new Set();
+            res.cellMatchesBySib[item.sibIdx].add(tok.cellIdx);
+          }
+          if (!seenLabels[tok.label]) {
+            seenLabels[tok.label] = true;
+            matchedFormLabels.push(tok.label);
+          }
+        }
+      });
+
+      if (bestScore > 0) {
+        if (bestScore > res.score) {
+          res.score = bestScore;
+          res.bestSibIdx = item.sibIdx;
+        }
+        res.entries.push({
+          score: bestScore,
+          sibIdx: item.sibIdx,
+          inf: item.inf,
+          zh: item.zh,
+          diagRule: item.diagRule,
+          labels: matchedFormLabels.slice(0, 3)
+        });
+      }
+    });
+
+    // Keep only cards with score > 0
+    var matchedMap = {};
+    var matchedList = [];
+    for (var id in cardResults) {
+      if (cardResults[id].score > 0) {
+        cardResults[id].entries.sort(function (a, b) { return b.score - a.score; });
+        matchedMap[id] = cardResults[id];
+        matchedList.push(cardResults[id]);
+      }
+    }
+    matchedList.sort(function (a, b) { return b.score - a.score; });
+    return { map: matchedMap, list: matchedList, query: rawQuery };
+  }
+
+  function applyFiltersAndRender() {
+    var rawQ = searchInput.value.trim();
+    clearSearchBtn.classList.toggle("visible", rawQ.length > 0);
+    var searchRes = evaluateSearch(rawQ);
+
+    var visibleCards = 0;
+    var hiddenMatchesOutsideFilter = 0;
+
+    if (searchRes) {
+      searchRes.list.forEach(function (m) {
+        if (currentFilter !== "all" && m.card.endings.indexOf(currentFilter) === -1) {
+          hiddenMatchesOutsideFilter++;
+        }
+      });
+    }
+
+    SECTIONS.forEach(function (sec) {
+      var secEl = document.getElementById(sec.id);
+      var secVisible = 0;
+
+      var subGroups = secEl.querySelectorAll(".sub-group");
+      subGroups.forEach(function (sgEl) {
+        var sgVisible = 0;
+        var cardEls = sgEl.querySelectorAll(".verb-card");
+        cardEls.forEach(function (cardEl) {
+          var cardId = cardEl.getAttribute("data-card-id");
+          var card = CARDS_BY_ID[cardId];
+          var passesTag = currentFilter === "all" || card.endings.indexOf(currentFilter) !== -1;
+          var match = searchRes ? searchRes.map[cardId] : null;
+          var passesSearch = !searchRes || !!match;
+
+          if (passesTag && passesSearch) {
+            cardEl.classList.remove("is-hidden");
+            cardEl.classList.toggle("search-hit", !!match);
+            if (match) {
+              activeSibState[cardId] = match.bestSibIdx;
+              var cells = match.cellMatchesBySib[match.bestSibIdx] || null;
+              cardEl.innerHTML = renderCardInner(card, activeSibState[cardId], cells, match.impMatches);
+            } else if (!searchRes) {
+              cardEl.innerHTML = renderCardInner(card, activeSibState[cardId], null, null);
+            }
+            sgVisible++;
+            secVisible++;
+            visibleCards++;
+          } else {
+            cardEl.classList.add("is-hidden");
+            cardEl.classList.remove("search-hit");
+          }
+        });
+        sgEl.style.display = sgVisible > 0 ? "" : "none";
+      });
+
+      // Keep -ir fork visible when viewing Sec 2 or -ir filter (when not hidden by empty search)
+      var irFork = secEl.querySelector(".ir-fork");
+      if (irFork) {
+        irFork.style.display = secVisible > 0 ? "" : "none";
+      }
+
+      secEl.classList.toggle("is-hidden", secVisible === 0);
+    });
+
+    visibleCountEl.textContent = visibleCards + " 张卡片";
+    emptyStateEl.classList.toggle("visible", visibleCards === 0);
+
+    // Render Diagnostic Banner
+    if (searchRes) {
+      var diagRows = [];
+      var limit = Math.min(searchRes.list.length, 5);
+      for (var i = 0; i < limit; i++) {
+        var m = searchRes.list[i];
+        var topEntry = m.entries[0];
+        var card = m.card;
+        if (currentFilter !== "all" && card.endings.indexOf(currentFilter) === -1) continue;
+
+        var formNote = topEntry.labels.length ? "（命中：" + topEntry.labels.join(" / ") + "）" : "";
+        var tplClass = card.badgeType === "anki" ? "diag-tpl" : "diag-tpl is-star";
+        var tplText = card.badgeType === "anki"
+          ? "📌 Anki 模板词：" + card.inf
+          : (card.id === "ouvrir" ? "代表词（同 📌 parler）" : card.badgeText);
+
+        diagRows.push(
+          '<div class="diag-item" data-jump="' + esc(card.id) + '" data-sib="' + topEntry.sibIdx + '">' +
+            '<span class="diag-verb">' + esc(topEntry.inf) + '</span>' +
+            '<span style="font-size:0.75rem;color:var(--muted)">(' + esc(topEntry.zh) + formNote + ')</span>' +
+            '<span class="diag-arrow">→</span>' +
+            '<span class="diag-rule">' + esc(topEntry.diagRule) + '</span>' +
+            '<span class="' + tplClass + '">' + esc(tplText) + '</span>' +
+          '</div>'
+        );
+      }
+
+      var headerExtra = hiddenMatchesOutsideFilter > 0
+        ? '<button type="button" class="diag-reset-filter" id="diagShowAllBtn">另有 ' + hiddenMatchesOutsideFilter + ' 个匹配在其他分组，点此查看全部</button>'
+        : "";
+
+      if (diagRows.length > 0 || hiddenMatchesOutsideFilter > 0) {
+        searchDiag.innerHTML =
+          '<div class="diag-title"><span>🎯 3秒速查诊断（点击条目直达卡片）</span>' + headerExtra + "</div>" +
+          (diagRows.length ? '<div class="diag-list">' + diagRows.join("") + "</div>" : "");
+        searchDiag.classList.add("visible");
+      } else {
+        searchDiag.innerHTML = '<div class="diag-title"><span>未找到与 “' + esc(rawQ) + '” 匹配的动词或变位</span></div>';
+        searchDiag.classList.add("visible");
+      }
+    } else {
+      searchDiag.classList.remove("visible");
+      searchDiag.innerHTML = "";
+    }
+  }
+
+  /* -------------------------------------------------------------
+     6. SPEECH SYNTHESIS (fr-FR, Graceful Fallback)
+     ------------------------------------------------------------- */
+  var activeSpeakingEl = null;
+
+  function pickFrenchVoice() {
+    if (!("speechSynthesis" in window)) return null;
+    var voices = window.speechSynthesis.getVoices() || [];
+    for (var i = 0; i < voices.length; i++) {
+      if (voices[i].lang && voices[i].lang.toLowerCase() === "fr-fr") return voices[i];
+    }
+    for (var j = 0; j < voices.length; j++) {
+      if (voices[j].lang && voices[j].lang.toLowerCase().indexOf("fr") === 0) return voices[j];
+    }
+    return null;
+  }
+
+  function speakFrench(text, triggerEl) {
+    if (!text) return;
+    if (activeSpeakingEl) {
+      activeSpeakingEl.classList.remove("speaking");
+      activeSpeakingEl = null;
+    }
+    if (triggerEl) {
+      triggerEl.classList.add("speaking");
+      activeSpeakingEl = triggerEl;
+    }
+
+    try {
+      if (!("speechSynthesis" in window) || typeof SpeechSynthesisUtterance === "undefined") {
+        setTimeout(function () { if (triggerEl) triggerEl.classList.remove("speaking"); }, 450);
+        return;
+      }
+      window.speechSynthesis.cancel();
+      var utter = new SpeechSynthesisUtterance(text);
+      utter.lang = "fr-FR";
+      utter.rate = 0.92;
+      var voice = pickFrenchVoice();
+      if (voice) utter.voice = voice;
+      utter.onend = utter.onerror = function () {
+        if (triggerEl) triggerEl.classList.remove("speaking");
+        if (activeSpeakingEl === triggerEl) activeSpeakingEl = null;
+      };
+      window.speechSynthesis.speak(utter);
+    } catch (e) {
+      if (triggerEl) triggerEl.classList.remove("speaking");
+    }
+  }
+
+  if ("speechSynthesis" in window && typeof window.speechSynthesis.onvoiceschanged !== "undefined") {
+    window.speechSynthesis.onvoiceschanged = pickFrenchVoice;
+  }
+
+  /* -------------------------------------------------------------
+     7. INTERACTIONS & THEME TOGGLE
+     ------------------------------------------------------------- */
+  function jumpToCard(cardId, sibIdx) {
+    var el = document.getElementById("card-" + cardId);
+    if (!el) return;
+    if (typeof sibIdx === "number" && CARDS_BY_ID[cardId]) {
+      activeSibState[cardId] = sibIdx;
+      el.innerHTML = renderCardInner(CARDS_BY_ID[cardId], sibIdx, null, null);
+    }
+    el.scrollIntoView({ behavior: "smooth", block: "center" });
+    el.classList.remove("jump-flash");
+    void el.offsetWidth;
+    el.classList.add("jump-flash");
+  }
+
+  searchInput.addEventListener("input", applyFiltersAndRender);
+
+  clearSearchBtn.addEventListener("click", function () {
+    searchInput.value = "";
+    applyFiltersAndRender();
+    searchInput.focus();
+  });
+
+  document.getElementById("quickExamples").addEventListener("click", function (e) {
+    var btn = e.target.closest(".ex-chip");
+    if (!btn) return;
+    searchInput.value = btn.getAttribute("data-q") || "";
+    applyFiltersAndRender();
+  });
+
+  document.getElementById("filterRow").addEventListener("click", function (e) {
+    var tab = e.target.closest(".filter-tab");
+    if (!tab) return;
+    currentFilter = tab.getAttribute("data-filter") || "all";
+    var allTabs = document.querySelectorAll(".filter-tab");
+    for (var i = 0; i < allTabs.length; i++) {
+      allTabs[i].classList.toggle("active", allTabs[i] === tab);
+    }
+    applyFiltersAndRender();
+  });
+
+  document.getElementById("resetAllBtn").addEventListener("click", function () {
+    searchInput.value = "";
+    currentFilter = "all";
+    var allTabs = document.querySelectorAll(".filter-tab");
+    for (var i = 0; i < allTabs.length; i++) {
+      allTabs[i].classList.toggle("active", allTabs[i].getAttribute("data-filter") === "all");
+    }
+    applyFiltersAndRender();
+  });
+
+  document.addEventListener("click", function (e) {
+    if (e.target && e.target.id === "diagShowAllBtn") {
+      currentFilter = "all";
+      var allTabs = document.querySelectorAll(".filter-tab");
+      for (var i = 0; i < allTabs.length; i++) {
+        allTabs[i].classList.toggle("active", allTabs[i].getAttribute("data-filter") === "all");
+      }
+      applyFiltersAndRender();
+      return;
+    }
+
+    var sibBtn = e.target.closest(".sib-btn");
+    if (sibBtn) {
+      var cardId = sibBtn.getAttribute("data-card");
+      var sibIdx = parseInt(sibBtn.getAttribute("data-sib"), 10);
+      activeSibState[cardId] = isNaN(sibIdx) ? -1 : sibIdx;
+      var cardEl = document.getElementById("card-" + cardId);
+      if (cardEl && CARDS_BY_ID[cardId]) {
+        cardEl.innerHTML = renderCardInner(CARDS_BY_ID[cardId], activeSibState[cardId], null, null);
+      }
+      return;
+    }
+
+    var jumpEl = e.target.closest("[data-jump]");
+    if (jumpEl) {
+      var targetId = jumpEl.getAttribute("data-jump");
+      var targetSib = jumpEl.hasAttribute("data-sib") ? parseInt(jumpEl.getAttribute("data-sib"), 10) : undefined;
+      var targetCardEl = document.getElementById("card-" + targetId);
+      if (targetCardEl && targetCardEl.classList.contains("is-hidden")) {
+        currentFilter = "all";
+        var tabs = document.querySelectorAll(".filter-tab");
+        for (var j = 0; j < tabs.length; j++) {
+          tabs[j].classList.toggle("active", tabs[j].getAttribute("data-filter") === "all");
+        }
+        applyFiltersAndRender();
+      }
+      jumpToCard(targetId, isNaN(targetSib) ? undefined : targetSib);
+      return;
+    }
+
+    var spkEl = e.target.closest("[data-speak]");
+    if (spkEl) {
+      speakFrench(spkEl.getAttribute("data-speak"), spkEl);
+    }
+  });
+
+  // Theme cycling: auto -> light -> dark -> auto
+  var themeBtn = document.getElementById("themeBtn");
+  var THEME_MODES = ["auto", "light", "dark"];
+  var THEME_LABELS = { auto: "🌓 跟随系统", light: "☀️ 浅色", dark: "🌙 深色" };
+
+  function getSavedTheme() {
+    try {
+      var v = localStorage.getItem("conjugaison-theme");
+      return v === "light" || v === "dark" ? v : "auto";
+    } catch (e) {
+      return "auto";
+    }
+  }
+
+  function applyTheme(mode) {
+    if (mode === "light" || mode === "dark") {
+      document.documentElement.setAttribute("data-theme", mode);
+      try { localStorage.setItem("conjugaison-theme", mode); } catch (e) {}
+    } else {
+      document.documentElement.removeAttribute("data-theme");
+      try { localStorage.removeItem("conjugaison-theme"); } catch (e) {}
+    }
+    themeBtn.textContent = THEME_LABELS[mode];
+  }
+
+  applyTheme(getSavedTheme());
+  themeBtn.addEventListener("click", function () {
+    var cur = getSavedTheme();
+    var next = THEME_MODES[(THEME_MODES.indexOf(cur) + 1) % THEME_MODES.length];
+    applyTheme(next);
+  });
+
+  applyFiltersAndRender();
+})();
+</script>
+</body>
+</html>
